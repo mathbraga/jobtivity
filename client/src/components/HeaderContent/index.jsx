@@ -4,7 +4,7 @@ import "./styles.sass";
 
 function HeaderContent(){
     return(
-        <div className="header--content">
+        <div className="pageheader--content">
             Jobtivity
         </div>
     )

@@ -6,7 +6,7 @@ import HeaderContent from "../HeaderContent";
 
 function MainPageHeader(){
     return(
-        <div className="header">
+        <div className="pageheader">
             <HeaderContent/>
         </div>
     );
