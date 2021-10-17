@@ -2,16 +2,15 @@ import React from "react";
 
 import './styles.sass';
 
-import MainPageHeader from "../../components/MainPageHeader";
-import MainPageFooter from "../../components/MainPageFooter";
+import MainPageHeader from "../../components/HeaderContainer";
+import MainPageFooter from "../../components/FooterContainer";
+import MainPageContentContainer from "../../components/MainPageContentContainer";
 
 function MainPage(){
     return(
         <div className="mainpage--container">
             <MainPageHeader/>
-            <div className="container--content">
-                This is the main page.
-            </div>
+            <MainPageContentContainer/>
             <MainPageFooter/>
         </div>
     );
