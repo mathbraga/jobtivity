@@ -9,9 +9,9 @@ import MainPageContentContainer from "../../components/MainPageContentContainer"
 function MainPage(){
     return(
         <div className="mainpage--container">
-            <MainPageHeader/>
-            <MainPageContentContainer/>
-            <MainPageFooter/>
+            <MainPageHeader />
+            <MainPageContentContainer />
+            <MainPageFooter />
         </div>
     );
 }
