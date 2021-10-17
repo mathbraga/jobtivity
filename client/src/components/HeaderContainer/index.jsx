@@ -4,7 +4,7 @@ import './styles.sass';
 
 import HeaderContent from "../HeaderContent";
 
-function MainPageHeader(){
+function HeaderContainer(){
     return(
         <div className="pageheader">
             <HeaderContent/>
@@ -12,4 +12,4 @@ function MainPageHeader(){
     );
 }
 
-export default MainPageHeader;
+export default HeaderContainer;

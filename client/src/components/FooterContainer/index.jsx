@@ -4,7 +4,7 @@ import "./styles.sass";
 
 import FooterContent from "../FooterContent";
 
-function MainPageFooter(){
+function FooterContainer(){
     return(
         <div className="footer">
             <FooterContent/>
@@ -12,4 +12,4 @@ function MainPageFooter(){
     )
 }
 
-export default MainPageFooter;
+export default FooterContainer;
