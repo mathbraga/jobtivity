@@ -2,7 +2,7 @@ import React from "react";
 
 import "./styles.sass";
 
-function JobContainer(){
+const JobContainer = () => {
     return(
         <div className="job--container">
             <span>Some job...</span>

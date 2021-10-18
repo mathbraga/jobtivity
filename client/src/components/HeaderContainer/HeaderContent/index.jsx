@@ -2,7 +2,7 @@ import React from "react";
 
 import "./styles.sass";
 
-function HeaderContent(){
+const HeaderContent = () => {
     return(
         <div className="pageheader--content">
             Jobtivity

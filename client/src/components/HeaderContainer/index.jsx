@@ -1,10 +1,10 @@
 import React from "react";
 
-import './styles.sass';
-
 import HeaderContent from "./HeaderContent";
 
-function HeaderContainer(){
+import "./styles.sass";
+
+const HeaderContainer = () => {
     return(
         <div className="pageheader">
             <HeaderContent />

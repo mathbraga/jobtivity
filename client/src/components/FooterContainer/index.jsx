@@ -1,10 +1,10 @@
 import React from "react";
 
-import "./styles.sass";
-
 import FooterContent from "./FooterContent";
 
-function FooterContainer(){
+import "./styles.sass";
+
+const FooterContainer = () => {
     return(
         <div className="footer">
             <FooterContent />

@@ -4,7 +4,7 @@ import JobContainer from "./JobContainer";
 
 import "./styles.sass";
 
-function MainPageContentContainer(){
+const MainPageContentContainer = () => {
     return(
         <div className="content--container">
             <JobContainer />
