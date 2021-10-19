@@ -1,17 +1,17 @@
 import React from "react";
 
-import MainPageHeader from "../../components/HeaderContainer";
-import MainPageFooter from "../../components/FooterContainer";
-import MainPageContentContainer from "../../components/MainPageContentContainer";
+import PageHeader from "../../components/PageHeader";
+import Footer from "../../components/Footer";
+import MainPageContent from "../../components/MainPageContent";
 
 import './styles.sass';
 
 const MainPage = () => {
     return(
         <div className="mainpage--container">
-            <MainPageHeader />
-            <MainPageContentContainer />
-            <MainPageFooter />
+            <PageHeader />
+            <MainPageContent />
+            <Footer />
         </div>
     );
 }

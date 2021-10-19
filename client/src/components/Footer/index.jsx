@@ -1,10 +1,10 @@
 import React from "react";
 
-import FooterContent from "./FooterContent";
+import FooterContent from "./FooterContent/FooterContent";
 
 import "./styles.sass";
 
-const FooterContainer = () => {
+const Footer = () => {
     return(
         <div className="footer">
             <FooterContent />
@@ -12,4 +12,4 @@ const FooterContainer = () => {
     )
 }
 
-export default FooterContainer;
+export default Footer;

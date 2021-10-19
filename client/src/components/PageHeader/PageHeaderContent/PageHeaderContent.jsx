@@ -2,7 +2,7 @@ import React from "react";
 
 import "./styles.sass";
 
-const HeaderContent = () => {
+const PageHeaderContent = () => {
     return(
         <div className="pageheader--content">
             Jobtivity
@@ -10,4 +10,4 @@ const HeaderContent = () => {
     )
 }
 
-export default HeaderContent;
+export default PageHeaderContent;
