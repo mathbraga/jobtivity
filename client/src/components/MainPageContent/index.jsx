@@ -1,13 +1,12 @@
 import React from "react";
-
-import JobCard from "../JobCard";
+import ActiveApplicationsContainer from "../ActiveApplicationsContainer";
 
 import "./styles.sass";
 
 const MainPageContent = () => {
     return(
         <div className="content--container">
-            <JobCard />
+            <ActiveApplicationsContainer />
         </div>
     )
 }

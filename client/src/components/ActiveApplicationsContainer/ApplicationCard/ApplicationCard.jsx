@@ -2,12 +2,12 @@ import React from "react";
 
 import "./styles.sass";
 
-const JobCard = () => {
+const ApplicationCard = () => {
     return(
-        <div className="job--container">
+        <div className="application--container">
             <span>Some job...</span>
         </div>
     )
 }
 
-export default JobCard;
+export default ApplicationCard;
