@@ -1,13 +1,13 @@
 import React from "react";
-import ActiveApplicationsContainer from "../ActiveApplicationsContainer";
 
-import "./styles.sass";
+import { MainPageContentContainer } from "./styledComponents";
+import ActiveApplicationsContainer from "../ActiveApplicationsContainer";
 
 const MainPageContent = () => {
     return(
-        <div className="content--container">
+        <MainPageContentContainer>
             <ActiveApplicationsContainer />
-        </div>
+        </MainPageContentContainer>
     )
 }
 

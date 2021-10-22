@@ -3,16 +3,15 @@ import React from "react";
 import PageHeader from "../../components/PageHeader";
 import Footer from "../../components/Footer";
 import MainPageContent from "../../components/MainPageContent";
-
-import './styles.sass';
+import { MainPageContainer } from "./styledComponents";
 
 const MainPage = () => {
     return(
-        <div className="mainpage--container">
+        <MainPageContainer>
             <PageHeader />
             <MainPageContent />
             <Footer />
-        </div>
+        </MainPageContainer>
     );
 }
 

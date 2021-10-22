@@ -1,14 +1,15 @@
 import React from "react";
 
-import PageHeaderContent from "./PageHeaderContent/PageHeaderContent";
-
-import "./styles.sass";
+import { 
+    PageHeaderBadge,
+    PageHeaderContainer 
+} from "./styledComponents";
 
 const PageHeader = () => {
     return(
-        <div className="pageheader">
-            <PageHeaderContent />
-        </div>
+        <PageHeaderContainer>
+            <PageHeaderBadge />
+        </PageHeaderContainer>
     );
 }
 

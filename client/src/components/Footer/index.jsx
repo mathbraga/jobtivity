@@ -1,15 +1,21 @@
 import React from "react";
 
-import FooterContent from "./FooterContent/FooterContent";
+import { 
+    FooterContainer,
+    FooterContent 
+} from "./styledComponents";
 
-import "./styles.sass";
+import GithubIcon from "../../assets/Icons/GithubIcon.png";
+
+const gitUrl = "https://github.com/mathbraga";
+const gitAltText = "Github Profile";
 
 const Footer = () => {
     return(
-        <div className="footer">
-            <FooterContent />
-        </div>
-    )
+        <FooterContainer>
+            <FooterContent contentLink={gitUrl} iconUrl={GithubIcon} iconAlt={gitAltText} />
+        </FooterContainer>
+    );
 }
 
 export default Footer;
