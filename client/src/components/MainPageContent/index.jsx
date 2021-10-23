@@ -1,12 +1,12 @@
 import React from "react";
 
 import { MainPageContentContainer } from "./styledComponents";
-import ActiveApplicationsContainer from "../ActiveApplicationsContainer";
+import ActiveApplications from "../ActiveApplications";
 
 const MainPageContent = () => {
     return(
         <MainPageContentContainer>
-            <ActiveApplicationsContainer />
+            <ActiveApplications />
         </MainPageContentContainer>
     )
 }
