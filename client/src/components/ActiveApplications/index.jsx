@@ -1,7 +1,7 @@
 import React from "react";
 
 import PageTitle from "../PageTitle";
-import { ApplicationCard } from "./styledComponents/ApplicationCard";
+import { ApplicationCard } from "./styledComponents";
 
 const activeApplicationsPageTitle = "Active Application";
 

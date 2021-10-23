@@ -6,8 +6,22 @@
     --color-title-underline: rgba(17, 17, 26, 0.1);
 }
 
-html body{
+*{
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    background: white;
+html, body, #root{
+    height: 100vh;
+}
+
+body{
+    background-color: var(--color-primary);
+}
+
+#root{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
