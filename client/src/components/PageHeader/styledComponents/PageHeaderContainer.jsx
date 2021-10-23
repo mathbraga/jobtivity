@@ -14,7 +14,7 @@ export const PageHeaderContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
 
-    background-color: white;
+    background-color: var(--color-primary);
 
-    box-shadow: 0 5px 10px 0 #b1c3c3;
+    box-shadow: 0 5px 10px 0 var(--color-header-shadow);
 `;

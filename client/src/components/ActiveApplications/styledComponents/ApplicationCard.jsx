@@ -10,6 +10,6 @@ export const ApplicationCard = styled.div`
     justify-content: space-evenly;
     align-items: center;
 
-    border: 1px solid teal;
+    border: 1px solid var(--color-alternative);
     border-radius: 4px;
 `;

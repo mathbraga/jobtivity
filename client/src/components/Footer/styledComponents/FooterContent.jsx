@@ -6,8 +6,6 @@ const FooterContentStyles = styled.a`
 
     margin-right: 12px;
 
-    color: white;
-
     text-decoration: none;
 
     img{

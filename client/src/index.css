@@ -1,3 +1,11 @@
+:root{
+    --color-primary: white;
+    --color-secondary: black;
+    --color-alternative: gold;
+    --color-header-shadow: #b1c3c3;
+    --color-title-underline: rgba(17, 17, 26, 0.1);
+}
+
 html body{
     margin: 0;
 

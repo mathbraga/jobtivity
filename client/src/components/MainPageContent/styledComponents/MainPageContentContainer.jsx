@@ -13,7 +13,7 @@ export const MainPageContentContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
 
-    background-color: white;
+    background-color: var(--color-primary);
 
     margin: 0 25%;
     margin-top: 2vw;

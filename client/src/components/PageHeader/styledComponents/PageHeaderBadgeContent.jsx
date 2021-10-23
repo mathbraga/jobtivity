@@ -8,14 +8,14 @@ const BadgeStyles = styled.div`
         font-family: "Londrina Outline";
         font-size: 1.4rem;
         font-weight: 800;
-        color: gold;
+        color: var(--color-alternative);
     }
     
     span{
         position: relative;
         top: 2px;
 
-        color: white;
+        color: var(--color-primary);
     }
 `;
 

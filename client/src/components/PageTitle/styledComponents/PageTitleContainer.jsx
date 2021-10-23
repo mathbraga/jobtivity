@@ -10,5 +10,5 @@ export const PageTitleContainer = styled.div`
 
     width: 80%;
 
-    box-shadow: rgba(17, 17, 26, 0.1) 0 1px 0;
+    box-shadow: var(--color-title-underline) 0 1px 0;
 `;
