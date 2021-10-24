@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const ApplicationCard = styled.div`
     width: 80%;
-    height: 5rem;
+    height: auto;
 
+    padding: 16px;
     margin-bottom: 0.8vw;
 
     display: flex;

@@ -1,7 +1,7 @@
 import React from "react";
 
 import PageTitle from "../PageTitle";
-import { ApplicationCard } from "./styledComponents";
+import { ApplicationCard, ApplicationCardContent } from "./styledComponents";
 
 const activeApplicationsPageTitle = "Active Application";
 
@@ -10,7 +10,7 @@ const ActiveApplications = () => {
         <>
             <PageTitle pageTitle={activeApplicationsPageTitle} />
             <ApplicationCard>
-                <span>Some jog...</span>
+                <ApplicationCardContent />
             </ApplicationCard>
         </>
     )
