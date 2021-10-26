@@ -2,18 +2,35 @@ import styled from "styled-components";
 
 const ApplicationCardContentStyles = styled.div`
     display: grid;
-    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25% [col5];
-    grid-template-rows: [rowstart] 40% [rowsecond] 20% [rowthird] 40% [rowend];
-    justify-items: end;
+    grid-template-columns: [col1] 40% [col2] auto [col4] 40% [col5];
+    grid-template-rows: [rowstart] 30% [rowsecond] auto [rowthird] 30% [rowend];
+    justify-items: start;
+
+    .content--status{
+        grid-column: col1 / col2;
+        grid-row: rowstart / rowsecond;
+    }
+    .content--company{
+        grid-column: col4 / col5;
+        grid-row: rowstart / rowsecond;
+    }
+    .content--date{
+        grid-column: col1 / col2;
+        grid-row: rowthird / rowend;
+    }
+    .content--site{
+        grid-column: col4 / col5;
+        grid-row: rowthird / rowend;
+    }
 `;
 
 export const ApplicationCardContent = () => {
     return(
         <ApplicationCardContentStyles>
-            <div>Status</div>
-            <div>Company Name</div>
-            <div>23/10/2021</div>
-            <div>Website</div>
+            <div className="content--status">Status</div>
+            <div className="content--company">Company Name</div>
+            <div className="content--date">23/10/2021</div>
+            <div className="content--site">Website</div>
         </ApplicationCardContentStyles>
     )
 }

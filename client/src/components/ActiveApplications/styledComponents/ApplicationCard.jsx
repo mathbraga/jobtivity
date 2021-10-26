@@ -7,10 +7,6 @@ export const ApplicationCard = styled.div`
     padding: 16px;
     margin-bottom: 0.8vw;
 
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-
     border: 1px solid var(--color-alternative);
     border-radius: 4px;
 `;
