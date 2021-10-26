@@ -1,36 +1,28 @@
 import styled from "styled-components";
 
 const ApplicationCardContentStyles = styled.div`
-    display: grid;
-    grid-template-columns: [col1] 40% [col2] auto [col4] 40% [col5];
-    grid-template-rows: [rowstart] 30% [rowsecond] auto [rowthird] 30% [rowend];
-    justify-items: start;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 8px;
 
-    .content--status{
-        grid-column: col1 / col2;
-        grid-row: rowstart / rowsecond;
+    div{
+        flex-basis: 50%;
     }
-    .content--company{
-        grid-column: col4 / col5;
-        grid-row: rowstart / rowsecond;
-    }
-    .content--date{
-        grid-column: col1 / col2;
-        grid-row: rowthird / rowend;
-    }
-    .content--site{
-        grid-column: col4 / col5;
-        grid-row: rowthird / rowend;
+
+    div span{
+        font-weight: 800;
     }
 `;
 
 export const ApplicationCardContent = () => {
     return(
         <ApplicationCardContentStyles>
-            <div className="content--status">Status</div>
-            <div className="content--company">Company Name</div>
-            <div className="content--date">23/10/2021</div>
-            <div className="content--site">Website</div>
+            <div><span>Company:</span> Company Name</div>
+            <div><span>Date:</span> 23/10/2021</div>
+            <div><span>Website:</span> someurl.com</div>
+            <div><span>Role:</span> FullStack</div>
         </ApplicationCardContentStyles>
     )
 }

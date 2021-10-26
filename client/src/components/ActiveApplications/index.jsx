@@ -3,7 +3,7 @@ import React from "react";
 import PageTitle from "../PageTitle";
 import { ApplicationCard, ApplicationCardContent } from "./styledComponents";
 
-const activeApplicationsPageTitle = "Active Application";
+const activeApplicationsPageTitle = "Active Applications";
 
 const ActiveApplications = () => {
     return(
