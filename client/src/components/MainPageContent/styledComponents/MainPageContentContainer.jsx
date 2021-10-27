@@ -15,6 +15,5 @@ export const MainPageContentContainer = styled.div`
 
     background-color: var(--color-primary);
 
-    margin: 0 25%;
-    margin-top: 2vw;
+    margin: 2% 25%;
 `;

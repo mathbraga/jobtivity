@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const ApplicationCard = styled.div`
+import { ApplicationCardContent } from ".";
+
+const ApplicationCardStyles = styled.div`
     width: 80%;
     height: auto;
 
@@ -10,3 +12,11 @@ export const ApplicationCard = styled.div`
     border: 1px solid var(--color-alternative);
     border-radius: 4px;
 `;
+
+export const ApplicationCard = () => {
+    return(
+        <ApplicationCardStyles>
+            <ApplicationCardContent />
+        </ApplicationCardStyles>
+    );
+}

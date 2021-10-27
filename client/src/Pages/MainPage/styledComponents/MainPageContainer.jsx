@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const MainPageContainer = styled.div`
-    display: inline-block;
-    position: relative;
+    display: flex;
+    flex-direction: column;
 
     background-color: var(--color-primary);
 

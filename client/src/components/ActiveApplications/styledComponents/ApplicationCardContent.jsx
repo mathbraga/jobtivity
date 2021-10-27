@@ -11,7 +11,7 @@ const ApplicationCardContentStyles = styled.div`
         flex-basis: 50%;
     }
 
-    div span{
+    div > span{
         font-weight: 800;
     }
 `;
