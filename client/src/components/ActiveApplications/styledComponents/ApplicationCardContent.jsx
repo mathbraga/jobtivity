@@ -10,6 +10,7 @@ const ApplicationCardContentStyles = styled.div`
     }
 
     .content div{
+        padding-right: 4px;
         flex-basis: 50%;
     }
 

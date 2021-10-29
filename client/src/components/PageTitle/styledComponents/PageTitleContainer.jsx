@@ -8,7 +8,7 @@ export const PageTitleContainer = styled.div`
 
     margin-bottom: 1.4vw;
 
-    width: 80%;
+    width: 60%;
 
     box-shadow: var(--color-title-underline) 0 1px 0;
 `;
