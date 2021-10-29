@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ApplicationCardContent } from ".";
 
 const ApplicationCardStyles = styled.div`
-    width: 80%;
+    width: 60%;
     height: auto;
 
     padding: 16px;

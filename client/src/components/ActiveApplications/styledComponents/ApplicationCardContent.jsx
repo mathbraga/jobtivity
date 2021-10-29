@@ -14,9 +14,25 @@ const ApplicationCardContentStyles = styled.div`
     }
 
     .block--title{
-        width: 80%;
+        width: 100%;
         box-shadow: var(--color-title-underline) 0 1px 0;
         margin-bottom: 8px;
+        padding-bottom: 4px;
+    }
+
+    .badge{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: max-content;
+        height: auto;
+        padding: 4px 8px;
+
+        color: white;
+        background-color: green;
+        
+        border-radius: 4px;
     }
 
     div > span{
@@ -28,7 +44,9 @@ export const ApplicationCardContent = () => {
     return(
         <ApplicationCardContentStyles>
             <div className="block--title">
-                Status
+                <div className="badge">
+                    Status
+                </div>
             </div>
             <div className="content">
                 <div><span>Company:</span> Company Name</div>
