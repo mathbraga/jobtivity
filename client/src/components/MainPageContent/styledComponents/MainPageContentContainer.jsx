@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MainPageContentContainer = styled.div`
-    width: 50vw;
+    width: max(60%, 400px);
     height: 100%;
 
     box-sizing: border-box;
@@ -14,6 +14,4 @@ export const MainPageContentContainer = styled.div`
     align-items: center;
 
     background-color: var(--color-primary);
-
-    margin: 2% 25%;
 `;

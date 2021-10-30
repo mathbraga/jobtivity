@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ApplicationCardContentStyles = styled.div`
-    .content{
+    .card--content{
         display: flex;
         flex-flow: row wrap;
         justify-content: flex-start;
@@ -9,19 +9,19 @@ const ApplicationCardContentStyles = styled.div`
         row-gap: 8px;   
     }
 
-    .content div{
+    .card--content div{
         padding-right: 4px;
         flex-basis: 50%;
     }
 
-    .block--title{
+    .card--header{
         width: 100%;
         box-shadow: var(--color-title-underline) 0 1px 0;
         margin-bottom: 8px;
         padding-bottom: 4px;
     }
 
-    .badge{
+    .card--status_badge{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -44,12 +44,12 @@ const ApplicationCardContentStyles = styled.div`
 export const ApplicationCardContent = () => {
     return(
         <ApplicationCardContentStyles>
-            <div className="block--title">
-                <div className="badge">
+            <div className="card--header">
+                <div className="card--status_badge">
                     Status
                 </div>
             </div>
-            <div className="content">
+            <div className="card--content">
                 <div><span>Company:</span> Company Name</div>
                 <div><span>Date:</span> 23/10/2021</div>
                 <div><span>Website:</span> someurl.com</div>
