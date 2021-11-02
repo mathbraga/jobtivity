@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { ApplicationCardContent } from ".";
+import { ApplicationCardContent } from "./ApplicationCardContent";
 
 const ApplicationCardStyles = styled.div`
     width: 60%;

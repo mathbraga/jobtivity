@@ -1,36 +1,18 @@
-import styled from "styled-components";
-
 import { ApplicationCardHeader } from "./ApplicationCardHeader";
+import { ApplicationContentContainer } from "./ApplicationContentContainer";
 
-const ApplicationCardContentStyles = styled.div`
-    .card--content{
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: flex-start;
-        align-items: center;
-        row-gap: 8px;   
-    }
-
-    .card--content div{
-        padding-right: 4px;
-        flex-basis: 50%;
-    }
-
-    div > span{
-        font-weight: 800;
-    }
-`;
+const testProps = {
+    "name": "Jobtivity",
+    "date": "01/11/2021",
+    "website": "someurl.com",
+    "role": "FullStack"
+}
 
 export const ApplicationCardContent = () => {
     return(
-        <ApplicationCardContentStyles>
+        <>
             <ApplicationCardHeader status={"Contact"} />
-            <div className="card--content">
-                <div><span>Company:</span> Company Name</div>
-                <div><span>Date:</span> 23/10/2021</div>
-                <div><span>Website:</span> someurl.com</div>
-                <div><span>Role:</span> FullStack</div>
-            </div>
-        </ApplicationCardContentStyles>
-    )
+            <ApplicationContentContainer {...testProps} />
+        </>
+    );
 }
