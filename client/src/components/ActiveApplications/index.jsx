@@ -11,7 +11,7 @@ const ActiveApplications = () => {
             <PageTitle pageTitle={activeApplicationsPageTitle} />
             <ApplicationCard />
         </>
-    )
+    );
 }
 
 export default ActiveApplications;

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { ApplicationCardHeader } from "./ApplicationCardHeader";
+
 const ApplicationCardContentStyles = styled.div`
     .card--content{
         display: flex;
@@ -14,28 +16,6 @@ const ApplicationCardContentStyles = styled.div`
         flex-basis: 50%;
     }
 
-    .card--header{
-        width: 100%;
-        box-shadow: var(--color-title-underline) 0 1px 0;
-        margin-bottom: 8px;
-        padding-bottom: 4px;
-    }
-
-    .card--status_badge{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        width: max-content;
-        height: auto;
-        padding: 4px 8px;
-
-        color: white;
-        background-color: green;
-        
-        border-radius: 4px;
-    }
-
     div > span{
         font-weight: 800;
     }
@@ -44,11 +24,7 @@ const ApplicationCardContentStyles = styled.div`
 export const ApplicationCardContent = () => {
     return(
         <ApplicationCardContentStyles>
-            <div className="card--header">
-                <div className="card--status_badge">
-                    Status
-                </div>
-            </div>
+            <ApplicationCardHeader status={"Contact"} />
             <div className="card--content">
                 <div><span>Company:</span> Company Name</div>
                 <div><span>Date:</span> 23/10/2021</div>
