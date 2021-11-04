@@ -13,10 +13,10 @@ const ApplicationCardStyles = styled.div`
     border-radius: 4px;
 `;
 
-export const ApplicationCard = () => {
+export const ApplicationCard = (props) => {
     return(
         <ApplicationCardStyles>
-            <ApplicationCardContent />
+            <ApplicationCardContent {...props} />
         </ApplicationCardStyles>
     );
 }

@@ -1,18 +1,11 @@
 import { ApplicationCardHeader } from "./ApplicationCardHeader";
 import { ApplicationContentContainer } from "./ApplicationContentContainer";
 
-const testProps = {
-    "name": "Jobtivity",
-    "date": "01/11/2021",
-    "website": "someurl.com",
-    "role": "FullStack"
-}
-
-export const ApplicationCardContent = () => {
+export const ApplicationCardContent = (props) => {
     return(
         <>
-            <ApplicationCardHeader status={"Contact"} />
-            <ApplicationContentContainer {...testProps} />
+            <ApplicationCardHeader status={props.status} />
+            <ApplicationContentContainer {...props} />
         </>
     );
 }
