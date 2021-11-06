@@ -42,22 +42,28 @@ const ApplicationCardHeaderStyles = styled.div`
         width: 100%;
     }
 
-    .card--status_dropdown div{
-        display: inline;
-        padding: 5px;
-        margin-left: 8px;
-
-        color: white;
-        background-color: ${props => statusTypeToColor(props.status)};
-        
-        border-radius: 4px;
-        border: none;
-    }
-
     .card--status_badge:hover .card--status_dropdown{
         display: inline-block;
     }
 `;
+
+const StatusDropdownButton = styled.div`
+    display: inline;
+    padding: 4px 8px;
+    margin-left: 8px;
+
+    color: white;
+    background-color: ${props => statusTypeToColor(props.status)};
+    
+    border-radius: 4px;
+    border: none;
+`;
+
+const StatusDropdownButtonContainer = (props) => {
+    return(
+        <StatusDropdownButton status={props.status}>{props.status}</StatusDropdownButton>
+    );
+}
 
 export const ApplicationCardHeader = (props) => {
     return(
@@ -66,9 +72,8 @@ export const ApplicationCardHeader = (props) => {
                 <div className="card--status_badge">
                     <div className="card--status_button">{props.status}</div>
                     <div className="card--status_dropdown">
-                        <div>1st</div>
-                        <div>2nd</div>
-                        <div>3rd</div>
+                        <StatusDropdownButtonContainer status="Contact" />
+                        <StatusDropdownButtonContainer status="Awaiting" />
                     </div>
                 </div>
             </div>
