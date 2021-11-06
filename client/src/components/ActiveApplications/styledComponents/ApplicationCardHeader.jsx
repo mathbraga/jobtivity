@@ -1,13 +1,7 @@
 import styled from "styled-components";
 
-const statusTypeToColor = (type) => {
-    const status = {
-        "Contact": "green",
-        "Awaiting": "grey"
-    };
-
-    return status[type];
-}
+import { StatusDropdownButton } from "./StatusDropdownButton";
+import { statusTypeToColor } from "./helpers";
 
 const ApplicationCardHeaderStyles = styled.div`
     .card--header{
@@ -47,24 +41,6 @@ const ApplicationCardHeaderStyles = styled.div`
     }
 `;
 
-const StatusDropdownButton = styled.div`
-    display: inline;
-    padding: 4px 8px;
-    margin-left: 8px;
-
-    color: white;
-    background-color: ${props => statusTypeToColor(props.status)};
-    
-    border-radius: 4px;
-    border: none;
-`;
-
-const StatusDropdownButtonContainer = (props) => {
-    return(
-        <StatusDropdownButton status={props.status}>{props.status}</StatusDropdownButton>
-    );
-}
-
 export const ApplicationCardHeader = (props) => {
     return(
         <ApplicationCardHeaderStyles status={props.status}>
@@ -72,8 +48,8 @@ export const ApplicationCardHeader = (props) => {
                 <div className="card--status_badge">
                     <div className="card--status_button">{props.status}</div>
                     <div className="card--status_dropdown">
-                        <StatusDropdownButtonContainer status="Contact" />
-                        <StatusDropdownButtonContainer status="Awaiting" />
+                        <StatusDropdownButton status="Contact" />
+                        <StatusDropdownButton status="Awaiting" />
                     </div>
                 </div>
             </div>
