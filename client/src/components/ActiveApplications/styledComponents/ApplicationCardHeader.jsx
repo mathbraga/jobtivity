@@ -45,12 +45,13 @@ const ApplicationCardHeaderStyles = styled.div`
         display: inline-block;
     }
 
-    .card--status_badge img{
+    .arrow_icon{
         transition: 0.3s;
         transform: rotate(0deg);
     }
 
-    .card--status_badge:focus img{
+    .arrow_icon-rotated{
+        transition: 0.3s;
         transform: rotate(180deg);
     }
 `;
@@ -58,22 +59,27 @@ const ApplicationCardHeaderStyles = styled.div`
 export const ApplicationCardHeader = (props) => {
     const [toggle, setToggle] = useState(false);
     const [badgeClassName, setBadgeClassName] = useState("card--status_dropdown-hidden");
+    const [arrowClassName, setArrowClassName] = useState("arrow_icon");
 
     useEffect(() => {
-        if(toggle)
+        if(toggle){
             setBadgeClassName("card--status_dropdown-displayed");
-        else
+            setArrowClassName("arrow_icon-rotated");
+        }
+        else{
             setBadgeClassName("card--status_dropdown-hidden");
+            setArrowClassName("arrow_icon");
+        }
     }, [toggle]);
 
     return(
         <ApplicationCardHeaderStyles status={props.status}>
             <div className="card--header">
                 <div className="card--status_badge">
-                    <div className="card--status_button" onClick={() => setToggle(!toggle)}>
+                    <button className="card--status_button" onClick={() => setToggle(!toggle)}>
                         {props.status}
-                    </div>
-                    <img src={arrowIcon} alt="Open menu icon" />
+                    </button>
+                    <img className={arrowClassName} src={arrowIcon} alt="Open menu icon" />
                     <div className={badgeClassName}>
                         <StatusDropdownButton status="Contact" />
                         <StatusDropdownButton status="Awaiting" />
