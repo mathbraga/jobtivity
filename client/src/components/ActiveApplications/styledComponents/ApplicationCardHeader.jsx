@@ -36,13 +36,17 @@ const ApplicationCardHeaderStyles = styled.div`
     }
 
     .card--status_dropdown-hidden{
-        display: none;
-        position: relative;
-        width: 100%;
+        display: inline-block;
+        opacity: 0;
+
+        transition: opacity 0.3s;
     }
 
     .card--status_dropdown-displayed{
         display: inline-block;
+        opacity: 1;
+
+        transition: opacity 0.3s;
     }
 
     .arrow_icon{
