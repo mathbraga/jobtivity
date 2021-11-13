@@ -37,25 +37,27 @@ const ApplicationCardHeaderStyles = styled.div`
 
     .card--status_dropdown-hidden{
         display: inline-block;
+        visibility: hidden;
         opacity: 0;
 
-        transition: opacity 0.3s;
+        transition: visibility 0.2s, opacity 0.2s linear;
     }
 
     .card--status_dropdown-displayed{
         display: inline-block;
+        visibility: visible;
         opacity: 1;
 
-        transition: opacity 0.3s;
+        transition: visibility 0.2s, opacity 0.2s linear;
     }
 
     .arrow_icon{
-        transition: 0.3s;
+        transition: 0.2s linear;
         transform: rotate(0deg);
     }
 
     .arrow_icon-rotated{
-        transition: 0.3s;
+        transition: 0.2s linear;
         transform: rotate(180deg);
     }
 `;
