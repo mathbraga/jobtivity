@@ -82,7 +82,11 @@ export const ApplicationCardHeader = (props) => {
         <ApplicationCardHeaderStyles status={props.status}>
             <div className="card--header">
                 <div className="card--status_badge">
-                    <button className="card--status_button" onClick={() => setToggle(!toggle)}>
+                    <button 
+                        className="card--status_button" 
+                        onClick={() => setToggle(!toggle)} 
+                        onBlur={() => setToggle(false)}
+                    >
                         {props.status}
                     </button>
                     <img className={arrowClassName} src={arrowIcon} alt="Open menu icon" />
