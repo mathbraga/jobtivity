@@ -39,6 +39,13 @@ const ApplicationCardHeaderStyles = styled.div`
         cursor: pointer;
     }
 
+    .card--status_button:active{
+        box-shadow: -4px 0 0.5rem 0 rgba(0, 58, 150, 1) inset,
+                        0 -4px 0.5rem rgba(0, 58, 150, 1) inset,
+                        0 4px 0.5rem rgba(0, 58, 150, 1) inset,
+                        4px 0 0.5rem rgba(0, 58, 150, 1) inset;
+    }
+
     .card--status_dropdown-hidden{
         display: inline-block;
         visibility: hidden;

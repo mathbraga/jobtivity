@@ -18,6 +18,13 @@ const StatusDropdownButtonContainer = styled.button`
                     0 4px 4px 0 rgba(255, 255, 255, 0.2) inset;
 
     cursor: pointer;
+
+    :active{
+        box-shadow: -4px 0 0.5rem 0 rgba(0, 58, 150, 1) inset,
+                        0 -4px 0.5rem rgba(0, 58, 150, 1) inset,
+                        0 4px 0.5rem rgba(0, 58, 150, 1) inset,
+                        4px 0 0.5rem rgba(0, 58, 150, 1) inset;
+    }
 `;
 
 export const StatusDropdownButton = (props) => {
