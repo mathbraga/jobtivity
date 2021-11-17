@@ -12,6 +12,10 @@ const StatusDropdownButtonContainer = styled.button`
     
     border-radius: 4px;
     border: none;
+    box-shadow: -4px 0 4px 0 rgba(0, 0, 0, 0.2) inset,
+                    0 -4px 4px 0 rgba(0, 0, 0, 0.2) inset,
+                    4px 0 4px 0 rgba(255, 255, 255, 0.2) inset,
+                    0 4px 4px 0 rgba(255, 255, 255, 0.2) inset;
 
     cursor: pointer;
 `;
