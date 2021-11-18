@@ -31,19 +31,13 @@ const ApplicationCardHeaderStyles = styled.div`
         
         border-radius: 4px;
         border: none;
-        box-shadow: -4px 0 4px 0 rgba(0, 0, 0, 0.2) inset,
-                    0 -4px 4px 0 rgba(0, 0, 0, 0.2) inset,
-                    4px 0 4px 0 rgba(255, 255, 255, 0.2) inset,
-                    0 4px 4px 0 rgba(255, 255, 255, 0.2) inset;
+        box-shadow: var(--button-shadow);
 
         cursor: pointer;
     }
 
     .card--status_button:active{
-        box-shadow: -4px 0 0.5rem 0 rgba(0, 58, 150, 1) inset,
-                        0 -4px 0.5rem rgba(0, 58, 150, 1) inset,
-                        0 4px 0.5rem rgba(0, 58, 150, 1) inset,
-                        4px 0 0.5rem rgba(0, 58, 150, 1) inset;
+        box-shadow: var(--button-shadow-active);
     }
 
     .card--status_dropdown-hidden{
