@@ -13,12 +13,22 @@ const testProps = {
     "status": "Contact"
 }
 
+const statusProps = {
+    "name": "Jobtivity",
+    "date": "01/11/2021",
+    "website": "someurl.com",
+    "role": "FullStack",
+    "status": "Contact"
+}
+
+const StatusContext = React.createContext(statusProps);
+
 const ActiveApplications = () => {
     return(
-        <>
+        <StatusContext.Provider>
             <PageTitle pageTitle={activeApplicationsPageTitle} />
             <ApplicationCard {...testProps} />
-        </>
+        </StatusContext.Provider>
     );
 }
 
