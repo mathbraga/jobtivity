@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import PageTitle from "../PageTitle";
 import { ApplicationCard } from "./styledComponents";
@@ -13,22 +13,22 @@ const testProps = {
     "status": "Contact"
 }
 
-const statusProps = {
-    "name": "Jobtivity",
-    "date": "01/11/2021",
-    "website": "someurl.com",
-    "role": "FullStack",
-    "status": "Contact"
-}
-
-const StatusContext = React.createContext(statusProps);
-
 const ActiveApplications = () => {
+    const isApplications = localStorage.getItem("applicationsList");
+    const listOfApplications = [testProps];
+
+    useEffect(() => {
+        if(isApplications === null)
+            localStorage.setItem("applicationsList", []);
+
+        console.log(listOfApplications);
+    });
+
     return(
-        <StatusContext.Provider>
+        <>
             <PageTitle pageTitle={activeApplicationsPageTitle} />
             <ApplicationCard {...testProps} />
-        </StatusContext.Provider>
+        </>
     );
 }
 
