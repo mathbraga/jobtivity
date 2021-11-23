@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import PageTitle from "../PageTitle";
 import { ApplicationCard } from "./styledComponents";
@@ -13,16 +13,17 @@ const testProps = {
     "status": "Contact"
 }
 
+const storageName = "applicationsList";
+
 const ActiveApplications = () => {
-    const isApplications = localStorage.getItem("applicationsList");
-    const listOfApplications = [testProps];
+    const [listOfApplications, setApplications] = useState(JSON.parse(localStorage.getItem(storageName)));
 
     useEffect(() => {
-        if(isApplications === null)
-            localStorage.setItem("applicationsList", []);
-
-        console.log(listOfApplications);
-    });
+        if(listOfApplications === null){
+            localStorage.setItem(storageName, "[]");
+            setApplications(JSON.parse(localStorage.getItem(storageName)));
+        }
+    }, [listOfApplications]);
 
     return(
         <>
