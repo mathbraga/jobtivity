@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import storageContext from "../../context/storageContext";
 
 import PageTitle from "../PageTitle";
 import { ApplicationCard } from "./styledComponents";
@@ -16,14 +17,8 @@ const testProps = {
 const storageName = "applicationsList";
 
 const ActiveApplications = () => {
-    const [listOfApplications, setApplications] = useState(JSON.parse(localStorage.getItem(storageName)));
-
-    useEffect(() => {
-        if(listOfApplications === null){
-            localStorage.setItem(storageName, "[]");
-            setApplications(JSON.parse(localStorage.getItem(storageName)));
-        }
-    }, [listOfApplications]);
+    const [listOfApplications, setListOfApplications] = useState(JSON.parse(localStorage.getItem(storageName)));
+    const { setApplications } = useContext(storageContext);
 
     return(
         <>
