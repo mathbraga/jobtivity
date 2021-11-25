@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import storageContext from "../../context/storageContext";
 
 import PageTitle from "../PageTitle";
@@ -17,8 +17,14 @@ const testProps = {
 const storageName = "applicationsList";
 
 const ActiveApplications = () => {
-    const [listOfApplications, setListOfApplications] = useState(JSON.parse(localStorage.getItem(storageName)));
     const { setApplications } = useContext(storageContext);
+
+    useEffect(() => {
+        if(localStorage.getItem(storageName) === null)
+            localStorage.setItem(storageName, "[]");
+
+        setApplications(JSON.parse(localStorage.getItem(storageName)));
+    });
 
     return(
         <>
