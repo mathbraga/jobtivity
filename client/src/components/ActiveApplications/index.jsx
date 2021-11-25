@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import storageContext from "../../context/storageContext";
 
 import PageTitle from "../PageTitle";
@@ -14,17 +14,9 @@ const testProps = {
     "status": "Contact"
 }
 
-const storageName = "applicationsList";
-
 const ActiveApplications = () => {
-    const { setApplications } = useContext(storageContext);
-
-    useEffect(() => {
-        if(localStorage.getItem(storageName) === null)
-            localStorage.setItem(storageName, "[]");
-
-        setApplications(JSON.parse(localStorage.getItem(storageName)));
-    });
+    const { applicationsList } = useContext(storageContext);
+    console.log(applicationsList);
 
     return(
         <>
