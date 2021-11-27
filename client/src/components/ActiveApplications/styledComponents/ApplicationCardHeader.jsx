@@ -96,8 +96,8 @@ export const ApplicationCardHeader = (props) => {
                     </button>
                     <img className={arrowClassName} src={arrowIcon} alt="Open menu icon" />
                     <div className={badgeClassName}>
-                        <StatusDropdownButton status="Contact" />
-                        <StatusDropdownButton status="Awaiting" />
+                        <StatusDropdownButton status="Contact" index={props.index} />
+                        <StatusDropdownButton status="Awaiting" index={props.index} />
                     </div>
                 </div>
             </div>

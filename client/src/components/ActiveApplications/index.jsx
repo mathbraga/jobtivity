@@ -8,12 +8,13 @@ const activeApplicationsPageTitle = "Active Applications";
 
 const ActiveApplications = () => {
     const { applicationsList } = useContext(storageContext);
-    console.log(applicationsList);
 
     return(
         <>
             <PageTitle pageTitle={activeApplicationsPageTitle} />
-            {applicationsList.map((data, index) => <ApplicationCard key={index} {...data} />)}
+            {applicationsList.map((data, index) => {
+                return <ApplicationCard key={index} index={index} {...data} />
+            })}
         </>
     );
 }
