@@ -1,20 +1,23 @@
-import React, { useContext } from "react";
-import storageContext from "../../context/storageContext";
+import React from "react";
 
 import PageTitle from "../PageTitle";
 import { ApplicationCard } from "./styledComponents";
 
 const activeApplicationsPageTitle = "Active Applications";
 
-const ActiveApplications = () => {
-    const { applicationsList } = useContext(storageContext);
+const data = {
+    name: "Jobtivity",
+    date: "30/11/2021",
+    website: "someurl.com",
+    role: "FullStack",
+    status: "Contact"
+}
 
+const ActiveApplications = () => {
     return(
         <>
             <PageTitle pageTitle={activeApplicationsPageTitle} />
-            {applicationsList.map((data, index) => {
-                return <ApplicationCard key={index} index={index} {...data} />
-            })}
+            <ApplicationCard {...data} />
         </>
     );
 }

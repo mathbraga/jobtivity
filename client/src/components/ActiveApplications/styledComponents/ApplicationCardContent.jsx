@@ -2,11 +2,11 @@ import { ApplicationCardHeader } from "./ApplicationCardHeader";
 import { ApplicationContentContainer } from "./ApplicationContentContainer";
 
 export const ApplicationCardContent = (props) => {
-    const { status, index, ...otherprops } = props;
+    const { status, ...otherprops } = props;
 
     return(
         <>
-            <ApplicationCardHeader status={status} index={index} />
+            <ApplicationCardHeader status={status} />
             <ApplicationContentContainer {...otherprops} />
         </>
     );

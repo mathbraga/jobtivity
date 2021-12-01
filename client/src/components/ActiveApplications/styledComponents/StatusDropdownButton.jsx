@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { useContext } from "react";
-import storageContext from "../../../context/storageContext";
 
 import { statusTypeToColor } from "./helpers";
 
@@ -24,21 +22,8 @@ const StatusDropdownButtonContainer = styled.button`
 `;
 
 export const StatusDropdownButton = (props) => {
-    const { applicationsList, setApplications } = useContext(storageContext);
-
-    const handleStatusChange = () => {
-        const newStatus = props.status;
-        const newApplicationsData = { ...applicationsList[props.index], newStatus }
-        var updatedApplications = applicationsList;
-        updatedApplications[props.index] = newApplicationsData;
-        setApplications(updatedApplications);
-    }
-
     return(
-        <StatusDropdownButtonContainer 
-            status={props.status}
-            onClick={handleStatusChange}
-        >
+        <StatusDropdownButtonContainer status={props.status}>
             {props.status}
         </StatusDropdownButtonContainer>
     );
