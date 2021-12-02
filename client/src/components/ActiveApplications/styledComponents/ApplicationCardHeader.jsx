@@ -69,6 +69,7 @@ const ApplicationCardHeaderStyles = styled.div`
 
 export const ApplicationCardHeader = (props) => {
     const [toggle, setToggle] = useState(false);
+    const [jobStatus, setJobStatus] = useState(props.status);
     const [badgeClassName, setBadgeClassName] = useState("card--status_dropdown-hidden");
     const [arrowClassName, setArrowClassName] = useState("arrow_icon");
 
@@ -81,10 +82,12 @@ export const ApplicationCardHeader = (props) => {
             setBadgeClassName("card--status_dropdown-hidden");
             setArrowClassName("arrow_icon");
         }
-    }, [toggle]);
+    }, [toggle, jobStatus]);
+
+    const handleStatusChange = (status) => setJobStatus(status);
 
     return(
-        <ApplicationCardHeaderStyles status={props.status}>
+        <ApplicationCardHeaderStyles status={jobStatus}>
             <div className="card--header">
                 <div className="card--status_badge">
                     <button 
@@ -92,12 +95,12 @@ export const ApplicationCardHeader = (props) => {
                         onClick={() => setToggle(!toggle)} 
                         onBlur={() => setToggle(false)}
                     >
-                        {props.status}
+                        {jobStatus}
                     </button>
                     <img className={arrowClassName} src={arrowIcon} alt="Open menu icon" />
                     <div className={badgeClassName}>
-                        <StatusDropdownButton status="Contact" />
-                        <StatusDropdownButton status="Awaiting" />
+                        <StatusDropdownButton status="Contact" onClick={() => handleStatusChange("Contact")} />
+                        <StatusDropdownButton status="Awaiting" onClick={() => handleStatusChange("Awaiting")} />
                     </div>
                 </div>
             </div>

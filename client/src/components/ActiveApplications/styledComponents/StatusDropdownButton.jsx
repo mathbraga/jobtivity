@@ -23,7 +23,7 @@ const StatusDropdownButtonContainer = styled.button`
 
 export const StatusDropdownButton = (props) => {
     return(
-        <StatusDropdownButtonContainer status={props.status}>
+        <StatusDropdownButtonContainer status={props.status} onClick={props.onClick}>
             {props.status}
         </StatusDropdownButtonContainer>
     );
