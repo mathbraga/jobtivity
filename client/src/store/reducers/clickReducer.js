@@ -4,7 +4,7 @@ const initial_state = {
 
 export default function reducer(state = initial_state, action){
     if(action.type === "SEND_CLICKS"){
-        state.clicked = state.clicked + 1;
+        state.clicked = state.clicked + action.clicked;
         return {...state}
     }
     return state;

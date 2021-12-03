@@ -1,4 +1,4 @@
-import { ApplicationCardHeader } from "./ApplicationCardHeader";
+import ApplicationCardHeader from "./ApplicationCardHeader";
 import { ApplicationContentContainer } from "./ApplicationContentContainer";
 
 export const ApplicationCardContent = (props) => {
