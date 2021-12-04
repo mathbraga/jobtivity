@@ -1,6 +1,7 @@
-export function sendClicks(count){
+export function changeJobStatus(newStatus, index){
     return{
-        type: "SEND_CLICKS",
-        clicked: count
+        type: "CHANGE_STATUS",
+        newStatus: newStatus,
+        index: index
     };
 }

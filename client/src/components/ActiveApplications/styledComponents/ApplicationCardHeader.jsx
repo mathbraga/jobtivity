@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
-import { connect } from 'react-redux';
-import { sendClicks } from "../../../store/actions/clicks";
 
 import { StatusDropdownButton } from "./StatusDropdownButton";
 import { statusTypeToColor } from "./helpers";
@@ -74,7 +73,6 @@ const ApplicationCardHeader = (props) => {
     const [jobStatus, setJobStatus] = useState(props.status);
     const [badgeClassName, setBadgeClassName] = useState("card--status_dropdown-hidden");
     const [arrowClassName, setArrowClassName] = useState("arrow_icon");
-    const { clicked, sendClick } = props;
 
     useEffect(() => {
         if(toggle){
@@ -88,7 +86,6 @@ const ApplicationCardHeader = (props) => {
     }, [toggle, jobStatus]);
 
     const handleStatusChange = (status) => setJobStatus(status);
-    const handleCount = (step) => sendClick(step);
 
     return(
         <ApplicationCardHeaderStyles status={jobStatus}>
@@ -102,23 +99,14 @@ const ApplicationCardHeader = (props) => {
                         {jobStatus}
                     </button>
                     <img className={arrowClassName} src={arrowIcon} alt="Open menu icon" />
-                    <div className={badgeClassName} onClick={() => handleCount(1)}>
+                    <div className={badgeClassName}>
                         <StatusDropdownButton status="Contact" onClick={() => handleStatusChange("Contact")} />
                         <StatusDropdownButton status="Awaiting" onClick={() => handleStatusChange("Awaiting")} />
                     </div>
-                    <div>{clicked}</div>
                 </div>
             </div>
         </ApplicationCardHeaderStyles>
     );
 }
 
-const mapDispatchToProps = dispatch => ({
-    sendClick: (count) => dispatch(sendClicks(count))
-});
-
-const mapStateToProps = (state) => ({
-    clicked: state.clickReducer.clicked
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ApplicationCardHeader);
+export default connect(null, null)(ApplicationCardHeader);
