@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { changeJobStatus } from "../../../store/actions/clicks";
+
 import styled from "styled-components";
 
 import { StatusDropdownButton } from "./StatusDropdownButton";
@@ -70,9 +72,9 @@ const ApplicationCardHeaderStyles = styled.div`
 
 const ApplicationCardHeader = (props) => {
     const [toggle, setToggle] = useState(false);
-    const [jobStatus, setJobStatus] = useState(props.status);
     const [badgeClassName, setBadgeClassName] = useState("card--status_dropdown-hidden");
     const [arrowClassName, setArrowClassName] = useState("arrow_icon");
+    const { updateJobStatus, applicationStatus, index } = props;
 
     useEffect(() => {
         if(toggle){
@@ -83,12 +85,12 @@ const ApplicationCardHeader = (props) => {
             setBadgeClassName("card--status_dropdown-hidden");
             setArrowClassName("arrow_icon");
         }
-    }, [toggle, jobStatus]);
+    }, [toggle]);
 
-    const handleStatusChange = (status) => setJobStatus(status);
+    const handleStatusChange = (status, index) => updateJobStatus(status, index);
 
     return(
-        <ApplicationCardHeaderStyles status={jobStatus}>
+        <ApplicationCardHeaderStyles status={applicationStatus}>
             <div className="card--header">
                 <div className="card--status_badge">
                     <button 
@@ -96,12 +98,12 @@ const ApplicationCardHeader = (props) => {
                         onClick={() => setToggle(!toggle)} 
                         onBlur={() => setToggle(false)}
                     >
-                        {jobStatus}
+                        {applicationStatus}
                     </button>
                     <img className={arrowClassName} src={arrowIcon} alt="Open menu icon" />
                     <div className={badgeClassName}>
-                        <StatusDropdownButton status="Contact" onClick={() => handleStatusChange("Contact")} />
-                        <StatusDropdownButton status="Awaiting" onClick={() => handleStatusChange("Awaiting")} />
+                        <StatusDropdownButton status="Contact" onClick={() => handleStatusChange("Contact", index)} />
+                        <StatusDropdownButton status="Awaiting" onClick={() => handleStatusChange("Awaiting", index)} />
                     </div>
                 </div>
             </div>
@@ -109,4 +111,17 @@ const ApplicationCardHeader = (props) => {
     );
 }
 
-export default connect(null, null)(ApplicationCardHeader);
+const mapDispatchToProps = dispatch => ({
+    updateJobStatus: (newStatus, index) => dispatch(changeJobStatus(newStatus, index))
+})
+
+const mapStateToProps = (state, ownProps) => {
+    const { applications } = state.clickReducer;
+    const { index } = ownProps;
+
+    return ({
+        applicationStatus: applications[index].status
+    })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ApplicationCardHeader);

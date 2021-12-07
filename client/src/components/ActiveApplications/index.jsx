@@ -12,7 +12,7 @@ const ActiveApplications = () => {
         <>
             <PageTitle pageTitle={activeApplicationsPageTitle} />
             {data.map((item, index) =>
-                <ApplicationCard {...item} key={index} />
+                <ApplicationCard {...item} key={index} index={index} />
             )}
         </>
     );

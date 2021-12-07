@@ -7,5 +7,5 @@ export default function reducer(state = initial_state, action){
         state.applications[action.index].status = action.newStatus;
         return {...state}
     }
-    return state;
+    return {...state};
 }
