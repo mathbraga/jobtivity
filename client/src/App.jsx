@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import Routes from "./routes";
 
 import store from './store';
-import createEmptyStorage from "./context/initStorage";
+import createEmptyStorage from "./globalHelperFunctions/initStorage";
 
 import "./index.css";
 

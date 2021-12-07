@@ -1,21 +1,26 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import PageTitle from "../PageTitle";
 import { ApplicationCard } from "./styledComponents";
 
 const activeApplicationsPageTitle = "Active Applications";
 
-const data = JSON.parse(localStorage.getItem("applicationsList"));
+const ActiveApplications = (props) => {
+    const { applicationsList } = props;
 
-const ActiveApplications = () => {
     return(
         <>
             <PageTitle pageTitle={activeApplicationsPageTitle} />
-            {data.map((item, index) =>
+            {applicationsList.map((item, index) =>
                 <ApplicationCard {...item} key={index} index={index} />
             )}
         </>
     );
 }
 
-export default ActiveApplications;
+const mapStateToProps = (state) => ({
+    applicationsList: state.applicationsReducer.applications
+})
+
+export default connect(mapStateToProps, null)(ActiveApplications);

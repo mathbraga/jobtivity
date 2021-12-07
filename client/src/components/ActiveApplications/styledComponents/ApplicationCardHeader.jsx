@@ -116,7 +116,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToProps = (state, ownProps) => {
-    const { applications } = state.statusReducer;
+    const { applications } = state.applicationsReducer;
     const { index } = ownProps;
 
     return ({

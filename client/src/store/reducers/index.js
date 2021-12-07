@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import statusReducer from './statusReducer';
+import applicationsReducer from './applicationsReducer';
 
 export default combineReducers({
-    statusReducer,
+    applicationsReducer,
 });
