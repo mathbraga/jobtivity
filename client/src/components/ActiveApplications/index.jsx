@@ -11,9 +11,9 @@ const ActiveApplications = () => {
     return(
         <>
             <PageTitle pageTitle={activeApplicationsPageTitle} />
-            {data.map((item, index) => {
+            {data.map((item, index) =>
                 <ApplicationCard {...item} key={index} />
-            })}
+            )}
         </>
     );
 }
