@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { changeJobStatus } from "../../../store/actions/clicks";
+import { updateStatus } from "../../../store/actions/updateStatus";
 
 import styled from "styled-components";
 
@@ -112,16 +112,16 @@ const ApplicationCardHeader = (props) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    updateJobStatus: (newStatus, index) => dispatch(changeJobStatus(newStatus, index))
+    updateJobStatus: (newStatus, index) => dispatch(updateStatus(newStatus, index))
 })
 
 const mapStateToProps = (state, ownProps) => {
-    const { applications } = state.clickReducer;
+    const { applications } = state.statusReducer;
     const { index } = ownProps;
 
     return ({
         applicationStatus: applications[index].status
-    })
+    });
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationCardHeader);

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import clickReducer from './clickReducer';
+import statusReducer from './statusReducer';
 
 export default combineReducers({
-    clickReducer,
+    statusReducer,
 });
