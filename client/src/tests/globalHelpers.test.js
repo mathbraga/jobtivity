@@ -5,6 +5,6 @@ describe("Local storage", () => {
         const storageName = "applicationsList";
         createEmptyStorage();
 
-        expect(localStorage.getItem(storageName)).toBe("[]");
+        expect(localStorage.getItem(storageName)).toEqual("[]");
     });
 })
