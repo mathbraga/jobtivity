@@ -1,9 +1,10 @@
 import createEmptyStorage from "../globalHelperFunctions/initStorage";
+import { 
+    convertStringToObject, 
+    convertObjectToString 
+} from "../globalHelperFunctions/dataConversionHelpers";
 
 const storageName = "applicationsList";
-
-const convertStringToObject = (data) => JSON.parse(data);
-const convertObjectToString = (data) => JSON.stringify(data);
 
 describe("Local storage", () => {
     it("Is empty local storage created", () => {
@@ -16,14 +17,14 @@ describe("Local storage", () => {
 
 describe("Data manipulation for local storage", () => {
     it("Convert string to object", () => {
-        const testData = '[{"test1": "a", "test2": "b"}]';
+        const sampleStringData = '[{"test1": "a", "test2": "b"}]';
 
-        expect(typeof convertStringToObject(testData)).toEqual('object');
+        expect(typeof convertStringToObject(sampleStringData)).toEqual('object');
     });
 
     it("Convert object to string", () => {
-        const testData = [{test1: "a", test2: "b"}];
+        const sampleObjectData = [{test1: "a", test2: "b"}];
 
-        expect(typeof convertObjectToString(testData)).toEqual('string');
+        expect(typeof convertObjectToString(sampleObjectData)).toEqual('string');
     });
 });
