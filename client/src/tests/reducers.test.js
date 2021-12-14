@@ -2,10 +2,10 @@ import reducer from "../store/reducers/applicationsReducer";
 
 describe("Global state manager reducers", () => {
     it("Return applications object", () => {
-        expect(reducer(undefined, {})).toEqual({"applications": null});
+        expect(reducer(undefined, {})).toEqual({applications: null});
     });
 
-    it("Should update applications list", () => {
+    it("Should update assigned application status", () => {
         const testAction = {
             type: "CHANGE_STATUS",
             newStatus: "Awaiting",
