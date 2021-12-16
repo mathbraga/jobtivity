@@ -5,3 +5,10 @@ export function updateStatus(newStatus, index){
         index: index
     };
 }
+
+export function deleteApplication(index){
+    return{
+        type: "DELETE_APPLICATION",
+        index: index
+    }
+}

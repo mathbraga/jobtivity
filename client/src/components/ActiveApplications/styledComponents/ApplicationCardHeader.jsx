@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { updateStatus } from "../../../store/actions/updateStatus";
+import { updateStatus, deleteApplication } from "../../../store/actions/updateStatus";
 
 import styled from "styled-components";
 
@@ -8,7 +8,6 @@ import { StatusDropdownButton } from "./StatusDropdownButton";
 import { statusTypeToColor } from "./helpers";
 
 import arrowIcon from "../../../assets/Icons/ArrowIconBlack.png";
-import deleteIcon from "../../../assets/Icons/DeleteIconWhite.png";
 
 const ApplicationCardHeaderStyles = styled.div`
     .card--header{
@@ -97,7 +96,7 @@ const ApplicationCardHeader = (props) => {
     const [toggle, setToggle] = useState(false);
     const [badgeClassName, setBadgeClassName] = useState("card--status_dropdown-hidden");
     const [arrowClassName, setArrowClassName] = useState("arrow_icon");
-    const { updateJobStatus, applicationStatus, index } = props;
+    const { updateJobStatus, deleteApplication, applicationStatus, index } = props;
 
     useEffect(() => {
         if(toggle){
@@ -111,6 +110,7 @@ const ApplicationCardHeader = (props) => {
     }, [toggle]);
 
     const handleStatusChange = (status, index) => updateJobStatus(status, index);
+    const handleDeleteClick = (index) => deleteApplication(index);
 
     return(
         <ApplicationCardHeaderStyles status={applicationStatus}>
@@ -129,16 +129,15 @@ const ApplicationCardHeader = (props) => {
                         <StatusDropdownButton status="Awaiting" onClick={() => handleStatusChange("Awaiting", index)} />
                     </div>
                 </div>
-                <button className="card--delete_button">
-                    X
-                </button>
+                <button className="card--delete_button" onClick={() => handleDeleteClick(index)}>X</button>
             </div>
         </ApplicationCardHeaderStyles>
     );
 }
 
 const mapDispatchToProps = dispatch => ({
-    updateJobStatus: (newStatus, index) => dispatch(updateStatus(newStatus, index))
+    updateJobStatus: (newStatus, index) => dispatch(updateStatus(newStatus, index)),
+    deleteApplication: (index) => dispatch(deleteApplication(index))
 })
 
 const mapStateToProps = (state, ownProps) => {
