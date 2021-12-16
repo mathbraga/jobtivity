@@ -20,24 +20,6 @@ const sampleData = {
         ]
 };
 
-const temporaryReducer = (state, action) => {
-    const currentApplications = state.applications;
-    
-    if(action.type === "ADD_APPLICATION"){
-        state.applications = [action.newApplication, ...currentApplications];
-
-        return {...state};
-    }
-    else if(action.type === "DELETE_APPLICATION"){
-        currentApplications.splice(action.index, 1);
-        state.applications = [...currentApplications];
-
-        return {...state};
-    }
-
-    return {...state}
-}
-
 describe("Global state manager reducers", () => {
     it("Return applications object", () => {
         expect(reducer(undefined, {})).toEqual({applications: null});
@@ -85,7 +67,7 @@ describe("Global state manager reducers", () => {
                 status:"Awaiting"
             }
         }
-        const { applications } = temporaryReducer(testData, testAction);
+        const { applications } = reducer(testData, testAction);
         const latestApplication = applications[0];
 
         expect(applications.length).toEqual(3);
@@ -98,7 +80,7 @@ describe("Global state manager reducers", () => {
             type: "DELETE_APPLICATION",
             index: 0
         }
-        const { applications } = temporaryReducer(testData, testAction);
+        const { applications } = reducer(testData, testAction);
         
         expect(applications.length).toEqual(2);
         expect(applications[0]).toEqual({
