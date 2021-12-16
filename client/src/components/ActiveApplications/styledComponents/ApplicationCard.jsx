@@ -6,7 +6,7 @@ const ApplicationCardStyles = styled.div`
     width: 60%;
     height: auto;
 
-    padding: 16px;
+    padding: 12px;
     margin-bottom: 0.8vw;
 
     border: 1px solid var(--color-alternative);

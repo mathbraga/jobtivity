@@ -8,9 +8,14 @@ import { StatusDropdownButton } from "./StatusDropdownButton";
 import { statusTypeToColor } from "./helpers";
 
 import arrowIcon from "../../../assets/Icons/ArrowIconBlack.png";
+import deleteIcon from "../../../assets/Icons/DeleteIconWhite.png";
 
 const ApplicationCardHeaderStyles = styled.div`
     .card--header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
         width: 100%;
         box-shadow: var(--color-title-underline) 0 1px 0;
         margin-bottom: 8px;
@@ -37,10 +42,10 @@ const ApplicationCardHeaderStyles = styled.div`
         box-shadow: var(--button-shadow);
 
         cursor: pointer;
-    }
 
-    .card--status_button:active{
-        box-shadow: var(--button-shadow-active);
+        :active{
+            box-shadow: var(--button-shadow-active);
+        }
     }
 
     .card--status_dropdown-hidden{
@@ -57,6 +62,24 @@ const ApplicationCardHeaderStyles = styled.div`
         opacity: 1;
 
         transition: visibility 0.2s, opacity 0.2s linear;
+    }
+
+    .card--delete_button{
+        background: #c22b2b;
+        color: white;
+        font-weight: bold;
+
+        padding: 2px 4px;
+
+        border-radius: 2px;
+        border: none;
+        box-shadow: var(--button-shadow);
+
+        cursor: pointer;
+
+        :active{
+            box-shadow: var(--button-shadow-active);
+        }
     }
 
     .arrow_icon{
@@ -106,6 +129,9 @@ const ApplicationCardHeader = (props) => {
                         <StatusDropdownButton status="Awaiting" onClick={() => handleStatusChange("Awaiting", index)} />
                     </div>
                 </div>
+                <button className="card--delete_button">
+                    X
+                </button>
             </div>
         </ApplicationCardHeaderStyles>
     );
