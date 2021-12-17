@@ -5,7 +5,7 @@ export const MainPageContentContainer = styled.div`
     height: 100%;
 
     box-sizing: border-box;
-    padding: 1vw;
+    padding: 2vw;
     padding-bottom: 0;
 
     display: flex;

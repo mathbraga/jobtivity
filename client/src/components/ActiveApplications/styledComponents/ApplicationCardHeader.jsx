@@ -8,6 +8,7 @@ import { StatusDropdownButton } from "./StatusDropdownButton";
 import { statusTypeToColor } from "./helpers";
 
 import arrowIcon from "../../../assets/Icons/ArrowIconBlack.png";
+import deleteIcon from "../../../assets/Icons/DeleteIconWhite.png";
 
 const ApplicationCardHeaderStyles = styled.div`
     .card--header{
@@ -65,10 +66,11 @@ const ApplicationCardHeaderStyles = styled.div`
 
     .card--delete_button{
         background: #c22b2b;
-        color: white;
-        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        padding: 2px 4px;
+        padding: 0;
 
         border-radius: 2px;
         border: none;
@@ -129,7 +131,9 @@ const ApplicationCardHeader = (props) => {
                         <StatusDropdownButton status="Awaiting" onClick={() => handleStatusChange("Awaiting", index)} />
                     </div>
                 </div>
-                <button className="card--delete_button" onClick={() => handleDeleteClick(index)}>X</button>
+                <button className="card--delete_button" onClick={() => handleDeleteClick(index)}>
+                    <img src={deleteIcon} alt="X" />
+                </button>
             </div>
         </ApplicationCardHeaderStyles>
     );
