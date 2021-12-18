@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import PageTitle from "../PageTitle";
-import { ApplicationCard, TestModal } from "./styledComponents";
+import { ApplicationCard, NewApplicationForm } from "./styledComponents";
 
 const activeApplicationsPageTitle = "Active Applications";
 
@@ -10,13 +10,13 @@ const ActiveApplications = (props) => {
     const [toggleModal, setModalToggle] = useState(false);
     const { applicationsList } = props;
 
-    const handleModalToggle = () => setModalToggle(!toggleModal);
+    const handleFormToggle = () => setModalToggle(!toggleModal);
 
     return(
         <>
             <PageTitle pageTitle={activeApplicationsPageTitle} />
-            <button onClick={handleModalToggle}>+</button>
-            <TestModal isVisible={toggleModal} />
+            <button onClick={handleFormToggle}>+</button>
+            <NewApplicationForm isVisible={toggleModal} />
             {applicationsList.map((item, index) =>
                 <ApplicationCard {...item} key={index} index={index} />
             )}

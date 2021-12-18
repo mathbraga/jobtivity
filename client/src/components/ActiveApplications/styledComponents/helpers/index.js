@@ -6,3 +6,5 @@ export const statusTypeToColor = (type) => {
 
     return status[type];
 }
+
+export const checkVisibility = (isVisible) => isVisible ? "flex" : "none";

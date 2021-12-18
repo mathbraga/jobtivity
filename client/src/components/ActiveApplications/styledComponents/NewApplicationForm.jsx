@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-const visibilityStatus = (isVisible) => isVisible ? "flex" : "none";
+import { checkVisibility } from "./helpers";
 
-const TestModalContainer = styled.form`
-    display: ${props => visibilityStatus(props.isVisible)};
+const ApplicationFormContainer = styled.form`
+    display: ${props => checkVisibility(props.isVisible)};
     flex-flow: row wrap;
     justify-content: flex-start;
     align-items: center;
@@ -32,9 +32,9 @@ const TestModalContainer = styled.form`
     }
 `;
 
-export const TestModal = (props) => {
+export const NewApplicationForm = (props) => {
     return(
-        <TestModalContainer {...props}>
+        <ApplicationFormContainer {...props}>
             <div>
                 <label htmlFor="company-name">Company:</label>
                 <input id="company-name" type="text" size="10" />
@@ -51,6 +51,6 @@ export const TestModal = (props) => {
                 <label htmlFor="applicatio-role">Role:</label>
                 <input id="applicatio-role" type="text" size="10" />
             </div>
-        </TestModalContainer>
+        </ApplicationFormContainer>
     );
 }
