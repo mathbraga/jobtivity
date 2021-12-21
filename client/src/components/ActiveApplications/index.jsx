@@ -15,7 +15,7 @@ const ActiveApplications = (props) => {
     return(
         <>
             <PageTitle pageTitle={activeApplicationsPageTitle} />
-            <button onClick={handleFormToggle}>+</button>
+            {/* <button onClick={handleFormToggle}>+</button> */}
             <NewApplicationForm isVisible={toggleModal} />
             {applicationsList.map((item, index) =>
                 <ApplicationCard {...item} key={index} index={index} />

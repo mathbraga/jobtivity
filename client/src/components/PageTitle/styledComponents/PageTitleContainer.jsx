@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const PageTitleContainer = styled.div`
-    font-family: "PT Sans";
-    font-size: 1.4rem;
-    font-weight: 700;
-    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 
     margin-bottom: 1.4vw;
 

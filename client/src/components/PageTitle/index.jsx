@@ -1,13 +1,20 @@
 import React from "react";
 
-import { PageTitleContainer } from "./styledComponents/PageTitleContainer";
+import { 
+    ApplicationCounter, 
+    NewApplicationButton, 
+    PageTitleContainer, 
+    Title 
+} from "./styledComponents";
 
 const PageTitle = (props) => {
     const pageTitle = props.pageTitle;
 
     return(
         <PageTitleContainer>
-            {pageTitle}
+            <Title title={pageTitle}/>
+            <ApplicationCounter count={"(1/20)"}/>
+            <NewApplicationButton />
         </PageTitleContainer>
     );
 }
