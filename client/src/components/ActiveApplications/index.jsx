@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
 import PageTitle from "../PageTitle";
@@ -7,16 +7,12 @@ import { ApplicationCard, NewApplicationForm } from "./styledComponents";
 const activeApplicationsPageTitle = "Active Applications";
 
 const ActiveApplications = (props) => {
-    const [toggleModal, setModalToggle] = useState(false);
-    const { applicationsList } = props;
-
-    const handleFormToggle = () => setModalToggle(!toggleModal);
+    const { applicationsList, formState } = props;
 
     return(
         <>
-            <PageTitle pageTitle={activeApplicationsPageTitle} />
-            {/* <button onClick={handleFormToggle}>+</button> */}
-            <NewApplicationForm isVisible={toggleModal} />
+            <PageTitle pageTitle={activeApplicationsPageTitle} hasAddButton={true} />
+            <NewApplicationForm isVisible={formState} />
             {applicationsList.map((item, index) =>
                 <ApplicationCard {...item} key={index} index={index} />
             )}
@@ -25,7 +21,8 @@ const ActiveApplications = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    applicationsList: state.applicationsReducer.applications
+    applicationsList: state.applicationsReducer.applications,
+    formState: state.formsReducer.formVisibility
 })
 
 export default connect(mapStateToProps, null)(ActiveApplications);
