@@ -26,8 +26,10 @@ const ButtonStyles = styled.button`
 `;
 
 export const NewApplicationButton = (props) => {
+    const handleFormToggle = props.onClick;
+
     return(
-        <ButtonStyles onClick={() => console.log("clicked")}>
+        <ButtonStyles onClick={handleFormToggle}>
             <img src={addIcon} alt="Add item." />
         </ButtonStyles>
     )
