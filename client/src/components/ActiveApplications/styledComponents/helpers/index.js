@@ -7,4 +7,4 @@ export const statusTypeToColor = (type) => {
     return status[type];
 }
 
-export const checkVisibility = (isVisible) => isVisible ? "flex" : "none";
+export const returnDisplayValue = (isVisible) => isVisible ? "flex" : "none";

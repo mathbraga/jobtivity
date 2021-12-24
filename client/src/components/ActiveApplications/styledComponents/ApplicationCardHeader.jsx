@@ -65,7 +65,7 @@ const ApplicationCardHeaderStyles = styled.div`
     }
 
     .card--delete_button{
-        background-color: #c22b2b;
+        background-color: var(--color-red-tone);
         display: flex;
         justify-content: center;
         align-items: center;

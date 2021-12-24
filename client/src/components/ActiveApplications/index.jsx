@@ -8,10 +8,15 @@ const activeApplicationsPageTitle = "Active Applications";
 
 const ActiveApplications = (props) => {
     const { applicationsList, formState } = props;
+    const numberOfApplications = applicationsList.length;
 
     return(
         <>
-            <PageTitle pageTitle={activeApplicationsPageTitle} hasAddButton={true} />
+            <PageTitle 
+                pageTitle={activeApplicationsPageTitle}
+                hasAddButton={true}
+                applicationCounter={numberOfApplications}
+            />
             <NewApplicationForm isVisible={formState} />
             {applicationsList.map((item, index) =>
                 <ApplicationCard {...item} key={index} index={index} />
