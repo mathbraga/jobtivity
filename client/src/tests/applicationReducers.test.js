@@ -22,7 +22,7 @@ const sampleData = {
 
 describe("Global state manager reducers", () => {
     it("Return applications object", () => {
-        expect(reducer(undefined, {})).toEqual({applications: null});
+        expect(reducer(sampleData, {})).toEqual({...sampleData});
     });
 
     it("Should update assigned application status", () => {
