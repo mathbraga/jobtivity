@@ -1,6 +1,9 @@
 import styled from "styled-components";
+import { useState } from "react";
+import { connect } from "react-redux";
 
 import { returnDisplayValue } from "./helpers";
+import { addApplication } from "../../../store/actions/updateStatus";
 
 const ApplicationFormContainer = styled.form`
     display: ${props => returnDisplayValue(props.isVisible)};
@@ -66,31 +69,74 @@ const FormButton = styled.button`
     }
 `;
 
-export const NewApplicationForm = (props) => {
+const NewApplicationForm = (props) => {
+    const [companyName, setCompanyName] = useState("");
+    const [appliedDate, setAppliedDate] = useState("");
+    const [companyUrl, setCompanyUrl] = useState("");
+    const [applicationRole, setApplicationRole] = useState("");
+    const [applicationData, setApplicationData] = useState({});
+    const { addApplication } = props;
+
+    const handleInputChange = (event, stateToUpdate) => {
+        stateToUpdate(event.target.value);
+        let updatedData = {
+            name: companyName,
+            date: appliedDate,
+            website: companyUrl,
+            role: applicationRole,
+            status: "Awaiting"
+        }
+        setApplicationData(updatedData);
+    };
+
+    const handleFormSubmit = () => addApplication(applicationData);
+
     return(
         <ApplicationFormContainer {...props} onSubmit={(e) => e.preventDefault()}>
             <div className="form--inputs">
                 <div>
                     <label htmlFor="company-name">Company:</label>
-                    <input id="company-name" type="text"/>
+                    <input 
+                        id="company-name" 
+                        type="text" 
+                        onChange={(event, stateToUpdate = setCompanyName) => handleInputChange(event, stateToUpdate)}
+                    />
                 </div>
                 <div>
                     <label htmlFor="application-date">Date:</label>
-                    <input id="application-date" type="text"/>
+                    <input 
+                        id="application-date" 
+                        type="text"
+                        onChange={(event, stateToUpdate = setAppliedDate) => handleInputChange(event, stateToUpdate)}
+                    />
                 </div>
                 <div>
                     <label htmlFor="company-url">Website:</label>
-                    <input id="company-url" type="text"/>
+                    <input 
+                        id="company-url" 
+                        type="text"
+                        onChange={(event, stateToUpdate = setCompanyUrl) => handleInputChange(event, stateToUpdate)}
+                    />
                 </div>
                 <div>
-                    <label htmlFor="applicatio-role">Role:</label>
-                    <input id="applicatio-role" type="text"/>
+                    <label htmlFor="application-role">Role:</label>
+                    <input 
+                        id="application-role" 
+                        type="text"
+                        onChange={(event, stateToUpdate = setApplicationRole) => handleInputChange(event, stateToUpdate)}
+                    />
                 </div>                                  
             </div>
             <div className="form--submit">
-                <FormButton color="green">Add</FormButton>
+                <FormButton color="green" onClick={handleFormSubmit}>Add</FormButton>
                 <FormButton color="var(--color-red-tone)">Cancel</FormButton>
             </div>
         </ApplicationFormContainer>
     );
 }
+
+const mapDispatchToProps = dispatch => ({
+    addApplication: (newApplication) => dispatch(addApplication(newApplication))
+});
+
+export default connect(null, mapDispatchToProps)(NewApplicationForm);

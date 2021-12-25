@@ -2,7 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 
 import PageTitle from "../PageTitle";
-import { ApplicationCard, NewApplicationForm } from "./styledComponents";
+import { ApplicationCard } from "./styledComponents";
+import NewApplicationForm from "./styledComponents/NewApplicationForm";
 
 const activeApplicationsPageTitle = "Active Applications";
 
