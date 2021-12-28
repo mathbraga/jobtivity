@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import { returnDisplayValue } from "./helpers";
 import { addApplication } from "../../../store/actions/updateStatus";
+import { useEffect } from "react";
 
 const ApplicationFormContainer = styled.form`
     display: ${props => returnDisplayValue(props.isVisible)};
@@ -77,8 +78,13 @@ const NewApplicationForm = (props) => {
     const [applicationData, setApplicationData] = useState({});
     const { addApplication } = props;
 
-    const handleInputChange = (event, stateToUpdate) => {
-        stateToUpdate(event.target.value);
+    const handleInputChange = (event, stateToUpdate) => stateToUpdate(event.target.value);
+
+    const handleFormSubmit = () => {
+        addApplication(applicationData)
+    }
+
+    useEffect(() => {
         let updatedData = {
             name: companyName,
             date: appliedDate,
@@ -87,9 +93,7 @@ const NewApplicationForm = (props) => {
             status: "Awaiting"
         }
         setApplicationData(updatedData);
-    };
-
-    const handleFormSubmit = () => addApplication(applicationData);
+    }, [companyName, appliedDate, companyUrl, applicationRole]);
 
     return(
         <ApplicationFormContainer {...props} onSubmit={(e) => e.preventDefault()}>
@@ -99,7 +103,7 @@ const NewApplicationForm = (props) => {
                     <input 
                         id="company-name" 
                         type="text" 
-                        onChange={(event, stateToUpdate = setCompanyName) => handleInputChange(event, stateToUpdate)}
+                        onInput={(event, stateToUpdate = setCompanyName) => handleInputChange(event, stateToUpdate)}
                     />
                 </div>
                 <div>
