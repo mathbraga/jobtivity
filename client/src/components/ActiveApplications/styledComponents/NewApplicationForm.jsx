@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useRef } from "react";
 import { connect } from "react-redux";
 
 import { returnDisplayValue } from "./helpers";
 import { addApplication } from "../../../store/actions/updateStatus";
-import { useEffect } from "react";
 
 const ApplicationFormContainer = styled.form`
     display: ${props => returnDisplayValue(props.isVisible)};
@@ -71,39 +70,48 @@ const FormButton = styled.button`
 `;
 
 const NewApplicationForm = (props) => {
-    const [companyName, setCompanyName] = useState("");
-    const [appliedDate, setAppliedDate] = useState("");
-    const [companyUrl, setCompanyUrl] = useState("");
-    const [applicationRole, setApplicationRole] = useState("");
-    const [applicationData, setApplicationData] = useState({});
     const { addApplication } = props;
+    const formInputRefs = {
+        companyElement: useRef(null),
+        dateElement: useRef(null),
+        urlElement: useRef(null),
+        roleElement: useRef(null)
+    }
+    const { 
+        companyElement,
+        dateElement,
+        urlElement,
+        roleElement
+    } = formInputRefs;
 
-    const handleInputChange = (event, stateToUpdate) => stateToUpdate(event.target.value);
-
-    const handleFormSubmit = () => {
-        addApplication(applicationData)
+    const handleFormCancel = () => {
+        companyElement.current.value = "";
+        dateElement.current.value = "";
+        urlElement.current.value = "";
+        roleElement.current.value = "";
     }
 
-    useEffect(() => {
-        let updatedData = {
-            name: companyName,
-            date: appliedDate,
-            website: companyUrl,
-            role: applicationRole,
+    const handleFormSubmit = () => {
+        const newData = {
+            name: companyElement.current.value,
+            date:dateElement.current.value,
+            website: urlElement.current.value,
+            role: roleElement.current.value,
             status: "Awaiting"
         }
-        setApplicationData(updatedData);
-    }, [companyName, appliedDate, companyUrl, applicationRole]);
+        addApplication(newData);
+        handleFormCancel();
+    };
 
     return(
         <ApplicationFormContainer {...props} onSubmit={(e) => e.preventDefault()}>
             <div className="form--inputs">
                 <div>
-                    <label htmlFor="company-name">Company:</label>
+                    <label htmlFor="companyName">Company:</label>
                     <input 
-                        id="company-name" 
-                        type="text" 
-                        onInput={(event, stateToUpdate = setCompanyName) => handleInputChange(event, stateToUpdate)}
+                        id="companyName"
+                        type="text"
+                        ref={companyElement}
                     />
                 </div>
                 <div>
@@ -111,7 +119,7 @@ const NewApplicationForm = (props) => {
                     <input 
                         id="application-date" 
                         type="text"
-                        onChange={(event, stateToUpdate = setAppliedDate) => handleInputChange(event, stateToUpdate)}
+                        ref={dateElement}
                     />
                 </div>
                 <div>
@@ -119,7 +127,7 @@ const NewApplicationForm = (props) => {
                     <input 
                         id="company-url" 
                         type="text"
-                        onChange={(event, stateToUpdate = setCompanyUrl) => handleInputChange(event, stateToUpdate)}
+                        ref={urlElement}
                     />
                 </div>
                 <div>
@@ -127,13 +135,13 @@ const NewApplicationForm = (props) => {
                     <input 
                         id="application-role" 
                         type="text"
-                        onChange={(event, stateToUpdate = setApplicationRole) => handleInputChange(event, stateToUpdate)}
+                        ref={roleElement}
                     />
                 </div>                                  
             </div>
             <div className="form--submit">
                 <FormButton color="green" onClick={handleFormSubmit}>Add</FormButton>
-                <FormButton color="var(--color-red-tone)">Cancel</FormButton>
+                <FormButton color="var(--color-red-tone)" onClick={handleFormCancel}>Cancel</FormButton>
             </div>
         </ApplicationFormContainer>
     );
