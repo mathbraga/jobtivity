@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import { returnDisplayValue } from "./helpers";
 import { addApplication } from "../../../store/actions/updateStatus";
+import { toggleFormVisibility } from "../../../store/actions/toggleFormVisibility";
 
 const ApplicationFormContainer = styled.form`
     display: ${props => returnDisplayValue(props.isVisible)};
@@ -70,7 +71,7 @@ const FormButton = styled.button`
 `;
 
 const NewApplicationForm = (props) => {
-    const { addApplication } = props;
+    const { addApplication, toggleForm } = props;
     const formInputRefs = {
         companyElement: useRef(null),
         dateElement: useRef(null),
@@ -89,6 +90,7 @@ const NewApplicationForm = (props) => {
         dateElement.current.value = "";
         urlElement.current.value = "";
         roleElement.current.value = "";
+        toggleForm();
     }
 
     const handleFormSubmit = () => {
@@ -148,7 +150,8 @@ const NewApplicationForm = (props) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    addApplication: (newApplication) => dispatch(addApplication(newApplication))
+    addApplication: (newApplication) => dispatch(addApplication(newApplication)),
+    toggleForm: () => dispatch(toggleFormVisibility())
 });
 
 export default connect(null, mapDispatchToProps)(NewApplicationForm);
