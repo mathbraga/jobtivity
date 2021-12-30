@@ -1,31 +1,16 @@
-import styled from "styled-components";
 import { useRef } from "react";
 import { connect } from "react-redux";
 
-import { returnDisplayValue } from "./helpers";
 import { addApplication } from "../../../store/actions/updateStatus";
 import { toggleFormVisibility } from "../../../store/actions/toggleFormVisibility";
 
+import { ApplicationFormContainer } from "./ApplicationFormContainer";
 import { 
     FormButton,
     FormInput,
     FormContainer,
     FormSubmit
 } from "../../Form";
-
-const ApplicationFormContainer = styled.form`
-    display: ${props => returnDisplayValue(props.isVisible)};
-    flex-direction: column;
-
-    padding: 12px;
-    margin-bottom: 12px;
-
-    border: 1px solid var(--color-alternative);
-    border-radius: 4px;
-
-    width: 60%;
-    height: auto;
-`;
 
 const NewApplicationForm = (props) => {
     const { addApplication, toggleForm } = props;
