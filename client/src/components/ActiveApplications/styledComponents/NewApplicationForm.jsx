@@ -12,6 +12,11 @@ import {
     FormSubmit
 } from "../../Form";
 
+import companyIcon from "../../../assets/Icons/CompanyIcon.png";
+import roleIcon from "../../../assets/Icons/RoleIcon.png";
+import urlIcon from "../../../assets/Icons/UrlIcon.png";
+import calendarIcon from "../../../assets/Icons/CalendarIcon.png";
+
 const NewApplicationForm = (props) => {
     const { addApplication, toggleForm } = props;
     const formInputRefs = {
@@ -50,10 +55,10 @@ const NewApplicationForm = (props) => {
     return(
         <ApplicationFormContainer {...props} onSubmit={(e) => e.preventDefault()}>
             <FormContainer>
-                <FormInput labelName="Company" inputType="text" elementRef={companyElement} />
-                <FormInput labelName="Date" inputType="text" elementRef={dateElement} />
-                <FormInput labelName="Url" inputType="text" elementRef={urlElement} />
-                <FormInput labelName="Role" inputType="text" elementRef={roleElement} />
+                <FormInput labelName="Company" inputType="text" elementRef={companyElement} icon={companyIcon} />
+                <FormInput labelName="Role" inputType="text" elementRef={roleElement} icon={roleIcon} />
+                <FormInput labelName="Url" inputType="text" elementRef={urlElement} icon={urlIcon} />
+                <FormInput labelName="Applied" inputType="text" elementRef={dateElement} icon={calendarIcon} />
             </FormContainer>
             <FormSubmit>
                 <FormButton color="green" onClick={handleFormSubmit}>Add</FormButton>

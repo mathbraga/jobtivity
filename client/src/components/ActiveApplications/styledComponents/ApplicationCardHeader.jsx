@@ -127,7 +127,7 @@ const ApplicationCardHeader = (props) => {
                     </button>
                     <img className={arrowClassName} src={arrowIcon} alt="Open menu icon" />
                     <div className={badgeClassName}>
-                        <StatusDropdownButton status="Contact" onClick={() => handleStatusChange("Contact", index)} />
+                        <StatusDropdownButton status="Scheduled" onClick={() => handleStatusChange("Scheduled", index)} />
                         <StatusDropdownButton status="Awaiting" onClick={() => handleStatusChange("Awaiting", index)} />
                     </div>
                 </div>

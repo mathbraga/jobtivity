@@ -1,6 +1,6 @@
 export const statusTypeToColor = (type) => {
     const status = {
-        "Contact": "green",
+        "Scheduled": "green",
         "Awaiting": "grey"
     };
 

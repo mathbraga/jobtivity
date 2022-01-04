@@ -2,7 +2,7 @@ import { statusTypeToColor } from "../components/ActiveApplications/styledCompon
 
 describe("Status badge color", () => {
     it("Convert status to appropriate color", () => {
-        expect(statusTypeToColor("Contact")).toEqual("green");
+        expect(statusTypeToColor("Scheduled")).toEqual("green");
         expect(statusTypeToColor("Awaiting")).toEqual("grey");
     })
 })

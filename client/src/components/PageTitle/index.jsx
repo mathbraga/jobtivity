@@ -18,7 +18,7 @@ const PageTitle = (props) => {
     return(
         <PageTitleContainer>
             <Title title={pageTitle}/>
-            <ApplicationCounter count={`(${applicationCounter}/20)`}/>
+            <ApplicationCounter count={`(${applicationCounter}/30)`}/>
             {props.hasAddButton ? <NewApplicationButton onClick={handleFormToggle} /> : null}
         </PageTitleContainer>
     );

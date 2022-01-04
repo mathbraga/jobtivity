@@ -2,23 +2,33 @@ import styled from "styled-components";
 
 const FormInputContainer = styled.div`
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 
     flex-basis: 50%;
 
-    label{
+    div{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    div label{
         font-weight: bold;
-        padding-right: 4px;
+        padding-left: 4px;
     }
 `;
 
 export const FormInput = (props) => {
-    const { labelName, inputType, elementRef } = props;
+    const { labelName, inputType, elementRef, icon } = props;
 
     return(
         <FormInputContainer>
-            <label htmlFor="refLabel">{labelName}:</label>
+            <div>
+                <img src={icon} alt="" />
+                <label htmlFor="refLabel" text-muted>{labelName}</label>
+            </div>
             <input 
                 id="refLabel"
                 type={inputType}
