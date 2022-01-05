@@ -6,8 +6,6 @@ const FormInputContainer = styled.div`
     justify-content: center;
     align-items: flex-start;
 
-    flex-basis: 50%;
-
     div{
         display: flex;
         justify-content: flex-start;
@@ -17,6 +15,13 @@ const FormInputContainer = styled.div`
     div label{
         font-weight: bold;
         padding-left: 4px;
+    }
+
+    input{
+        box-sizing: border-box;
+
+        border: 1px solid #ccc;
+        border-radius: 4px;
     }
 `;
 
