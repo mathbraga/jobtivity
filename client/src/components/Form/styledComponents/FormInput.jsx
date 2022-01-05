@@ -6,6 +6,8 @@ const FormInputContainer = styled.div`
     justify-content: center;
     align-items: flex-start;
 
+    padding-bottom: 4px;
+
     div{
         display: flex;
         justify-content: flex-start;
@@ -22,6 +24,11 @@ const FormInputContainer = styled.div`
 
         border: 1px solid #ccc;
         border-radius: 4px;
+
+        width: 100%;
+        height: 28px;
+
+        padding: 4px;
     }
 `;
 
@@ -29,7 +36,7 @@ export const FormInput = (props) => {
     const { labelName, inputType, elementRef, icon } = props;
 
     return(
-        <FormInputContainer>
+        <FormInputContainer className="blablabla">
             <div>
                 <img src={icon} alt="" />
                 <label htmlFor="refLabel" text-muted>{labelName}</label>
