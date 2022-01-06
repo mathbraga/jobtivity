@@ -60,7 +60,7 @@ export const ApplicationContentContainer = (props) => {
                         <img src={urlIcon} alt="" />
                         <span>Url</span>
                     </span> 
-                    {props.website}
+                    <a href="/" rel="noreferrer" target="_blank">{props.website}</a>
                 </div>
                 <div>
                     <span>

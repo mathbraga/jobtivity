@@ -31,19 +31,24 @@ const NewApplicationForm = (props) => {
         urlElement,
         roleElement
     } = formInputRefs;
+    const roleOptions = ["FrontEnd", "BackEnd", "FullStack"];
 
     const handleFormCancel = () => {
         companyElement.current.value = "";
         dateElement.current.value = "";
         urlElement.current.value = "";
-        roleElement.current.value = "";
+        roleElement.current.value = roleOptions[0];
         toggleForm();
     }
 
-    const handleFormSubmit = () => {
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        // const currentDate = new Date(Date.now());
+        // const formatDate = `${currentDate.getDate()}/${currentDate.getMonth()+1}/${currentDate.getFullYear()}`
+
         const newData = {
             name: companyElement.current.value,
-            date:dateElement.current.value,
+            date: dateElement.current.value,
             website: urlElement.current.value,
             role: roleElement.current.value,
             status: "Awaiting"
@@ -53,18 +58,44 @@ const NewApplicationForm = (props) => {
     };
 
     return(
-        <ApplicationFormContainer {...props} onSubmit={(e) => e.preventDefault()}>
-            <FormContainer>
-                <FormInput labelName="Company" inputType="text" elementRef={companyElement} icon={companyIcon} />
-                <FormInput labelName="Role" inputType="text" elementRef={roleElement} icon={roleIcon} />
-                <FormInput labelName="Url" inputType="text" elementRef={urlElement} icon={urlIcon} />
-                <FormInput labelName="Applied" inputType="text" elementRef={dateElement} icon={calendarIcon} />
-            </FormContainer>
-            <FormSubmit>
-                <FormButton color="green" onClick={handleFormSubmit}>Add</FormButton>
-                <FormButton color="var(--color-red-tone)" onClick={handleFormCancel}>Cancel</FormButton>
-            </FormSubmit>
-        </ApplicationFormContainer>
+            <ApplicationFormContainer {...props} onSubmit={(e) => handleFormSubmit(e)}>
+                <FormContainer>
+                    <FormInput 
+                        labelName="Company"
+                        inputType="text"
+                        placeholder="Company name..."
+                        elementRef={companyElement}
+                        icon={companyIcon}
+                        isRequired
+                    />
+                    <FormInput 
+                        labelName="Role"
+                        inputType="text"
+                        elementRef={roleElement}
+                        icon={roleIcon}
+                        isRequired
+                        isSelect
+                        optionsList={roleOptions}
+                    />
+                    <FormInput 
+                        labelName="Url"
+                        inputType="text"
+                        placeholder="Company website, application url..."
+                        elementRef={urlElement}
+                        icon={urlIcon}
+                    />
+                    <FormInput 
+                        labelName="Applied"
+                        inputType="date"
+                        elementRef={dateElement}
+                        icon={calendarIcon}
+                    />
+                </FormContainer>
+                <FormSubmit>
+                    <FormButton color="green" submitValue="Add" />
+                    <FormButton color="var(--color-red-tone)" onClick={handleFormCancel} submitValue="Cancel" />
+                </FormSubmit>
+            </ApplicationFormContainer>
     );
 }
 

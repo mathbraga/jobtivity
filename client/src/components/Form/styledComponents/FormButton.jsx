@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
-export const FormButton = styled.button`
-    font-weight: bold;
+const FormButtonContainer = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     padding: 4px 8px;
 
     background-color: ${props => props.color};
-    color: white;
 
     border: none;
     border-radius: 4px;
@@ -17,4 +19,24 @@ export const FormButton = styled.button`
     :active{
         box-shadow: none;
     }
+
+    input{
+        background-color: inherit;
+        border: inherit;
+
+        font-weight: bold;
+        color: white;
+
+        cursor: inherit;
+    }
 `;
+
+export const FormButton = (props) => {
+    const { submitValue, ...otherProps } = props;
+
+    return(
+        <FormButtonContainer {...otherProps}>
+            <input type="submit" form={props.refForm} value={submitValue} />
+        </FormButtonContainer>
+    )
+}

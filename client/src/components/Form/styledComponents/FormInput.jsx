@@ -19,8 +19,9 @@ const FormInputContainer = styled.div`
         padding-left: 4px;
     }
 
-    input{
+    .form--element{
         box-sizing: border-box;
+        background-color: rgba(204,204,204,0.2);
 
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -28,24 +29,57 @@ const FormInputContainer = styled.div`
         width: 100%;
         height: 28px;
 
-        padding: 4px;
+        padding: 4px 12px;
     }
 `;
 
 export const FormInput = (props) => {
-    const { labelName, inputType, elementRef, icon } = props;
+    const { 
+        labelName,
+        inputType,
+        placeholder,
+        elementRef, 
+        icon, 
+        isRequired,
+        isSelect,
+        optionsList } = props;
 
     return(
-        <FormInputContainer className="blablabla">
+        <FormInputContainer>
             <div>
                 <img src={icon} alt="" />
-                <label htmlFor="refLabel" text-muted>{labelName}</label>
+                <label htmlFor="refLabel">{labelName}</label>
             </div>
-            <input 
-                id="refLabel"
-                type={inputType}
-                ref={elementRef}
-            />
+            {isSelect ? 
+                <select 
+                    id="refLabel"
+                    className="form--element"
+                    ref={elementRef}
+                    defaultValue={optionsList[0]}
+                >
+                    {optionsList.map(
+                        (option, index) => {
+                            return(
+                                <option 
+                                    value={option}
+                                    key={index}
+                                >
+                                    {option}
+                                </option>
+                            )
+                        }
+                        )
+                    }
+                </select> :
+                <input 
+                    id="refLabel"
+                    className="form--element"
+                    placeholder={placeholder}
+                    type={inputType}
+                    ref={elementRef}
+                    required={isRequired}
+                />
+            }
         </FormInputContainer>
     )
 }
