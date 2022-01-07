@@ -40,9 +40,7 @@ export const FormInput = (props) => {
         placeholder,
         elementRef, 
         icon, 
-        isRequired,
-        isSelect,
-        optionsList } = props;
+        isRequired } = props;
 
     return(
         <FormInputContainer>
@@ -50,36 +48,14 @@ export const FormInput = (props) => {
                 <img src={icon} alt="" />
                 <label htmlFor="refLabel">{labelName}</label>
             </div>
-            {isSelect ? 
-                <select 
-                    id="refLabel"
-                    className="form--element"
-                    ref={elementRef}
-                    defaultValue={optionsList[0]}
-                >
-                    {optionsList.map(
-                        (option, index) => {
-                            return(
-                                <option 
-                                    value={option}
-                                    key={index}
-                                >
-                                    {option}
-                                </option>
-                            )
-                        }
-                        )
-                    }
-                </select> :
-                <input 
-                    id="refLabel"
-                    className="form--element"
-                    placeholder={placeholder}
-                    type={inputType}
-                    ref={elementRef}
-                    required={isRequired}
-                />
-            }
+            <input
+                id="refLabel"
+                className="form--element"
+                placeholder={placeholder}
+                type={inputType}
+                ref={elementRef}
+                required={isRequired}
+            />
         </FormInputContainer>
     )
 }

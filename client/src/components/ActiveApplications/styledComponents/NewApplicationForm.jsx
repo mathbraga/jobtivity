@@ -9,7 +9,8 @@ import {
     FormButton,
     FormInput,
     FormContainer,
-    FormSubmit
+    FormSubmit,
+    FormSelect
 } from "../../Form";
 
 import companyIcon from "../../../assets/Icons/CompanyIcon.png";
@@ -68,13 +69,11 @@ const NewApplicationForm = (props) => {
                         icon={companyIcon}
                         isRequired
                     />
-                    <FormInput 
+                    <FormSelect 
                         labelName="Role"
-                        inputType="text"
                         elementRef={roleElement}
                         icon={roleIcon}
                         isRequired
-                        isSelect
                         optionsList={roleOptions}
                     />
                     <FormInput 
