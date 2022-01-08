@@ -40,7 +40,8 @@ export const FormInput = (props) => {
         placeholder,
         elementRef, 
         icon, 
-        isRequired } = props;
+        isRequired,
+        defaultValue } = props;
 
     return(
         <FormInputContainer>
@@ -55,6 +56,7 @@ export const FormInput = (props) => {
                 type={inputType}
                 ref={elementRef}
                 required={isRequired}
+                defaultValue={defaultValue}
             />
         </FormInputContainer>
     )

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { addApplication } from "../../../store/actions/updateStatus";
 import { toggleFormVisibility } from "../../../store/actions/toggleFormVisibility";
+import { formattedDate } from "./helpers";
 
 import { ApplicationFormContainer } from "./ApplicationFormContainer";
 import { 
@@ -34,9 +35,11 @@ const NewApplicationForm = (props) => {
     } = formInputRefs;
     const roleOptions = ["FrontEnd", "BackEnd", "FullStack"];
 
-    const handleFormCancel = () => {
+    const handleFormCancel = (event) => {
+        const _ = event ? event.preventDefault() : null;
+
         companyElement.current.value = "";
-        dateElement.current.value = "";
+        dateElement.current.value = formattedDate();
         urlElement.current.value = "";
         roleElement.current.value = roleOptions[0];
         toggleForm();
@@ -44,8 +47,6 @@ const NewApplicationForm = (props) => {
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        // const currentDate = new Date(Date.now());
-        // const formatDate = `${currentDate.getDate()}/${currentDate.getMonth()+1}/${currentDate.getFullYear()}`
 
         const newData = {
             name: companyElement.current.value,
@@ -73,7 +74,6 @@ const NewApplicationForm = (props) => {
                         labelName="Role"
                         elementRef={roleElement}
                         icon={roleIcon}
-                        isRequired
                         optionsList={roleOptions}
                     />
                     <FormInput 
@@ -88,11 +88,12 @@ const NewApplicationForm = (props) => {
                         inputType="date"
                         elementRef={dateElement}
                         icon={calendarIcon}
+                        defaultValue={formattedDate()}
                     />
                 </FormContainer>
                 <FormSubmit>
                     <FormButton color="green" submitValue="Add" />
-                    <FormButton color="var(--color-red-tone)" onClick={handleFormCancel} submitValue="Cancel" />
+                    <FormButton color="var(--color-red-tone)" onClick={e => handleFormCancel(e)} submitValue="Cancel" />
                 </FormSubmit>
             </ApplicationFormContainer>
     );

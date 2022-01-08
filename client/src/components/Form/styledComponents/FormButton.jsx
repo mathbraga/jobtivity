@@ -36,7 +36,7 @@ export const FormButton = (props) => {
 
     return(
         <FormButtonContainer {...otherProps}>
-            <input type="submit" form={props.refForm} value={submitValue} />
+            <input type="submit" value={submitValue} />
         </FormButtonContainer>
     )
 }
