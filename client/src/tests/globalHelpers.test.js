@@ -4,6 +4,8 @@ import {
     convertObjectToString 
 } from "../globalHelperFunctions/dataConversionHelpers";
 
+import { formattedDate } from "../components/ActiveApplications/styledComponents/helpers/"
+
 const storageName = "applicationsList";
 
 describe("Local storage", () => {
@@ -27,4 +29,10 @@ describe("Data manipulation for local storage", () => {
 
         expect(typeof convertObjectToString(sampleObjectData)).toEqual('string');
     });
+});
+
+describe("Date formatting functions", () => {
+    it("Return date in yyyy-mm-dd format", () => {
+        expect(formattedDate(new Date("January 7, 2022"))).toEqual("2022-01-07");
+    })
 });
