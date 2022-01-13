@@ -20,7 +20,7 @@ const FormButtonContainer = styled.button`
         box-shadow: none;
     }
 
-    input{
+    .form--button{
         background-color: inherit;
         border: inherit;
 
@@ -32,11 +32,15 @@ const FormButtonContainer = styled.button`
 `;
 
 export const FormButton = (props) => {
-    const { submitValue, ...otherProps } = props;
+    const { buttonValue, buttonType, ...otherProps } = props;
 
     return(
         <FormButtonContainer {...otherProps}>
-            <input type="submit" value={submitValue} />
+            {buttonType === "submit" ? 
+                <input className="form--button" type={buttonType} value={buttonValue} />
+                :
+                <div className="form--button">{buttonValue}</div>
+            }
         </FormButtonContainer>
     )
 }

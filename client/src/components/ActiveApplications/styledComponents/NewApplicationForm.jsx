@@ -35,9 +35,7 @@ const NewApplicationForm = (props) => {
     } = formInputRefs;
     const roleOptions = ["FrontEnd", "BackEnd", "FullStack"];
 
-    const handleFormCancel = (event) => {
-        const _ = event ? event.preventDefault() : null;
-
+    const handleFormCancel = () => {
         companyElement.current.value = "";
         dateElement.current.value = formatDate();
         urlElement.current.value = "";
@@ -60,7 +58,7 @@ const NewApplicationForm = (props) => {
     };
 
     return(
-            <ApplicationFormContainer {...props} onSubmit={(e) => handleFormSubmit(e)}>
+            <ApplicationFormContainer name="newApplicationForm" {...props} onSubmit={(e) => handleFormSubmit(e)}>
                 <FormContainer>
                     <FormInput 
                         labelName="Company"
@@ -92,8 +90,8 @@ const NewApplicationForm = (props) => {
                     />
                 </FormContainer>
                 <FormSubmit>
-                    <FormButton color="green" submitValue="Add" />
-                    <FormButton color="var(--color-red-tone)" onClick={e => handleFormCancel(e)} submitValue="Cancel" />
+                    <FormButton buttonType="submit" color="green" buttonValue="Add" />
+                    <FormButton type="button" color="var(--color-red-tone)" onClick={handleFormCancel} buttonValue="Cancel" />
                 </FormSubmit>
             </ApplicationFormContainer>
     );

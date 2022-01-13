@@ -47,7 +47,7 @@ export const FormInput = (props) => {
         <FormInputContainer>
             <div>
                 <img src={icon} alt="" />
-                <label htmlFor="refLabel">{labelName}</label>
+                <label htmlFor={"refLabel"}>{labelName}</label>
             </div>
             <input
                 id="refLabel"
