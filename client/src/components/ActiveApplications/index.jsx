@@ -9,7 +9,8 @@ const activeApplicationsPageTitle = "Active Applications";
 
 const ActiveApplications = (props) => {
     const { applicationsList, formState } = props;
-    const numberOfApplications = applicationsList.length;
+    const numberOfApplications = applicationsList ? applicationsList.length : 0;
+    const applications = applicationsList ? applicationsList : [];
 
     return(
         <>
@@ -19,7 +20,7 @@ const ActiveApplications = (props) => {
                 applicationCounter={numberOfApplications}
             />
             <NewApplicationForm isVisible={formState} />
-            {applicationsList.map((item, index) =>
+            {applications.map((item, index) =>
                 <ApplicationCard {...item} key={index} index={index} />
             )}
         </>

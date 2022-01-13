@@ -20,7 +20,7 @@ export default function reducer(state = initial_state, action){
 
     else if(action.type === "ADD_APPLICATION"){
         let updatedData = "";
-        let currentApplications = state.applications;
+        let currentApplications = state.applications ? state.applications : [];
 
         state.applications = [action.newApplication, ...currentApplications];
         updatedData = convertObjectToString(state.applications);
