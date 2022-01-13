@@ -4,7 +4,10 @@ import {
     convertObjectToString 
 } from "../globalHelperFunctions/dataConversionHelpers";
 
-import { formattedDate } from "../components/ActiveApplications/styledComponents/helpers/"
+import {
+    formatDate,
+    prettifyDate
+} from "../components/ActiveApplications/styledComponents/helpers/";
 
 const storageName = "applicationsList";
 
@@ -33,6 +36,10 @@ describe("Data manipulation for local storage", () => {
 
 describe("Date formatting functions", () => {
     it("Return date in yyyy-mm-dd format", () => {
-        expect(formattedDate(new Date("January 7, 2022"))).toEqual("2022-01-07");
+        expect(formatDate(new Date("January 7, 2022"))).toEqual("2022-01-07");
+    })
+
+    it("Return date in the form of 'dd Month yyyy'", () => {
+        expect(prettifyDate("2022-01-13")).toEqual("13 Jan 2022");
     })
 });

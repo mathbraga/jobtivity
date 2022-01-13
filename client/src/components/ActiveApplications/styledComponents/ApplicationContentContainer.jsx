@@ -5,6 +5,8 @@ import roleIcon from "../../../assets/Icons/RoleIcon.png";
 import urlIcon from "../../../assets/Icons/UrlIcon.png";
 import calendarIcon from "../../../assets/Icons/CalendarIcon.png";
 
+import { prettifyDate } from "./helpers";
+
 const ApplicationContentContainerStyles = styled.div`
     .card--content{
         display: flex;
@@ -38,6 +40,9 @@ const ApplicationContentContainerStyles = styled.div`
 `;
 
 export const ApplicationContentContainer = (props) => {
+    const { date } = props;
+    const prettyDate = prettifyDate(date);
+
     return(
         <ApplicationContentContainerStyles>
             <div className="card--content">
@@ -67,7 +72,7 @@ export const ApplicationContentContainer = (props) => {
                         <img src={calendarIcon} alt="" />
                         <span>Applied</span>
                     </span> 
-                    {props.date}
+                    {prettyDate}
                 </div>
             </div>
         </ApplicationContentContainerStyles>

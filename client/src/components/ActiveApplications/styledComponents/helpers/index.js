@@ -9,7 +9,7 @@ export const statusTypeToColor = (type) => {
 
 export const returnDisplayValue = (isVisible) => isVisible ? "flex" : "none";
 
-export const formattedDate = (currentDate = new Date(Date.now())) => {
+export const formatDate = (currentDate = new Date(Date.now())) => {
     const [year, month, day] = [
         currentDate.getFullYear(),
         currentDate.getMonth()+1,
@@ -19,4 +19,14 @@ export const formattedDate = (currentDate = new Date(Date.now())) => {
     const fullDate = `${year}-${month}-${day}`;
 
     return fullDate;
+}
+
+export const prettifyDate = (date) => {
+    const monthsByName = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const [year, month, day] =  date.split("-");
+    const monthNumber = parseInt(month) - 1;
+    const prettyDate = `${day} ${monthsByName[monthNumber]} ${year}`
+
+    return prettyDate
 }

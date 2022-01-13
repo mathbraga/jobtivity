@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { addApplication } from "../../../store/actions/updateStatus";
 import { toggleFormVisibility } from "../../../store/actions/toggleFormVisibility";
-import { formattedDate } from "./helpers";
+import { formatDate } from "./helpers";
 
 import { ApplicationFormContainer } from "./ApplicationFormContainer";
 import { 
@@ -39,7 +39,7 @@ const NewApplicationForm = (props) => {
         const _ = event ? event.preventDefault() : null;
 
         companyElement.current.value = "";
-        dateElement.current.value = formattedDate();
+        dateElement.current.value = formatDate();
         urlElement.current.value = "";
         roleElement.current.value = roleOptions[0];
         toggleForm();
@@ -88,7 +88,7 @@ const NewApplicationForm = (props) => {
                         inputType="date"
                         elementRef={dateElement}
                         icon={calendarIcon}
-                        defaultValue={formattedDate()}
+                        defaultValue={formatDate()}
                     />
                 </FormContainer>
                 <FormSubmit>
