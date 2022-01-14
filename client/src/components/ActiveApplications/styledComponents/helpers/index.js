@@ -25,8 +25,9 @@ export const prettifyDate = (date) => {
     const monthsByName = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 
                         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const [year, month, day] =  date.split("-");
+    const trimmedDay = JSON.stringify(parseInt(day));
     const monthNumber = parseInt(month) - 1;
-    const prettyDate = `${day} ${monthsByName[monthNumber]} ${year}`
+    const prettyDate = `${trimmedDay} ${monthsByName[monthNumber]} ${year}`
 
     return prettyDate
 }
