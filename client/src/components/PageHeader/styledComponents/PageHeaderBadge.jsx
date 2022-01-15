@@ -4,9 +4,7 @@ import { PageHeaderBadgeContent } from "./PageHeaderBadgeContent";
 
 const PageHeaderBadgeStyles = styled.div`
     padding: 0 1.6vw;
-
-    position: relative;
-    left: 12vw;
+    margin-left: 12vw;
 
     height: 100%;
 

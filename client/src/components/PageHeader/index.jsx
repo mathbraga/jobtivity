@@ -2,7 +2,8 @@ import React from "react";
 
 import { 
     PageHeaderBadge,
-    PageHeaderContainer 
+    PageHeaderContainer,
+    PageHeaderButton
 } from "./styledComponents";
 
 const PageHeader = () => {
