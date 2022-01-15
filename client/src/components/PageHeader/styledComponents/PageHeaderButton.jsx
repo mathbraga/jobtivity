@@ -16,10 +16,10 @@ export const PageHeaderButton = styled.div`
     cursor: pointer;
 
     box-sizing: border-box;
-    border-bottom: 0px solid gold;
+    border-bottom: 0px solid var(--color-alternative);
     transition: 0.2s border;
 
     :hover{
-        border-bottom: 3px solid gold;
+        border-bottom: 3px solid var(--color-alternative);
     }
 `;
