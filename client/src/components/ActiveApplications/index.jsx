@@ -14,7 +14,10 @@ const SearchBar = styled.div`
     width: 60%;
     height: 40px;
 
-    border: 1px solid #ccc;
+    background-color: #979797;
+
+    border: 1px solid #979797;
+    border-radius: 4px;
 
     margin-bottom: 12px;
 
@@ -23,14 +26,15 @@ const SearchBar = styled.div`
     align-items: center;
 
     img{
-        background-color: #ccc;
         padding: 8px;
     }
 
     input{
         width: 100%;
         height: 100%;
-        border: 1px solid #ccc;
+        border: 1px solid #979797;
+
+        padding: 8px;
     }
 `
 
@@ -38,6 +42,12 @@ const ActiveApplications = (props) => {
     const { applicationsList, formState } = props;
     const numberOfApplications = applicationsList ? applicationsList.length : 0;
     const applications = applicationsList ? applicationsList : [];
+    // const searchBarRef = useRef(null);
+    // const [filteredApplications, setApplicationList] = useState([]);
+
+    // const searchList = (applicationData) => {
+    //     const searchResult = applicationData.filter
+    // }
 
     return(
         <>
@@ -48,8 +58,8 @@ const ActiveApplications = (props) => {
             />
             <NewApplicationForm isVisible={formState} />
             <SearchBar>
-                <img src={SearchIcon} alt="Search Icon" />
-                <input type="text" />
+                <img src={SearchIcon} alt="Search Icon"/>
+                <input type="text" placeholder="Search..."/>
             </SearchBar>
             {applications.map((item, index) =>
                 <ApplicationCard {...item} key={index} index={index} />
