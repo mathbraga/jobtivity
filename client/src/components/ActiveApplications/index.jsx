@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { connect } from "react-redux";
 
 import PageTitle from "../PageTitle";
@@ -42,12 +42,37 @@ const ActiveApplications = (props) => {
     const { applicationsList, formState } = props;
     const numberOfApplications = applicationsList ? applicationsList.length : 0;
     const applications = applicationsList ? applicationsList : [];
-    // const searchBarRef = useRef(null);
-    // const [filteredApplications, setApplicationList] = useState([]);
+    const searchBarRef = useRef(null);
+    const [filteredApplications, setApplicationList] = useState(applications);
 
-    // const searchList = (applicationData) => {
-    //     const searchResult = applicationData.filter
-    // }
+    const searchList = (applicationData) => {
+        const searchTermLower = searchBarRef.current.value.toLowerCase();
+        const searchResult = applicationData.filter(item => {
+            const { name, role, website, date, status } = item; 
+            const [
+                lowerName,
+                lowerRole,
+                lowerWebsite,
+                lowerDate,
+                lowerStatus
+            ] = [
+                name.toLowerCase(),
+                role.toLowerCase(),
+                website.toLowerCase(),
+                date.toLowerCase(),
+                status.toLowerCase()
+            ];
+
+            return(
+                lowerName.includes(searchTermLower) ||
+                lowerRole.includes(searchTermLower) ||
+                lowerWebsite.includes(searchTermLower) ||
+                lowerDate.includes(searchTermLower) ||
+                lowerStatus.includes(searchTermLower)
+            )
+        });
+        setApplicationList(searchResult);
+    }
 
     return(
         <>
@@ -59,9 +84,10 @@ const ActiveApplications = (props) => {
             <NewApplicationForm isVisible={formState} />
             <SearchBar>
                 <img src={SearchIcon} alt="Search Icon"/>
-                <input type="text" placeholder="Search..."/>
+                <input type="text" placeholder="Search..." ref={searchBarRef} onChange={() => searchList(applications)} />
             </SearchBar>
-            {applications.map((item, index) =>
+            {/* TODO: Fix bug with removing filtered application, related to index value in localStorage inconsistency. */}
+            {filteredApplications.map((item, index) =>
                 <ApplicationCard {...item} key={index} index={index} />
             )}
         </>
