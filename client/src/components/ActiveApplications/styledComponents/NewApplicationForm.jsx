@@ -76,10 +76,11 @@ const NewApplicationForm = (props) => {
                     />
                     <FormInput 
                         labelName="Url"
-                        inputType="text"
+                        inputType="url"
                         placeholder="Company website, application url..."
                         elementRef={urlElement}
                         icon={urlIcon}
+                        isRequired
                     />
                     <FormInput 
                         labelName="Applied"

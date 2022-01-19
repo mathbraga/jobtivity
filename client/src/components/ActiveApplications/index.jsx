@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PageTitle from "../PageTitle";
 import { ApplicationCard } from "./styledComponents";
 import NewApplicationForm from "./styledComponents/NewApplicationForm";
+import { prettifyDate } from "./styledComponents/helpers";
 
 import styled from "styled-components";
 import SearchIcon from "../../assets/Icons/SearchIconWhite.png";
@@ -60,10 +61,10 @@ const ActiveApplications = (props) => {
             name.toLowerCase(),
             role.toLowerCase(),
             website.toLowerCase(),
-            date.toLowerCase(),
+            prettifyDate(date).toLowerCase(),
             status.toLowerCase()
         ];
-        
+
         if(
             lowerName.includes(searchTermLower) ||
             lowerRole.includes(searchTermLower) ||

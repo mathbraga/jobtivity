@@ -37,6 +37,19 @@ const ApplicationContentContainerStyles = styled.div`
     span > span{
         padding-left: 4px;
     }
+
+    a{
+        text-decoration: none;
+
+        :focus, :hover, :visited, :link, :active {
+            text-decoration: none;
+            color: #0000EE;
+        }
+
+        :hover{
+            text-decoration: underline;
+        }
+    }
 `;
 
 export const ApplicationContentContainer = (props) => {
@@ -65,7 +78,7 @@ export const ApplicationContentContainer = (props) => {
                         <img src={urlIcon} alt="" />
                         <span>Url</span>
                     </span> 
-                    <a href="/" rel="noreferrer" target="_blank">{props.website}</a>
+                    <a href={`${props.website}`} rel="noreferrer" target="_blank">{props.website}</a>
                 </div>
                 <div>
                     <span>
