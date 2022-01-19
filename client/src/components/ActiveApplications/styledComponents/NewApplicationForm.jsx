@@ -73,6 +73,7 @@ const NewApplicationForm = (props) => {
                         elementRef={roleElement}
                         icon={roleIcon}
                         optionsList={roleOptions}
+                        isRequired
                     />
                     <FormInput 
                         labelName="Url"
@@ -80,7 +81,6 @@ const NewApplicationForm = (props) => {
                         placeholder="Company website, application url..."
                         elementRef={urlElement}
                         icon={urlIcon}
-                        isRequired
                     />
                     <FormInput 
                         labelName="Applied"
@@ -88,6 +88,7 @@ const NewApplicationForm = (props) => {
                         elementRef={dateElement}
                         icon={calendarIcon}
                         defaultValue={formatDate()}
+                        isRequired
                     />
                 </FormContainer>
                 <FormSubmit>

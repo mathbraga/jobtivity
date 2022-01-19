@@ -56,6 +56,8 @@ export const ApplicationContentContainer = (props) => {
     const { date } = props;
     const prettyDate = prettifyDate(date);
 
+    const website = props.website ? props.website : "None";
+
     return(
         <ApplicationContentContainerStyles>
             <div className="card--content">
@@ -77,8 +79,9 @@ export const ApplicationContentContainer = (props) => {
                     <span>
                         <img src={urlIcon} alt="" />
                         <span>Url</span>
-                    </span> 
-                    <a href={`${props.website}`} rel="noreferrer" target="_blank">{props.website}</a>
+                    </span>
+                    {props.website ? 
+                        <a href={`${website}`} rel="noreferrer" target="_blank">{website}</a> : "None"}
                 </div>
                 <div>
                     <span>
