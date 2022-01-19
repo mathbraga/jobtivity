@@ -43,35 +43,37 @@ const ActiveApplications = (props) => {
     const numberOfApplications = applicationsList ? applicationsList.length : 0;
     const applications = applicationsList ? applicationsList : [];
     const searchBarRef = useRef(null);
-    const [filteredApplications, setApplicationList] = useState(applications);
+    const [ inputValue, setInput ] = useState("");
 
-    const searchList = (applicationData) => {
-        const searchTermLower = searchBarRef.current.value.toLowerCase();
-        const searchResult = applicationData.filter(item => {
-            const { name, role, website, date, status } = item; 
-            const [
-                lowerName,
-                lowerRole,
-                lowerWebsite,
-                lowerDate,
-                lowerStatus
-            ] = [
-                name.toLowerCase(),
-                role.toLowerCase(),
-                website.toLowerCase(),
-                date.toLowerCase(),
-                status.toLowerCase()
-            ];
+    const handleInputUpdate = () => setInput(searchBarRef.current.value);
 
-            return(
-                lowerName.includes(searchTermLower) ||
-                lowerRole.includes(searchTermLower) ||
-                lowerWebsite.includes(searchTermLower) ||
-                lowerDate.includes(searchTermLower) ||
-                lowerStatus.includes(searchTermLower)
-            )
-        });
-        setApplicationList(searchResult);
+    const returnDisplayType = (applicationData) => {
+        const searchTermLower = inputValue.toLowerCase();
+        const { name, role, website, date, status } = applicationData; 
+        const [
+            lowerName,
+            lowerRole,
+            lowerWebsite,
+            lowerDate,
+            lowerStatus
+        ] = [
+            name.toLowerCase(),
+            role.toLowerCase(),
+            website.toLowerCase(),
+            date.toLowerCase(),
+            status.toLowerCase()
+        ];
+        
+        if(
+            lowerName.includes(searchTermLower) ||
+            lowerRole.includes(searchTermLower) ||
+            lowerWebsite.includes(searchTermLower) ||
+            lowerDate.includes(searchTermLower) ||
+            lowerStatus.includes(searchTermLower)
+        )
+            return "inline-block"
+        else
+            return "none"
     }
 
     return(
@@ -84,11 +86,12 @@ const ActiveApplications = (props) => {
             <NewApplicationForm isVisible={formState} />
             <SearchBar>
                 <img src={SearchIcon} alt="Search Icon"/>
-                <input type="text" placeholder="Search..." ref={searchBarRef} onChange={() => searchList(applications)} />
+                <input type="text" placeholder="Search..." ref={searchBarRef} onChange={() => handleInputUpdate()} />
             </SearchBar>
-            {/* TODO: Fix bug with removing filtered application, related to index value in localStorage inconsistency. */}
-            {filteredApplications.map((item, index) =>
-                <ApplicationCard {...item} key={index} index={index} />
+            {applications.map((item, index) => {
+                const displayType = returnDisplayType(item);
+                return <ApplicationCard {...item} key={index} index={index} displayType={displayType} />
+            }
             )}
         </>
     );

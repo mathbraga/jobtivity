@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { ApplicationCardContent } from "./ApplicationCardContent";
 
 const ApplicationCardStyles = styled.div`
+    display: ${props => props.displayType};
+
     width: 60%;
     height: auto;
 
@@ -14,9 +16,11 @@ const ApplicationCardStyles = styled.div`
 `;
 
 export const ApplicationCard = (props) => {
+    const { displayType, ...otherProps } = props;
+
     return(
-        <ApplicationCardStyles>
-            <ApplicationCardContent {...props} />
+        <ApplicationCardStyles displayType={displayType}>
+            <ApplicationCardContent {...otherProps} />
         </ApplicationCardStyles>
     );
 }
