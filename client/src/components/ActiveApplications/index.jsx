@@ -18,7 +18,7 @@ const SearchBar = styled.div`
 
     background-color: #979797;
 
-    border: 1px solid #979797;
+    border: 2px solid #979797;
     border-radius: 4px;
 
     margin-bottom: 12px;
@@ -34,9 +34,33 @@ const SearchBar = styled.div`
     input{
         width: 100%;
         height: 100%;
-        border: 1px solid #979797;
+        border: transparent;
 
         padding: 8px;
+
+        :focus-visible{
+            outline: none;
+        }
+    }
+
+    .search--clear{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 100%;
+        padding: 0 16px;
+        
+        font-weight: bold;
+
+        background-color: white;
+
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+
+        span{
+            cursor: pointer;
+        }
     }
 `
 
@@ -46,8 +70,19 @@ const ActiveApplications = (props) => {
     const applications = applicationsList ? applicationsList : [];
     const searchBarRef = useRef(null);
     const [ inputValue, setInput ] = useState("");
+    const [ clearDisplay, setClearDisplay ] = useState("none");
 
-    const handleInputUpdate = () => setInput(searchBarRef.current.value);
+    const handleInputUpdate = () => {
+        if(searchBarRef.current.value.length > 0)
+            setClearDisplay("flex");
+        else
+            setClearDisplay("none");
+        setInput(searchBarRef.current.value)
+    };
+    const handleSearchClear = () => {
+        searchBarRef.current.value = "";
+        handleInputUpdate();
+    }
 
     const returnDisplayType = (applicationData) => {
         const searchTermLower = inputValue.toLowerCase();
@@ -88,8 +123,17 @@ const ActiveApplications = (props) => {
             <NewApplicationForm isVisible={formState} />
             <SearchBar>
                 <img src={SearchIcon} alt="Search Icon"/>
-                <input type="text" placeholder="Search..." ref={searchBarRef} onChange={() => handleInputUpdate()} />
-                {/* <div>x</div> */}
+                <input 
+                    type="text"
+                    placeholder="Search..."
+                    ref={searchBarRef}
+                    onChange={handleInputUpdate}
+                />
+                {clearDisplay === "flex" ?
+                    <div className="search--clear"><span onClick={handleSearchClear}>x</span></div>
+                    :
+                    null
+                }
             </SearchBar>
             {applications.map((item, index) => {
                 const displayType = returnDisplayType(item);
