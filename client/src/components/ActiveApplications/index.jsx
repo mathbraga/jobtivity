@@ -58,8 +58,20 @@ const SearchBar = styled.div`
         border-top-right-radius: 4px;
         border-bottom-right-radius: 4px;
 
-        span{
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: #979797;
+            width: 20px;
+            height: 20px;
+
             cursor: pointer;
+
+            img{
+                padding: 0;
+            }
         }
     }
 `
@@ -70,15 +82,8 @@ const ActiveApplications = (props) => {
     const applications = applicationsList ? applicationsList : [];
     const searchBarRef = useRef(null);
     const [ inputValue, setInput ] = useState("");
-    const [ clearDisplay, setClearDisplay ] = useState("none");
 
-    const handleInputUpdate = () => {
-        if(searchBarRef.current.value.length > 0)
-            setClearDisplay("flex");
-        else
-            setClearDisplay("none");
-        setInput(searchBarRef.current.value)
-    };
+    const handleInputUpdate = () => {setInput(searchBarRef.current.value)}
     const handleSearchClear = () => {
         searchBarRef.current.value = "";
         handleInputUpdate();
@@ -129,8 +134,12 @@ const ActiveApplications = (props) => {
                     ref={searchBarRef}
                     onChange={handleInputUpdate}
                 />
-                {clearDisplay === "flex" ?
-                    <div className="search--clear"><span onClick={handleSearchClear}>x</span></div>
+                {inputValue.length > 0 ?
+                    <div className="search--clear">
+                        <div onClick={handleSearchClear}>
+                            <img src={ClearSearchIcon} alt="X" />
+                        </div>
+                    </div>
                     :
                     null
                 }
