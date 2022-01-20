@@ -40,6 +40,7 @@ const ApplicationContentContainerStyles = styled.div`
 
     a{
         text-decoration: none;
+        color: #0000EE;
 
         :focus, :hover, :visited, :link, :active {
             text-decoration: none;
@@ -81,7 +82,7 @@ export const ApplicationContentContainer = (props) => {
                         <span>Url</span>
                     </span>
                     {props.website ? 
-                        <a href={`${website}`} rel="noreferrer" target="_blank">{website}</a> : "None"}
+                        <a href={`${website}`} rel="noreferrer" target="_blank">Link</a> : "None"}
                 </div>
                 <div>
                     <span>

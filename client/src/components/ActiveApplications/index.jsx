@@ -8,6 +8,7 @@ import { prettifyDate } from "./styledComponents/helpers";
 
 import styled from "styled-components";
 import SearchIcon from "../../assets/Icons/SearchIconWhite.png";
+import ClearSearchIcon from "../../assets/Icons/DeleteIconWhite.png";
 
 const activeApplicationsPageTitle = "Active Applications";
 
@@ -88,6 +89,7 @@ const ActiveApplications = (props) => {
             <SearchBar>
                 <img src={SearchIcon} alt="Search Icon"/>
                 <input type="text" placeholder="Search..." ref={searchBarRef} onChange={() => handleInputUpdate()} />
+                {/* <div>x</div> */}
             </SearchBar>
             {applications.map((item, index) => {
                 const displayType = returnDisplayType(item);
