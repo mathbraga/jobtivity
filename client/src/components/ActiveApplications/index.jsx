@@ -76,6 +76,24 @@ const SearchBar = styled.div`
     }
 `
 
+const NoApplications = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #ccc;
+
+    border: 1px solid #979797;
+    border-radius: 4px;
+
+    width: 60%;
+    height: 100px;
+
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #575757;
+`;
+
 const ActiveApplications = (props) => {
     const { applicationsList, formState } = props;
     const numberOfApplications = applicationsList ? applicationsList.length : 0;
@@ -144,9 +162,12 @@ const ActiveApplications = (props) => {
                     null
                 }
             </SearchBar>
-            {applications.map((item, index) => {
-                const displayType = returnDisplayType(item);
-                return <ApplicationCard {...item} key={index} index={index} displayType={displayType} />
+            {numberOfApplications === 0 ? 
+                <NoApplications>No active applications.</NoApplications>
+                :
+                applications.map((item, index) => {
+                    const displayType = returnDisplayType(item);
+                    return <ApplicationCard {...item} key={index} index={index} displayType={displayType} />
             }
             )}
         </>
