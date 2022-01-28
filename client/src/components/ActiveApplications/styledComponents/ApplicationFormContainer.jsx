@@ -33,7 +33,7 @@ export const ApplicationFormContainer = styled.form`
 
     opacity: var(--opacity-value);
     visibility: var(--visibility-value);
-    transition: visibility 0.2s, opacity 0.2s linear;
+    transition: visibility 250ms, opacity 250ms linear;
 
     padding: var(--size-value);
     margin-bottom: var(--size-value);
