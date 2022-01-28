@@ -22,4 +22,9 @@ export const PageHeaderButton = styled.div`
     :hover{
         border-bottom: 3px solid var(--color-alternative);
     }
+
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
 `;

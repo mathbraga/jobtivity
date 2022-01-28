@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { 
     PageHeaderBadge,
@@ -12,8 +13,16 @@ const PageHeader = () => {
         <PageHeaderContainer>
             <PageHeaderBadge />
             <PageHeaderButtonContainer>
-                <PageHeaderButton>Applications</PageHeaderButton>
-                <PageHeaderButton>History</PageHeaderButton>
+                <PageHeaderButton>
+                    <Link to="/applications">
+                        Applications
+                    </Link>
+                </PageHeaderButton>
+                <PageHeaderButton>
+                    <Link to="/history">
+                        History
+                    </Link>
+                </PageHeaderButton>
             </PageHeaderButtonContainer>
         </PageHeaderContainer>
     );
