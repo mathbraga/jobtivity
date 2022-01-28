@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { addApplication } from "../../../store/actions/updateStatus";
 import { toggleFormVisibility } from "../../../store/actions/toggleFormVisibility";
-import { formatDate } from "./helpers";
+import { formatDate, returnDisplayValue } from "./helpers";
 
 import { ApplicationFormContainer } from "./ApplicationFormContainer";
 import { 
@@ -59,7 +59,7 @@ const NewApplicationForm = (props) => {
 
     return(
             <ApplicationFormContainer name="newApplicationForm" {...props} onSubmit={(e) => handleFormSubmit(e)}>
-                <FormContainer>
+                <FormContainer style={{display: returnDisplayValue(props.isVisible)}}>
                     <FormInput 
                         labelName="Company"
                         inputType="text"
@@ -91,7 +91,7 @@ const NewApplicationForm = (props) => {
                         isRequired
                     />
                 </FormContainer>
-                <FormSubmit>
+                <FormSubmit style={{display: returnDisplayValue(props.isVisible)}}>
                     <FormButton buttonType="submit" color="green" buttonValue="Add" />
                     <FormButton type="button" color="var(--color-red-tone)" onClick={handleFormCancel} buttonValue="Cancel" />
                 </FormSubmit>
