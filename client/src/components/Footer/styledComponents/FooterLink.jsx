@@ -13,7 +13,7 @@ const FooterContentStyles = styled.a`
     }
 `;
 
-export const FooterContent = (props) => {
+export const FooterLink = (props) => {
     return(
         <FooterContentStyles href={props.contentLink} target="_blank" rel="noreferrer">
             <img src={props.iconUrl} alt={props.iconAlt}/>

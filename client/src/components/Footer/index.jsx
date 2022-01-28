@@ -2,7 +2,8 @@ import React from "react";
 
 import { 
     FooterContainer,
-    FooterContent 
+    FooterLink,
+    FooterText
 } from "./styledComponents";
 
 import GithubIcon from "../../assets/Icons/GithubIcon.png";
@@ -14,11 +15,15 @@ const gitAltText = "Github Profile";
 const linkedinUrl = "https://www.linkedin.com/in/matheus-braga-730563149/";
 const linkedinAltText = "LinkedIn Profile";
 
+const currentDate = new Date();
+const footerText = `Copyright © ${currentDate.getFullYear()} Matheus Braga. All rights reserved.`;
+
 const Footer = () => {
     return(
         <FooterContainer>
-            <FooterContent contentLink={gitUrl} iconUrl={GithubIcon} iconAlt={gitAltText} />
-            <FooterContent contentLink={linkedinUrl} iconUrl={LinkedinIcon} iconAlt={linkedinAltText} />
+            <FooterText>{footerText}</FooterText>
+            <FooterLink contentLink={gitUrl} iconUrl={GithubIcon} iconAlt={gitAltText} />
+            <FooterLink contentLink={linkedinUrl} iconUrl={LinkedinIcon} iconAlt={linkedinAltText} />
         </FooterContainer>
     );
 }

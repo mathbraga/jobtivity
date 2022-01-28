@@ -14,4 +14,5 @@ export const FooterContainer = styled.div`
     align-items: center;
 
     background-color: var(--color-secondary);
+    color: var(--color-primary);
 `;

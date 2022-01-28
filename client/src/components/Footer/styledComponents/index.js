@@ -1,2 +1,3 @@
 export { FooterContainer } from "./FooterContainer";
-export { FooterContent } from "./FooterContent";
+export { FooterLink } from "./FooterLink";
+export { FooterText } from "./FooterText";
