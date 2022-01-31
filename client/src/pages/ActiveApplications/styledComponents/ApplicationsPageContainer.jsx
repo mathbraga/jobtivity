@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MainPageContentContainer = styled.div`
+export const ApplicationsPageContainer = styled.div`
     width: max(60%, 400px);
     height: 100%;
 

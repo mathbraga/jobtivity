@@ -1,17 +1,18 @@
 import React, { useRef, useState } from "react";
 import { connect } from "react-redux";
 
-import PageTitle from "../PageTitle";
+import PageTitle from "../../components/PageTitle";
 import { 
     ApplicationCard,
     SearchBarContainer,
     NoApplicationsCard
-} from "./styledComponents";
-import NewApplicationForm from "./styledComponents/NewApplicationForm";
-import { prettifyDate } from "./styledComponents/helpers";
+} from "../../components/Applications/styledComponents";
+import NewApplicationForm from "../../components/NewApplicationForm";
+import { prettifyDate } from "../../globalHelperFunctions/utils";
 
 import SearchIcon from "../../assets/Icons/SearchIconWhite.png";
 import ClearSearchIcon from "../../assets/Icons/DeleteIconWhite.png";
+import { ApplicationsPageContainer } from "./styledComponents";
 
 const activeApplicationsPageTitle = "Active Applications";
 
@@ -30,7 +31,7 @@ const ActiveApplications = (props) => {
 
     const returnDisplayType = (applicationData) => {
         const searchTermLower = inputValue.toLowerCase();
-        const { name, role, date, status } = applicationData; 
+        const { name, role, date, status } = applicationData;
         const [
             lowerName,
             lowerRole,
@@ -55,7 +56,7 @@ const ActiveApplications = (props) => {
     }
 
     return(
-        <>
+        <ApplicationsPageContainer>
             <PageTitle 
                 pageTitle={activeApplicationsPageTitle}
                 hasAddButton={true}
@@ -88,7 +89,7 @@ const ActiveApplications = (props) => {
                     return <ApplicationCard {...item} key={index} index={index} displayType={displayType} />
             }
             )}
-        </>
+        </ApplicationsPageContainer>
     );
 }
 

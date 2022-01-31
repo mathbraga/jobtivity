@@ -1,26 +1,27 @@
 import { useRef } from "react";
 import { connect } from "react-redux";
 
-import { addApplication } from "../../../store/actions/updateStatus";
-import { toggleFormVisibility } from "../../../store/actions/toggleFormVisibility";
-import { formatDate, returnDisplayValue } from "./helpers";
+import { addApplication } from "../../store/actions/updateStatus";
+import { toggleFormVisibility } from "../../store/actions/toggleFormVisibility";
+import { formatDate, returnDisplayValue } from "../../globalHelperFunctions/utils";
 
-import { ApplicationFormContainer } from "./ApplicationFormContainer";
+import { ApplicationFormContainer } from "./styledComponents";
 import { 
     FormButton,
     FormInput,
     FormContainer,
     FormSubmit,
     FormSelect
-} from "../../Form";
+} from "../Form";
 
-import companyIcon from "../../../assets/Icons/CompanyIcon.png";
-import roleIcon from "../../../assets/Icons/RoleIcon.png";
-import urlIcon from "../../../assets/Icons/UrlIcon.png";
-import calendarIcon from "../../../assets/Icons/CalendarIcon.png";
+import companyIcon from "../../assets/Icons/CompanyIcon.png";
+import roleIcon from "../../assets/Icons/RoleIcon.png";
+import urlIcon from "../../assets/Icons/UrlIcon.png";
+import calendarIcon from "../../assets/Icons/CalendarIcon.png";
 
 const NewApplicationForm = (props) => {
     const { addApplication, toggleForm } = props;
+    const displayValue = returnDisplayValue(props.isVisible);
     const formInputRefs = {
         companyElement: useRef(null),
         dateElement: useRef(null),
@@ -57,9 +58,23 @@ const NewApplicationForm = (props) => {
         handleFormCancel();
     };
 
+    const handleFormClass = () => {
+        if(displayValue !== "flex")
+            return "form--closed";
+        else
+            return "";
+    }
+
+    const formClassName = handleFormClass();
+
     return(
-            <ApplicationFormContainer name="newApplicationForm" {...props} onSubmit={(e) => handleFormSubmit(e)}>
-                <FormContainer style={{display: returnDisplayValue(props.isVisible)}}>
+            <ApplicationFormContainer 
+                name="newApplicationForm"
+                {...props}
+                onSubmit={(e) => handleFormSubmit(e)}
+                className={formClassName}
+            >
+                <FormContainer style={{display: displayValue}}>
                     <FormInput 
                         labelName="Company"
                         inputType="text"
@@ -91,7 +106,7 @@ const NewApplicationForm = (props) => {
                         isRequired
                     />
                 </FormContainer>
-                <FormSubmit style={{display: returnDisplayValue(props.isVisible)}}>
+                <FormSubmit style={{display: displayValue}}>
                     <FormButton buttonType="submit" color="green" buttonValue="Add" />
                     <FormButton type="button" color="var(--color-red-tone)" onClick={handleFormCancel} buttonValue="Cancel" />
                 </FormSubmit>

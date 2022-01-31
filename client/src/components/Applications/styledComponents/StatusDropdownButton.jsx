@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { statusTypeToColor } from "./helpers";
+import { statusTypeToColor } from "../../../globalHelperFunctions/utils";
 
 const StatusDropdownButtonContainer = styled.button`
     display: inline;

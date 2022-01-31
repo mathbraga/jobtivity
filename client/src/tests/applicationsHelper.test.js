@@ -1,4 +1,4 @@
-import { statusTypeToColor } from "../components/ActiveApplications/styledComponents/helpers";
+import { statusTypeToColor } from "../globalHelperFunctions/utils";
 
 describe("Status badge color", () => {
     it("Convert status to appropriate color", () => {

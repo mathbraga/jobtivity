@@ -5,7 +5,7 @@ import roleIcon from "../../../assets/Icons/RoleIcon.png";
 import urlIcon from "../../../assets/Icons/UrlIcon.png";
 import calendarIcon from "../../../assets/Icons/CalendarIcon.png";
 
-import { prettifyDate } from "./helpers";
+import { prettifyDate } from "../../../globalHelperFunctions/utils";
 
 const ApplicationContentContainerStyles = styled.div`
     .card--content{

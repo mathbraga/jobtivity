@@ -7,7 +7,7 @@ import {
 import {
     formatDate,
     prettifyDate
-} from "../components/ActiveApplications/styledComponents/helpers/";
+} from "../globalHelperFunctions/utils";
 
 const storageName = "applicationsList";
 

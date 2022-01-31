@@ -5,7 +5,7 @@ import { updateStatus, deleteApplication } from "../../../store/actions/updateSt
 import styled from "styled-components";
 
 import { StatusDropdownButton } from "./StatusDropdownButton";
-import { statusTypeToColor } from "./helpers";
+import { statusTypeToColor } from "../../../globalHelperFunctions/utils";
 
 import arrowIcon from "../../../assets/Icons/ArrowIconBlack.png";
 import deleteIcon from "../../../assets/Icons/DeleteIconWhite.png";
