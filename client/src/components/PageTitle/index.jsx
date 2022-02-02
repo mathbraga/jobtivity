@@ -11,14 +11,14 @@ import {
 } from "./styledComponents";
 
 const PageTitle = (props) => {
-    const { pageTitle, toggleForm, applicationCounter } = props;
+    const { pageTitle, toggleForm, applicationCounter, applicationLimit=0 } = props;
 
     const handleFormToggle = () => toggleForm();
 
     return(
         <PageTitleContainer>
             <Title title={pageTitle}/>
-            <ApplicationCounter count={`(${applicationCounter}/30)`}/>
+            <ApplicationCounter count={`(${applicationCounter}/${applicationLimit})`}/>
             {props.hasAddButton ? <NewApplicationButton onClick={handleFormToggle} /> : null}
         </PageTitleContainer>
     );

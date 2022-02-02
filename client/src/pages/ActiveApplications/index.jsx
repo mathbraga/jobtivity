@@ -12,9 +12,10 @@ import { prettifyDate } from "../../globalHelperFunctions/utils";
 
 import SearchIcon from "../../assets/Icons/SearchIconWhite.png";
 import ClearSearchIcon from "../../assets/Icons/DeleteIconWhite.png";
-import { ApplicationsPageContainer } from "./styledComponents";
+import { ApplicationsPageContainer } from "../globalStyledComponents";
 
 const activeApplicationsPageTitle = "Active Applications";
+const activeApplicationsLimit = 30;
 
 const ActiveApplications = (props) => {
     const { applicationsList, formState } = props;
@@ -61,6 +62,7 @@ const ActiveApplications = (props) => {
                 pageTitle={activeApplicationsPageTitle}
                 hasAddButton={true}
                 applicationCounter={numberOfApplications}
+                applicationLimit={activeApplicationsLimit}
             />
             <NewApplicationForm isVisible={formState} />
             <SearchBarContainer>
