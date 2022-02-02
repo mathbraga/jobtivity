@@ -55,42 +55,56 @@ const ApplicationContentContainerStyles = styled.div`
 
 export const ApplicationContentContainer = (props) => {
     const { date } = props;
-    const prettyDate = prettifyDate(date);
-
-    const website = props.website ? props.website : "None";
+    const prettyDate = date ? prettifyDate(date) : null;
 
     return(
         <ApplicationContentContainerStyles>
             <div className="card--content">
-                <div>
-                    <span>
-                        <img src={companyIcon} alt="" />
-                        <span>Company</span>
-                    </span> 
-                    {props.name}
-                </div>
-                <div>
-                    <span>
-                        <img src={roleIcon} alt="" />
-                        <span>Role</span>
-                    </span> 
-                    {props.role}
-                </div>
-                <div>
+                {props.name ?
+                    <div>
+                        <span>
+                            <img src={companyIcon} alt="" />
+                            <span>Company</span>
+                        </span> 
+                        {props.name}
+                    </div>
+                    :
+                    null
+                }
+                {props.role ? 
+                    <div>
+                        <span>
+                            <img src={roleIcon} alt="" />
+                            <span>Role</span>
+                        </span> 
+                        {props.role}
+                    </div>
+                    :
+                    null
+                }
+                {props.website === undefined ?
+                    null
+                    :
+                    <div>
                     <span>
                         <img src={urlIcon} alt="" />
                         <span>Url</span>
                     </span>
-                    {props.website ? 
-                        <a href={`${website}`} rel="noreferrer" target="_blank">Link</a> : "None"}
-                </div>
-                <div>
-                    <span>
-                        <img src={calendarIcon} alt="" />
-                        <span>Applied</span>
-                    </span> 
-                    {prettyDate}
-                </div>
+                        {props.website ? 
+                            <a href={`${props.website}`} rel="noreferrer" target="_blank">Link</a> : "None"}
+                    </div>
+                }
+                {prettyDate ?
+                    <div>
+                        <span>
+                            <img src={calendarIcon} alt="" />
+                            <span>Applied</span>
+                        </span> 
+                        {prettyDate}
+                    </div>
+                    :
+                    null
+                }
             </div>
         </ApplicationContentContainerStyles>
     );

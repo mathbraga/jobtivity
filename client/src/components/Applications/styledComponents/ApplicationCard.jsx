@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { ApplicationCardContent } from "./ApplicationCardContent";
 
-const ApplicationCardStyles = styled.div`
+export const ApplicationCardStyles = styled.div`
     display: ${props => props.displayType};
 
     width: 60%;
