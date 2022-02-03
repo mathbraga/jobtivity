@@ -34,7 +34,7 @@ const NewApplicationForm = (props) => {
         urlElement,
         roleElement
     } = formInputRefs;
-    const roleOptions = ["FrontEnd", "BackEnd", "FullStack"];
+    const roleOptions = ["Front End", "Back End", "Full Stack", "Data Science", "DevOps", "Other"];
 
     const handleFormCancel = () => {
         companyElement.current.value = "";
