@@ -5,10 +5,10 @@ import { updateStatus, deleteApplication } from "../../../store/actions/updateSt
 import styled from "styled-components";
 
 import { StatusDropdownButton } from "./StatusDropdownButton";
+import { DeleteApplicationButton } from "./DeleteApplicationButton";
 import { statusTypeToColor } from "../../../globalHelperFunctions/utils";
 
 import arrowIcon from "../../../assets/Icons/ArrowIconBlack.png";
-import deleteIcon from "../../../assets/Icons/DeleteIconWhite.png";
 
 const ApplicationCardHeaderStyles = styled.div`
     .card--header{
@@ -131,9 +131,7 @@ const ApplicationCardHeader = (props) => {
                         <StatusDropdownButton status="Awaiting" onClick={() => handleStatusChange("Awaiting", index)} />
                     </div>
                 </div>
-                <button className="card--delete_button" onClick={() => handleDeleteClick(index)}>
-                    <img src={deleteIcon} alt="X" />
-                </button>
+                <DeleteApplicationButton onClick={() => handleDeleteClick(index)} />
             </div>
         </ApplicationCardHeaderStyles>
     );

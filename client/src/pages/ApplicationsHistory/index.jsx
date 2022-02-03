@@ -27,6 +27,7 @@ const ApplicationsHistory = (props) => {
             />
             {/* <NoApplicationsCard>No applications in history.</NoApplicationsCard> */}
             <ApplicationCardStyles>
+                <div>X</div>
                 <ApplicationContentContainer {...testData} />
             </ApplicationCardStyles>
         </ApplicationsPageContainer>
