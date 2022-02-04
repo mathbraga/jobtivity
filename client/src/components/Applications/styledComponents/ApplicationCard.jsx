@@ -11,15 +11,19 @@ export const ApplicationCardStyles = styled.div`
     padding: 12px;
     margin-bottom: 0.8vw;
 
-    border: 1px solid var(--color-alternative);
+    border: 1px solid ${props => props.borderColor};
     border-radius: 4px;
 `;
 
 export const ApplicationCard = (props) => {
-    const { displayType, ...otherProps } = props;
+    const { 
+        displayType,
+        borderColor = "var(--color-application-border)",
+        ...otherProps
+    } = props;
 
     return(
-        <ApplicationCardStyles displayType={displayType}>
+        <ApplicationCardStyles displayType={displayType} borderColor={borderColor}>
             <ApplicationCardContent {...otherProps} />
         </ApplicationCardStyles>
     );

@@ -5,6 +5,8 @@
     --color-red-tone: #c22b2b;
     --color-header-shadow: #b1c3c3;
     --color-title-underline: rgba(17, 17, 26, 0.1);
+    --color-application-border: gold;
+    --color-history-border: #c22b2b;
 
     --button-shadow: -4px 0 4px 0 rgba(0, 0, 0, 0.2) inset,
                     0 -4px 4px 0 rgba(0, 0, 0, 0.2) inset,
