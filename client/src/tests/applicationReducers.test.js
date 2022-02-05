@@ -55,7 +55,7 @@ describe("Global state manager reducers", () => {
         expect(reducer(testData, testAction)).toEqual(expectedResult);
     })
 
-    it("Should add application to beginning of the list", () => {
+    it("Should add application to the beginning of the lists", () => {
         const testData = sampleData;
         const testAction = {
             type: "ADD_APPLICATION",
@@ -67,11 +67,14 @@ describe("Global state manager reducers", () => {
                 status:"Awaiting"
             }
         }
-        const { applications } = reducer(testData, testAction);
+        const { applications, history } = reducer(testData, testAction);
         const latestApplication = applications[0];
+        const latestHistory = history[0];
 
         expect(applications.length).toEqual(3);
+        expect(history.length).toEqual(1);
         expect(latestApplication).toEqual(testAction.newApplication);
+        expect(latestHistory).toEqual(testAction.newApplication);
     });
 
     it("Should delete designated application.", () => {
