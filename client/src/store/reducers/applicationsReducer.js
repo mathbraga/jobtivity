@@ -4,7 +4,8 @@ import {
 } from "../../globalHelperFunctions/dataConversionHelpers";
 
 const initial_state = {
-    applications: convertStringToObject(localStorage.getItem("applicationsList"))
+    applications: convertStringToObject(localStorage.getItem("applicationsList")),
+    history: convertStringToObject(localStorage.getItem("applicationsHistory"))
 };
 
 export default function reducer(state = initial_state, action){
@@ -20,11 +21,16 @@ export default function reducer(state = initial_state, action){
 
     else if(action.type === "ADD_APPLICATION"){
         let updatedData = "";
+        let updatedHistory = "";
         let currentApplications = state.applications ? state.applications : [];
+        let currentHistory = state.history ? state.history : [];
 
         state.applications = [action.newApplication, ...currentApplications];
+        state.history = [action.newApplication, ...currentHistory];
         updatedData = convertObjectToString(state.applications);
+        updatedHistory = convertObjectToString(state.history);
         localStorage.setItem("applicationsList", updatedData);
+        localStorage.setItem("applicationsHistory", updatedHistory);
 
         return {...state};
     }
