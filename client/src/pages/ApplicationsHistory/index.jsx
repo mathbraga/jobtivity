@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
 
 import PageTitle from "../../components/PageTitle";
 import { ApplicationsPageContainer } from "../globalStyledComponents";
@@ -14,7 +15,7 @@ const applicationHistoryLimit = 100;
 const testData = {
     name: "Test",
     website: "https://google.com"
-}
+};
 
 const HeaderContainer = styled.div`
     display: flex;
@@ -28,8 +29,8 @@ const HeaderContainer = styled.div`
 `;
 
 const ApplicationsHistory = (props) => {
-    const { historyList = [] } = props;
-    const numberOfApplications = historyList ? historyList.length : 0;
+    const historyList = props.historyList ? props.historyList : [];
+    const numberOfApplications = historyList.length;
 
     return(
         <ApplicationsPageContainer>
@@ -39,14 +40,20 @@ const ApplicationsHistory = (props) => {
                 applicationLimit={applicationHistoryLimit}
             />
             {/* <NoApplicationsCard>No applications in history.</NoApplicationsCard> */}
-            <ApplicationCardStyles borderColor="var(--color-history-border)">
-                <HeaderContainer>
-                    <DeleteApplicationButton />
-                </HeaderContainer>
-                <ApplicationContentContainer {...testData} />
-            </ApplicationCardStyles>
+            {historyList.map((item, index) =>
+                <ApplicationCardStyles borderColor="var(--color-history-border)" key={index}>
+                    <HeaderContainer>
+                        <DeleteApplicationButton />
+                    </HeaderContainer>
+                    <ApplicationContentContainer {...item} />
+                </ApplicationCardStyles>
+            )}
         </ApplicationsPageContainer>
     )
 }
 
-export default ApplicationsHistory;
+const mapStateToProps = (state) => ({
+    historyList: state.applicationsReducer.history,
+})
+
+export default connect(mapStateToProps, null)(ApplicationsHistory);
