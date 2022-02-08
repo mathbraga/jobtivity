@@ -47,5 +47,17 @@ export default function reducer(state = initial_state, action){
         return {...state};
     }
 
+    else if(action.type === "REMOVE_APP_HISTORY"){
+        let updatedData = "";
+        let currentHistory = state.history;
+
+        currentHistory.splice(action.index, 1);
+        state.history = [...currentHistory];
+        updatedData = convertObjectToString(state.history);
+        localStorage.setItem("applicationsHistory", updatedData);
+
+        return {...state};
+    }
+
     return {...state};
 }

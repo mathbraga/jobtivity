@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { connect } from "react-redux";
 
-import { addApplication } from "../../store/actions/updateStatus";
+import { addApplication } from "../../store/actions/updateApplications";
 import { toggleFormVisibility } from "../../store/actions/toggleFormVisibility";
 import { formatDate, returnDisplayValue } from "../../globalHelperFunctions/utils";
 

@@ -17,6 +17,23 @@ const sampleData = {
                 role:"FrontEnd",
                 status:"Contact"
             }
+        ],
+    history:
+        [
+            {
+                name:"Jobtivity",
+                date:"30/11/2021",
+                website:"someurl.com",
+                role:"FullStack",
+                status:"Contact"
+            },
+            {
+                name:"Amazon",
+                date:"02/12/2021",
+                website:"someurl.com",
+                role:"FrontEnd",
+                status:"Contact"
+            }
         ]
 };
 
@@ -32,8 +49,7 @@ describe("Global state manager reducers", () => {
             index: 1
         }
         const testData = sampleData;
-        const expectedResult = {
-            applications: 
+        const expectedResult =
                 [
                     {
                         name:"Jobtivity",
@@ -50,9 +66,8 @@ describe("Global state manager reducers", () => {
                         status:"Awaiting"
                     }
                 ]
-        }
 
-        expect(reducer(testData, testAction)).toEqual(expectedResult);
+        expect(reducer(testData, testAction).applications).toEqual(expectedResult);
     })
 
     it("Should add application to the beginning of the lists", () => {
@@ -72,7 +87,7 @@ describe("Global state manager reducers", () => {
         const latestHistory = history[0];
 
         expect(applications.length).toEqual(3);
-        expect(history.length).toEqual(1);
+        expect(history.length).toEqual(3);
         expect(latestApplication).toEqual(testAction.newApplication);
         expect(latestHistory).toEqual(testAction.newApplication);
     });
@@ -93,5 +108,23 @@ describe("Global state manager reducers", () => {
             role:"FullStack",
             status:"Contact"
         })
+    })
+
+    it("Should remove application from history list.", () => {
+        const testData = sampleData;
+        const testAction = {
+            type: "REMOVE_APP_HISTORY",
+            index: 0
+        }
+        const { history } = reducer(testData, testAction);
+
+        expect(history.length).toEqual(2);
+        expect(history[0]).toEqual({
+            name:"Jobtivity",
+            date:"30/11/2021",
+            website:"someurl.com",
+            role:"FullStack",
+            status:"Contact"
+        });
     })
 });

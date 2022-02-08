@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { updateStatus, deleteApplication } from "../../../store/actions/updateStatus";
+import { updateStatus, deleteApplication } from "../../../store/actions/updateApplications";
 
 import styled from "styled-components";
 
