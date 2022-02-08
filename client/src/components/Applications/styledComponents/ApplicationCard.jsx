@@ -13,6 +13,13 @@ export const ApplicationCardStyles = styled.div`
 
     border: 1px solid ${props => props.borderColor};
     border-radius: 4px;
+
+    transition: box-shadow 100ms, transform 100ms;
+
+    &:hover{
+        box-shadow: 2px 2px 8px #cacaca;
+        transform: translate(-2px, -2px);
+    }
 `;
 
 export const ApplicationCard = (props) => {
