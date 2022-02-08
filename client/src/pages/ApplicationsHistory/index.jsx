@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
+import { removeApplicationFromHistory } from "../../store/actions/updateApplications";
+
 import PageTitle from "../../components/PageTitle";
 import { ApplicationsPageContainer } from "../globalStyledComponents";
 import { NoApplicationsCard } from "../../components/Applications";
@@ -26,6 +28,9 @@ const HeaderContainer = styled.div`
 const ApplicationsHistory = (props) => {
     const historyList = props.historyList ? props.historyList : [];
     const numberOfApplications = historyList.length;
+    const { removeApplication } = props;
+
+    const handleRemoveApplication = (index) => removeApplication(index);
 
     return(
         <ApplicationsPageContainer>
@@ -40,7 +45,7 @@ const ApplicationsHistory = (props) => {
                 historyList.map((item, index) =>
                     <ApplicationCardStyles borderColor="var(--color-history-border)" key={index}>
                         <HeaderContainer>
-                            <DeleteApplicationButton />
+                            <DeleteApplicationButton onClick={(index) => handleRemoveApplication(index)} />
                         </HeaderContainer>
                         <ApplicationContentContainer {...item} />
                     </ApplicationCardStyles>
@@ -50,7 +55,11 @@ const ApplicationsHistory = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    historyList: state.applicationsReducer.history,
+    historyList: state.applicationsReducer.history
 })
 
-export default connect(mapStateToProps, null)(ApplicationsHistory);
+const mapDispatchToProps = (dispatch) => ({
+    removeApplication: (index) => dispatch(removeApplicationFromHistory(index))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ApplicationsHistory);
