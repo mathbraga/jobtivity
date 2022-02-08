@@ -12,11 +12,6 @@ import { DeleteApplicationButton } from "../../components/Applications";
 const applicationsHistoryPageTitle = "History";
 const applicationHistoryLimit = 100;
 
-const testData = {
-    name: "Test",
-    website: "https://google.com"
-};
-
 const HeaderContainer = styled.div`
     display: flex;
     justify-content: flex-end;
@@ -39,14 +34,16 @@ const ApplicationsHistory = (props) => {
                 applicationCounter={numberOfApplications}
                 applicationLimit={applicationHistoryLimit}
             />
-            {/* <NoApplicationsCard>No applications in history.</NoApplicationsCard> */}
-            {historyList.map((item, index) =>
-                <ApplicationCardStyles borderColor="var(--color-history-border)" key={index}>
-                    <HeaderContainer>
-                        <DeleteApplicationButton />
-                    </HeaderContainer>
-                    <ApplicationContentContainer {...item} />
-                </ApplicationCardStyles>
+            {numberOfApplications === 0 ?
+                <NoApplicationsCard>No applications in history.</NoApplicationsCard>
+                :
+                historyList.map((item, index) =>
+                    <ApplicationCardStyles borderColor="var(--color-history-border)" key={index}>
+                        <HeaderContainer>
+                            <DeleteApplicationButton />
+                        </HeaderContainer>
+                        <ApplicationContentContainer {...item} />
+                    </ApplicationCardStyles>
             )}
         </ApplicationsPageContainer>
     )
