@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
@@ -6,10 +6,13 @@ import { removeApplicationFromHistory } from "../../store/actions/updateApplicat
 
 import PageTitle from "../../components/PageTitle";
 import { ApplicationsPageContainer } from "../globalStyledComponents";
-import { NoApplicationsCard } from "../../components/Applications";
+import { NoApplicationsCard, SearchBarContainer } from "../../components/Applications";
 import { ApplicationContentContainer } from "../../components/Applications/styledComponents/ApplicationContentContainer";
 import { ApplicationCardStyles } from "../../components/Applications/styledComponents/ApplicationCard";
 import { DeleteApplicationButton } from "../../components/Applications";
+
+import SearchIcon from "../../assets/Icons/SearchIconWhite.png";
+import ClearSearchIcon from "../../assets/Icons/DeleteIconWhite.png";
 
 const applicationsHistoryPageTitle = "History";
 const applicationHistoryLimit = 100;
@@ -29,8 +32,16 @@ const ApplicationsHistory = (props) => {
     const historyList = props.historyList ? props.historyList : [];
     const numberOfApplications = historyList.length;
     const { removeApplication } = props;
+    const searchBarRef = useRef(null);
+    const [ inputValue, setInput ] = useState("");
 
     const handleRemoveApplication = (index) => removeApplication(index);
+
+    const handleInputUpdate = () => {setInput(searchBarRef.current.value)}
+    const handleSearchClear = () => {
+        searchBarRef.current.value = "";
+        handleInputUpdate();
+    }
 
     return(
         <ApplicationsPageContainer>
@@ -39,6 +50,24 @@ const ApplicationsHistory = (props) => {
                 applicationCounter={numberOfApplications}
                 applicationLimit={applicationHistoryLimit}
             />
+            <SearchBarContainer>
+                <img src={SearchIcon} alt="Search Icon"/>
+                <input 
+                    type="text"
+                    placeholder="Search..."
+                    ref={searchBarRef}
+                    onChange={handleInputUpdate}
+                />
+                {inputValue.length > 0 ?
+                    <div className="search--clear">
+                        <div onClick={handleSearchClear}>
+                            <img src={ClearSearchIcon} alt="X" />
+                        </div>
+                    </div>
+                    :
+                    null
+                }
+            </SearchBarContainer>
             {numberOfApplications === 0 ?
                 <NoApplicationsCard>No applications in history.</NoApplicationsCard>
                 :
