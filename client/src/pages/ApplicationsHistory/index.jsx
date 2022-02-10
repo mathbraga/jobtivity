@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 
 import { removeApplicationFromHistory } from "../../store/actions/updateApplications";
+import { prettifyDate } from "../../globalHelperFunctions/utils";
 
 import PageTitle from "../../components/PageTitle";
 import { ApplicationsPageContainer } from "../globalStyledComponents";
@@ -43,6 +44,32 @@ const ApplicationsHistory = (props) => {
         handleInputUpdate();
     }
 
+    const returnDisplayType = (applicationData) => {
+        const searchTermLower = inputValue.toLowerCase();
+        const { name, role, date, status } = applicationData;
+        const [
+            lowerName,
+            lowerRole,
+            lowerDate,
+            lowerStatus
+        ] = [
+            name.toLowerCase(),
+            role.toLowerCase(),
+            prettifyDate(date).toLowerCase(),
+            status.toLowerCase()
+        ];
+
+        if(
+            lowerName.includes(searchTermLower) ||
+            lowerRole.includes(searchTermLower) ||
+            lowerDate.includes(searchTermLower) ||
+            lowerStatus.includes(searchTermLower)
+        )
+            return "inline-block"
+        else
+            return "none"
+    }
+
     return(
         <ApplicationsPageContainer>
             <PageTitle
@@ -71,14 +98,18 @@ const ApplicationsHistory = (props) => {
             {numberOfApplications === 0 ?
                 <NoApplicationsCard>No applications in history.</NoApplicationsCard>
                 :
-                historyList.map((item, index) =>
-                    <ApplicationCardStyles borderColor="var(--color-history-border)" key={index}>
-                        <HeaderContainer>
-                            <DeleteApplicationButton onClick={(index) => handleRemoveApplication(index)} />
-                        </HeaderContainer>
-                        <ApplicationContentContainer {...item} />
-                    </ApplicationCardStyles>
-            )}
+                historyList.map((item, index) => {
+                    const displayType = returnDisplayType(item);
+
+                    return(
+                        <ApplicationCardStyles borderColor="var(--color-history-border)" key={index} displayType={displayType}>
+                            <HeaderContainer>
+                                <DeleteApplicationButton onClick={(index) => handleRemoveApplication(index)} />
+                            </HeaderContainer>
+                            <ApplicationContentContainer {...item} />
+                        </ApplicationCardStyles>
+                    )
+            })}
         </ApplicationsPageContainer>
     )
 }
