@@ -107,16 +107,16 @@ export const ApplicationContentContainer = (props) => {
                     :
                     null
                 }
-                {props.remote ?
+                {props.remote === undefined ?
+                    null
+                    :
                     <div>
                         <span>
                             <img src={remoteIcon} alt="" />
                             <span>Remote</span>
                         </span> 
-                        {props.remote}
+                        {props.remote === true ? "Yes" : "No"}
                     </div>
-                    :
-                    null
                 }
                 {props.location ?
                     <div>
