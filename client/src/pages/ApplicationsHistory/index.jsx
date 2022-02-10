@@ -46,24 +46,21 @@ const ApplicationsHistory = (props) => {
 
     const returnDisplayType = (applicationData) => {
         const searchTermLower = inputValue.toLowerCase();
-        const { name, role, date, status } = applicationData;
+        const { name, role, date } = applicationData;
         const [
             lowerName,
             lowerRole,
-            lowerDate,
-            lowerStatus
+            lowerDate
         ] = [
             name.toLowerCase(),
             role.toLowerCase(),
-            prettifyDate(date).toLowerCase(),
-            status.toLowerCase()
+            prettifyDate(date).toLowerCase()
         ];
 
         if(
             lowerName.includes(searchTermLower) ||
             lowerRole.includes(searchTermLower) ||
-            lowerDate.includes(searchTermLower) ||
-            lowerStatus.includes(searchTermLower)
+            lowerDate.includes(searchTermLower)
         )
             return "inline-block"
         else
@@ -100,13 +97,14 @@ const ApplicationsHistory = (props) => {
                 :
                 historyList.map((item, index) => {
                     const displayType = returnDisplayType(item);
+                    const data = (({ name, role, website, date }) => ({ name, role, website, date }))(item);
 
                     return(
                         <ApplicationCardStyles borderColor="var(--color-history-border)" key={index} displayType={displayType}>
                             <HeaderContainer>
                                 <DeleteApplicationButton onClick={(index) => handleRemoveApplication(index)} />
                             </HeaderContainer>
-                            <ApplicationContentContainer {...item} />
+                            <ApplicationContentContainer {...data} />
                         </ApplicationCardStyles>
                     )
             })}
