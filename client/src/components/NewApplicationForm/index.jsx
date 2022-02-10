@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { connect } from "react-redux";
 
 import { addApplication } from "../../store/actions/updateApplications";
@@ -11,28 +11,36 @@ import {
     FormInput,
     FormContainer,
     FormSubmit,
-    FormSelect
+    FormSelect,
+    FormCheckBox
 } from "../Form";
 
 import companyIcon from "../../assets/Icons/CompanyIcon.png";
 import roleIcon from "../../assets/Icons/RoleIcon.png";
 import urlIcon from "../../assets/Icons/UrlIcon.png";
 import calendarIcon from "../../assets/Icons/CalendarIcon.png";
+import remoteIcon from "../../assets/Icons/RemoteIcon.png";
+import locationIcon from "../../assets/Icons/LocationIcon.png";
 
 const NewApplicationForm = (props) => {
     const { addApplication, toggleForm } = props;
     const displayValue = returnDisplayValue(props.isVisible);
+    const [locationDisplay, setLocationDisplay] = useState("flex");
     const formInputRefs = {
         companyElement: useRef(null),
         dateElement: useRef(null),
         urlElement: useRef(null),
-        roleElement: useRef(null)
+        roleElement: useRef(null),
+        remoteElement: useRef(null),
+        locationElement: useRef(null)
     }
     const { 
         companyElement,
         dateElement,
         urlElement,
-        roleElement
+        roleElement,
+        remoteElement,
+        locationElement
     } = formInputRefs;
     const roleOptions = ["Front End", "Back End", "Full Stack", "Data Science", "DevOps", "Other"];
 
@@ -41,6 +49,9 @@ const NewApplicationForm = (props) => {
         dateElement.current.value = formatDate();
         urlElement.current.value = "";
         roleElement.current.value = roleOptions[0];
+        remoteElement.current.checked = false;
+        locationElement.current.value = "";
+        setLocationDisplay("flex");
         toggleForm();
     }
 
@@ -52,7 +63,9 @@ const NewApplicationForm = (props) => {
             date: dateElement.current.value,
             website: urlElement.current.value,
             role: roleElement.current.value,
-            status: "Awaiting"
+            remote: remoteElement.current.checked,
+            location: locationElement.current.value,
+            status: "Awaiting",
         }
         addApplication(newData);
         handleFormCancel();
@@ -63,6 +76,15 @@ const NewApplicationForm = (props) => {
             return "form--closed";
         else
             return "";
+    }
+
+    const handleCheckBoxChange = () => {
+        if(remoteElement.current.checked){
+            setLocationDisplay("none");
+            locationElement.current.value = "";
+        }
+        else
+            setLocationDisplay("flex");
     }
 
     const formClassName = handleFormClass();
@@ -104,6 +126,20 @@ const NewApplicationForm = (props) => {
                         icon={calendarIcon}
                         defaultValue={formatDate()}
                         isRequired
+                    />
+                    <FormCheckBox 
+                        labelName="Remote?"
+                        elementRef={remoteElement}
+                        icon={remoteIcon}
+                        onClick={handleCheckBoxChange}
+                    />
+                    <FormInput 
+                        labelName="Location"
+                        inputType="text"
+                        placeholder="Country, City, State..."
+                        elementRef={locationElement}
+                        icon={locationIcon}
+                        display={locationDisplay}
                     />
                 </FormContainer>
                 <FormSubmit style={{display: displayValue}}>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const FormInputContainer = styled.div`
-    display: flex;
+    display: ${props => props.displayType};
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
@@ -41,10 +41,11 @@ export const FormInput = (props) => {
         elementRef, 
         icon, 
         isRequired,
-        defaultValue } = props;
+        defaultValue,
+        display = "flex" } = props;
 
     return(
-        <FormInputContainer>
+        <FormInputContainer displayType={display}>
             <div>
                 <img src={icon} alt="" />
                 <label htmlFor={"refLabel"}>{labelName}</label>
