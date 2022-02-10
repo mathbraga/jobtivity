@@ -32,16 +32,28 @@ const ActiveApplications = (props) => {
 
     const returnDisplayType = (applicationData) => {
         const searchTermLower = inputValue.toLowerCase();
-        const { name, role, date, status } = applicationData;
+        const {
+            name,
+            role,
+            date,
+            status,
+            remote,
+            location
+        } = applicationData;
+        
         const [
             lowerName,
             lowerRole,
             lowerDate,
-            lowerStatus
+            lowerStatus,
+            lowerRemote,
+            lowerLocation
         ] = [
             name.toLowerCase(),
             role.toLowerCase(),
             prettifyDate(date).toLowerCase(),
+            (remote === true ? "yes" : "no").toLowerCase(),
+            location.toLowerCase(),
             status.toLowerCase()
         ];
 
@@ -49,7 +61,9 @@ const ActiveApplications = (props) => {
             lowerName.includes(searchTermLower) ||
             lowerRole.includes(searchTermLower) ||
             lowerDate.includes(searchTermLower) ||
-            lowerStatus.includes(searchTermLower)
+            lowerRemote.includes(searchTermLower) ||
+            lowerLocation.includes(searchTermLower) ||
+            lowerStatus.includes(searchTermLower) 
         )
             return "inline-block"
         else
