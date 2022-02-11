@@ -7,6 +7,9 @@ const ButtonStyles = styled.button`
     justify-content: center;
     align-items: center;
 
+    font-weight: bold;
+    color: white;
+
     margin-left: auto;
 
     width: 60px;
@@ -16,7 +19,7 @@ const ButtonStyles = styled.button`
     border-radius: 4px;
     box-shadow: 0px 1px 2px #111;
 
-    background-color: var(--color-alternative);
+    background-color: ${props => props.color};
 
     cursor: pointer;
 
@@ -29,8 +32,8 @@ export const NewApplicationButton = (props) => {
     const handleFormToggle = props.onClick;
 
     return(
-        <ButtonStyles onClick={handleFormToggle}>
-            <img src={addIcon} alt="Add item." />
+        <ButtonStyles onClick={handleFormToggle} color={props.color}>
+            {handleFormToggle ? <img src={addIcon} alt="Add item." /> : "Full"}
         </ButtonStyles>
     )
 }

@@ -13,13 +13,15 @@ import {
 const PageTitle = (props) => {
     const { pageTitle, toggleForm, applicationCounter, applicationLimit=0 } = props;
 
-    const handleFormToggle = () => toggleForm();
+    const handleFormToggle = applicationCounter < applicationLimit ? () => toggleForm() : null;
+    const counterColor = applicationCounter < applicationLimit ? "inherit" : "red";
+    const buttonColor = applicationCounter < applicationLimit ? "var(--color-alternative)" : "var(--color-red-tone)";
 
     return(
         <PageTitleContainer>
             <Title title={pageTitle}/>
-            <ApplicationCounter count={`(${applicationCounter}/${applicationLimit})`}/>
-            {props.hasAddButton ? <NewApplicationButton onClick={handleFormToggle} /> : null}
+            <ApplicationCounter count={`(${applicationCounter}/${applicationLimit})`} color={counterColor}/>
+            {props.hasAddButton ? <NewApplicationButton onClick={handleFormToggle} color={buttonColor} /> : null}
         </PageTitleContainer>
     );
 }
