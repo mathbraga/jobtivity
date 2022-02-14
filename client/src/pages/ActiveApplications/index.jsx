@@ -8,6 +8,8 @@ import {
     NoApplicationsCard
 } from "../../components/Applications/styledComponents";
 import NewApplicationForm from "../../components/NewApplicationForm";
+import { NewApplicationButton } from "../../components/PageTitle/styledComponents";
+import { StructuredTextContainer } from "./styledComponents";
 import { prettifyDate } from "../../globalHelperFunctions/utils";
 
 import SearchIcon from "../../assets/Icons/SearchIconWhite.png";
@@ -16,6 +18,8 @@ import { ApplicationsPageContainer } from "../globalStyledComponents";
 
 const activeApplicationsPageTitle = "Active Applications";
 const activeApplicationsLimit = 30;
+
+const buttonColor = "var(--color-alternative)";
 
 const ActiveApplications = (props) => {
     const { applicationsList, formState } = props;
@@ -98,7 +102,20 @@ const ActiveApplications = (props) => {
                 }
             </SearchBarContainer>
             {numberOfApplications === 0 ? 
-                <NoApplicationsCard>No active applications.</NoApplicationsCard>
+                <NoApplicationsCard>
+                    <span>No active applications.</span>
+                    <StructuredTextContainer>
+                        <span style={{paddingRight: "4px"}}>Click the</span>
+                        <NewApplicationButton 
+                            onClick={() => {}}
+                            boxShadow="none"
+                            color={buttonColor}
+                        >
+                            +
+                        </NewApplicationButton>
+                        <span style={{paddingLeft: "4px"}}>above.</span>
+                    </StructuredTextContainer>
+                </NoApplicationsCard>
                 :
                 applications.map((item, index) => {
                     const displayType = returnDisplayType(item);

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import addIcon from "../../../assets/Icons/AddIconBlack.png";
 
 const ButtonStyles = styled.button`
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
 
@@ -17,7 +17,7 @@ const ButtonStyles = styled.button`
 
     border: none;
     border-radius: 4px;
-    box-shadow: 0px 1px 2px #111;
+    box-shadow: ${props => props.boxShadow};
 
     background-color: ${props => props.color};
 
@@ -30,9 +30,10 @@ const ButtonStyles = styled.button`
 
 export const NewApplicationButton = (props) => {
     const handleFormToggle = props.onClick;
+    const { boxShadow = "0px 1px 2px #111" } = props;
 
     return(
-        <ButtonStyles onClick={handleFormToggle} color={props.color}>
+        <ButtonStyles onClick={handleFormToggle} color={props.color} boxShadow={boxShadow}>
             {handleFormToggle ? <img src={addIcon} alt="Add item." /> : "Full"}
         </ButtonStyles>
     )
