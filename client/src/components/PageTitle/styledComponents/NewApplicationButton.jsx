@@ -21,7 +21,7 @@ const ButtonStyles = styled.button`
 
     background-color: ${props => props.color};
 
-    cursor: pointer;
+    cursor: ${props => props.cursor};
 
     :active{
         box-shadow: none;
@@ -30,10 +30,15 @@ const ButtonStyles = styled.button`
 
 export const NewApplicationButton = (props) => {
     const handleFormToggle = props.onClick;
-    const { boxShadow = "0px 1px 2px #111" } = props;
+    const { cursor = "pointer", boxShadow = "0px 1px 2px #111" } = props;
 
     return(
-        <ButtonStyles onClick={handleFormToggle} color={props.color} boxShadow={boxShadow}>
+        <ButtonStyles 
+        onClick={handleFormToggle}
+        color={props.color}
+        boxShadow={boxShadow}
+        cursor={cursor}
+        >
             {handleFormToggle ? <img src={addIcon} alt="Add item." /> : "Full"}
         </ButtonStyles>
     )

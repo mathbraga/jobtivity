@@ -110,6 +110,7 @@ const ActiveApplications = (props) => {
                             onClick={() => {}}
                             boxShadow="none"
                             color={buttonColor}
+                            cursor= "default"
                         >
                             +
                         </NewApplicationButton>
