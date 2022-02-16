@@ -9,17 +9,15 @@ import { MainPageContainer } from "./styledComponents";
 
 const MainPage = () => {
     return(
-        <>
-            <MainPageContainer>
-                <PageHeader />
-                <Route path="/" exact>
-                    <Redirect to="/applications"/>
-                </Route>
-                <Route path="/applications" exact component={ActiveApplications}/>
-                <Route path="/history" exact component={ApplicationsHistory}/>
-                <Footer />
-            </MainPageContainer>
-        </>
+        <MainPageContainer>
+            <PageHeader />
+            <Route path="/" exact>
+                <Redirect to="/applications"/>
+            </Route>
+            <Route path="/applications" exact component={ActiveApplications}/>
+            <Route path="/history" exact component={ApplicationsHistory}/>
+            <Footer />
+        </MainPageContainer>
     );
 }
 
