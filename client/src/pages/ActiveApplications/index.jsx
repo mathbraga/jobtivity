@@ -18,12 +18,14 @@ import { ApplicationsPageContainer } from "../globalStyledComponents";
 
 const activeApplicationsPageTitle = "Active Applications";
 const activeApplicationsLimit = 30;
+const historyApplicationsLimit = 1;
 
 const buttonColor = "var(--color-alternative)";
 
 const ActiveApplications = (props) => {
-    const { applicationsList, formState } = props;
+    const { applicationsList, historyList, formState } = props;
     const numberOfApplications = applicationsList ? applicationsList.length : 0;
+    const numberOfHistory = historyList ? historyList.length : 0;
     const applications = applicationsList ? applicationsList : [];
     const searchBarRef = useRef(null);
     const [ inputValue, setInput ] = useState("");
@@ -81,6 +83,8 @@ const ActiveApplications = (props) => {
                 hasAddButton={true}
                 applicationCounter={numberOfApplications}
                 applicationLimit={activeApplicationsLimit}
+                historyCounter={numberOfHistory}
+                historyLimit={historyApplicationsLimit}
             />
             <NewApplicationForm isVisible={formState} />
             <SearchBarContainer>
@@ -129,6 +133,7 @@ const ActiveApplications = (props) => {
 
 const mapStateToProps = (state) => ({
     applicationsList: state.applicationsReducer.applications,
+    historyList: state.applicationsReducer.history,
     formState: state.formsReducer.formVisibility
 })
 

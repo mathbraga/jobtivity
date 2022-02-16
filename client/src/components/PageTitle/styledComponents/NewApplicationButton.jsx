@@ -13,7 +13,7 @@ const ButtonStyles = styled.button`
     margin-left: auto;
 
     width: 60px;
-    height: 20px;
+    min-height: 20px;
 
     border: none;
     border-radius: 4px;
@@ -30,7 +30,11 @@ const ButtonStyles = styled.button`
 
 export const NewApplicationButton = (props) => {
     const handleFormToggle = props.onClick;
-    const { cursor = "pointer", boxShadow = "0px 1px 2px #111" } = props;
+    const { 
+        cursor = "pointer",
+        boxShadow = "0px 1px 2px #111",
+        text = ""
+    } = props;
 
     return(
         <ButtonStyles 
@@ -39,7 +43,7 @@ export const NewApplicationButton = (props) => {
         boxShadow={boxShadow}
         cursor={cursor}
         >
-            {handleFormToggle ? <img src={addIcon} alt="Add item." /> : "Full"}
+            {handleFormToggle ? <img src={addIcon} alt="Add item." /> : text}
         </ButtonStyles>
     )
 }

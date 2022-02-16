@@ -11,17 +11,29 @@ import {
 } from "./styledComponents";
 
 const PageTitle = (props) => {
-    const { pageTitle, toggleForm, applicationCounter, applicationLimit=0 } = props;
+    const { pageTitle, toggleForm, applicationCounter, applicationLimit=0, historyCounter, historyLimit=0 } = props;
+    const isApplicationCounterLimit = applicationCounter < applicationLimit;
+    const isHistoryCounterLimit = historyCounter < historyLimit;
 
-    const handleFormToggle = applicationCounter < applicationLimit ? () => toggleForm() : null;
-    const counterColor = applicationCounter < applicationLimit ? "inherit" : "red";
-    const buttonColor = applicationCounter < applicationLimit ? "var(--color-alternative)" : "var(--color-red-tone)";
+    const handleFormToggle = isApplicationCounterLimit ?
+        (isHistoryCounterLimit ? () => toggleForm() : null)
+        :
+        null;
+    const counterColor = isApplicationCounterLimit ? "inherit" : "red";
+    const buttonColor = isApplicationCounterLimit ?
+        (isHistoryCounterLimit ? "var(--color-alternative)" : "var(--color-red-tone)")
+        :
+        "var(--color-red-tone)";
+    const buttonText = isApplicationCounterLimit ?
+        (isHistoryCounterLimit ? "+" : "History Full")
+        :
+        "Full";
 
     return(
         <PageTitleContainer>
             <Title title={pageTitle}/>
             <ApplicationCounter count={`(${applicationCounter}/${applicationLimit})`} color={counterColor}/>
-            {props.hasAddButton ? <NewApplicationButton onClick={handleFormToggle} color={buttonColor} /> : null}
+            {props.hasAddButton ? <NewApplicationButton onClick={handleFormToggle} color={buttonColor} text={buttonText} /> : null}
         </PageTitleContainer>
     );
 }
