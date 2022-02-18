@@ -33,7 +33,11 @@ const PageTitle = (props) => {
         <PageTitleContainer>
             <Title title={pageTitle}/>
             <ApplicationCounter count={`(${applicationCounter}/${applicationLimit})`} color={counterColor}/>
-            {props.hasAddButton ? <NewApplicationButton onClick={handleFormToggle} color={buttonColor} text={buttonText} /> : null}
+            {props.hasAddButton ?
+                <NewApplicationButton onClick={handleFormToggle} color={buttonColor} text={buttonText} /> 
+                :
+                null
+            }
         </PageTitleContainer>
     );
 }

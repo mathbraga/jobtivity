@@ -124,9 +124,14 @@ const ActiveApplications = (props) => {
                 :
                 applications.map((item, index) => {
                     const displayType = returnDisplayType(item);
-                    return <ApplicationCard {...item} key={index} index={index} displayType={displayType} />
+                    return <ApplicationCard 
+                                {...item} 
+                                key={index} 
+                                index={index} 
+                                displayType={displayType}
+                            />
+                })
             }
-            )}
         </ApplicationsPageContainer>
     );
 }

@@ -100,7 +100,11 @@ const ApplicationsHistory = (props) => {
                     const data = (({ name, role, website, date }) => ({ name, role, website, date }))(item);
 
                     return(
-                        <ApplicationCardStyles borderColor="var(--color-history-border)" key={index} displayType={displayType}>
+                        <ApplicationCardStyles
+                            borderColor="var(--color-history-border)"
+                            key={index}
+                            displayType={displayType}
+                        >
                             <HeaderContainer>
                                 <DeleteApplicationButton onClick={(index) => handleRemoveApplication(index)} />
                             </HeaderContainer>
