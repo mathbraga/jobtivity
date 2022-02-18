@@ -18,7 +18,7 @@ import { ApplicationsPageContainer } from "../globalStyledComponents";
 
 const activeApplicationsPageTitle = "Active Applications";
 const activeApplicationsLimit = 30;
-const historyApplicationsLimit = 1;
+const historyApplicationsLimit = 100;
 
 const buttonColor = "var(--color-alternative)";
 
