@@ -11,7 +11,6 @@ export const NoApplicationsCard = styled.div`
     border: 1px solid #979797;
     border-radius: 4px;
 
-    width: 60%;
     height: 100px;
 
     font-weight: bold;

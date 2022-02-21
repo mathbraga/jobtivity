@@ -94,7 +94,7 @@ const NewApplicationForm = (props) => {
                 name="newApplicationForm"
                 {...props}
                 onSubmit={(e) => handleFormSubmit(e)}
-                className={formClassName}
+                className={`${formClassName} autosize`}
             >
                 <FormContainer style={{display: displayValue}}>
                     <FormInput 

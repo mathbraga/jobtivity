@@ -5,7 +5,6 @@ import { ApplicationCardContent } from "./ApplicationCardContent";
 export const ApplicationCardStyles = styled.div`
     display: ${props => props.displayType};
 
-    width: 60%;
     height: auto;
 
     padding: 12px;
@@ -30,7 +29,7 @@ export const ApplicationCard = (props) => {
     } = props;
 
     return(
-        <ApplicationCardStyles displayType={displayType} borderColor={borderColor}>
+        <ApplicationCardStyles displayType={displayType} borderColor={borderColor} className="autosize">
             <ApplicationCardContent {...otherProps} />
         </ApplicationCardStyles>
     );

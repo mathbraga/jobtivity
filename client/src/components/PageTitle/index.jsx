@@ -30,7 +30,7 @@ const PageTitle = (props) => {
         "Full";
 
     return(
-        <PageTitleContainer>
+        <PageTitleContainer className="autosize">
             <Title title={pageTitle}/>
             <ApplicationCounter count={`(${applicationCounter}/${applicationLimit})`} color={counterColor}/>
             {props.hasAddButton ?

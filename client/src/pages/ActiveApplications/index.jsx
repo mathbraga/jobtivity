@@ -87,7 +87,7 @@ const ActiveApplications = (props) => {
                 historyLimit={historyApplicationsLimit}
             />
             <NewApplicationForm isVisible={formState} />
-            <SearchBarContainer>
+            <SearchBarContainer className="autosize">
                 <img src={SearchIcon} alt="Search Icon"/>
                 <input 
                     type="text"
@@ -106,7 +106,7 @@ const ActiveApplications = (props) => {
                 }
             </SearchBarContainer>
             {numberOfApplications === 0 ? 
-                <NoApplicationsCard>
+                <NoApplicationsCard className="autosize">
                     <span>No active applications.</span>
                     <StructuredTextContainer>
                         <span style={{paddingRight: "4px"}}>Click the</span>

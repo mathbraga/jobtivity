@@ -74,7 +74,7 @@ const ApplicationsHistory = (props) => {
                 applicationCounter={numberOfApplications}
                 applicationLimit={applicationHistoryLimit}
             />
-            <SearchBarContainer>
+            <SearchBarContainer className="autosize">
                 <img src={SearchIcon} alt="Search Icon"/>
                 <input 
                     type="text"
@@ -93,7 +93,7 @@ const ApplicationsHistory = (props) => {
                 }
             </SearchBarContainer>
             {numberOfApplications === 0 ?
-                <NoApplicationsCard>No applications in history.</NoApplicationsCard>
+                <NoApplicationsCard className="autosize">No applications in history.</NoApplicationsCard>
                 :
                 historyList.map((item, index) => {
                     const displayType = returnDisplayType(item);
@@ -104,6 +104,7 @@ const ApplicationsHistory = (props) => {
                             borderColor="var(--color-history-border)"
                             key={index}
                             displayType={displayType}
+                            className="autosize"
                         >
                             <HeaderContainer>
                                 <DeleteApplicationButton onClick={(index) => handleRemoveApplication(index)} />

@@ -19,6 +19,20 @@
                             4px 0 0.5rem rgba(0, 8, 20, 0.4) inset;
 }
 
+.autosize{
+    width: 95%;
+}
+@media only screen and (min-width: 640px){
+    .autosize{
+        width: 600px;
+    }
+}
+@media only screen and (min-width: 1000px){
+    .autosize{
+        width: 700px;
+    }
+}
+
 *{
     margin: 0;
     padding: 0;

@@ -4,7 +4,6 @@ export const ApplicationFormContainer = styled.form`
     display: flex;
     flex-direction: column;
 
-    width: 60%;
     height: auto;
 
     border: 1px solid gold;
