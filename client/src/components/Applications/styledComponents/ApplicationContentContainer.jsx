@@ -8,6 +8,7 @@ import locationIcon from "../../../assets/Icons/LocationIcon.png";
 import remoteIcon from "../../../assets/Icons/RemoteIcon.png";
 
 import { prettifyDate } from "../../../globalHelperFunctions/utils";
+import { useWindowWidth } from "../../../globalHelperFunctions/hooks";
 
 const ApplicationContentContainerStyles = styled.div`
     .card--content{
@@ -58,6 +59,21 @@ const ApplicationContentContainerStyles = styled.div`
 export const ApplicationContentContainer = (props) => {
     const { date } = props;
     const prettyDate = date ? prettifyDate(date) : null;
+    const width = useWindowWidth();
+    const [
+        company,
+        role,
+        url,
+        applied,
+        remote,
+        location
+    ] = width > 640 ? 
+        ["Company",
+        "Role",
+        "Url",
+        "Applied",
+        "Remote",
+        "Location"] : [null, null, null, null, null, null];
 
     return(
         <ApplicationContentContainerStyles>
@@ -66,7 +82,7 @@ export const ApplicationContentContainer = (props) => {
                     <div>
                         <span>
                             <img src={companyIcon} alt="" />
-                            <span>Company</span>
+                            {company ? <span>{company}</span> : null}
                         </span> 
                         {props.name}
                     </div>
@@ -77,7 +93,7 @@ export const ApplicationContentContainer = (props) => {
                     <div>
                         <span>
                             <img src={roleIcon} alt="" />
-                            <span>Role</span>
+                            {role ? <span>{role}</span> : null}
                         </span> 
                         {props.role}
                     </div>
@@ -90,7 +106,7 @@ export const ApplicationContentContainer = (props) => {
                     <div>
                     <span>
                         <img src={urlIcon} alt="" />
-                        <span>Url</span>
+                        {url ? <span>{url}</span> : null}
                     </span>
                         {props.website ? 
                             <a href={`${props.website}`} rel="noreferrer" target="_blank">Link</a> : "None"}
@@ -100,7 +116,7 @@ export const ApplicationContentContainer = (props) => {
                     <div>
                         <span>
                             <img src={calendarIcon} alt="" />
-                            <span>Applied</span>
+                            {applied ? <span>{applied}</span> : null}
                         </span> 
                         {prettyDate}
                     </div>
@@ -113,7 +129,7 @@ export const ApplicationContentContainer = (props) => {
                     <div>
                         <span>
                             <img src={remoteIcon} alt="" />
-                            <span>Remote</span>
+                            {remote ? <span>{remote}</span> : null}
                         </span> 
                         {props.remote === true ? "Yes" : "No"}
                     </div>
@@ -122,7 +138,7 @@ export const ApplicationContentContainer = (props) => {
                     <div>
                         <span>
                             <img src={locationIcon} alt="" />
-                            <span>Location</span>
+                            {location ? <span>{location}</span> : null}
                         </span> 
                         {props.location}
                     </div>
