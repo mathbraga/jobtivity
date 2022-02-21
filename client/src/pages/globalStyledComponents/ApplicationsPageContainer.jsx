@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const ApplicationsPageContainer = styled.div`
-    width: max(60%, 400px);
+    width: 100%;
     height: 100%;
 
     box-sizing: border-box;
-    padding: 2vw;
+    padding: 20px;
     padding-bottom: 0;
 
     display: flex;
