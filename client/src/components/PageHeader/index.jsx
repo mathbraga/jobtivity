@@ -1,18 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useWindowWidth } from "../../globalHelperFunctions/hooks";
 
 import { 
     PageHeaderBadge,
     PageHeaderContainer,
     PageHeaderButton,
-    PageHeaderButtonContainer
+    PageHeaderButtonContainer,
+    PageHeaderShadow,
+    PageHeaderMenu,
+    MenuButton
 } from "./styledComponents";
 
 const PageHeader = () => {
-    return(
-        <PageHeaderContainer>
-            <PageHeaderBadge />
-            <PageHeaderButtonContainer>
+    const width = useWindowWidth();
+    const isScreenSmall = width > 640 ? false : true;
+    const returnHeaderLinks = () => {
+        return(
+            <>
                 <PageHeaderButton>
                     <Link to="/applications">
                         Applications
@@ -23,8 +28,26 @@ const PageHeader = () => {
                         History
                     </Link>
                 </PageHeaderButton>
-            </PageHeaderButtonContainer>
-        </PageHeaderContainer>
+            </>
+        );
+    }
+
+    return(
+        <>
+            <PageHeaderContainer>
+                {isScreenSmall && <MenuButton />}
+                <PageHeaderBadge />
+                {!isScreenSmall &&
+                <PageHeaderButtonContainer>
+                    {returnHeaderLinks()}
+                </PageHeaderButtonContainer>}
+            </PageHeaderContainer>
+            <PageHeaderShadow />
+            {isScreenSmall &&
+            <PageHeaderMenu>
+                {returnHeaderLinks()}
+            </PageHeaderMenu>}
+        </>
     );
 }
 

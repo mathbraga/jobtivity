@@ -8,7 +8,7 @@ export const ApplicationCardStyles = styled.div`
     height: auto;
 
     padding: 12px;
-    margin-bottom: 0.8vw;
+    margin-bottom: 12px;
 
     border: 1px solid ${props => props.borderColor};
     border-radius: 4px;
