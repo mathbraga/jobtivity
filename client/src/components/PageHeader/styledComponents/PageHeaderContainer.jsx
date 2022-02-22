@@ -16,7 +16,5 @@ export const PageHeaderContainer = styled.div`
 
     background-color: var(--color-primary);
 
-    box-shadow: 0 5px 10px 0 var(--color-header-shadow);
-
-    z-index: 1;
+    z-index: 2;
 `;
