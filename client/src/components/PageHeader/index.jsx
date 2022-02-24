@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useWindowWidth } from "../../globalHelperFunctions/hooks";
 
 import { 
@@ -17,6 +17,7 @@ import historyIcon from "../../assets/Icons/HistoryIcon.png";
 
 const PageHeader = () => {
     const width = useWindowWidth();
+    const currentPath = useLocation().pathname;
     const isScreenSmall = width > 640 ? false : true;
     const [headerClass, setHeaderClass] = useState("");
 
@@ -44,18 +45,28 @@ const PageHeader = () => {
     });
 
     const returnHeaderLinks = () => {
-        const smallScreen = isScreenSmall ? true : false;
+        const className = isScreenSmall ? "button--highlighted" : ""
+
+        const highlightButton = (path) => {
+            return path === currentPath ? className : "";
+        }
         
         return(
             <>
                 <Link to="/applications">
-                    <PageHeaderButton smallScreen={smallScreen}>
+                    <PageHeaderButton
+                        smallScreen={isScreenSmall}
+                        className={highlightButton("/applications")}
+                    >
                         <img src={listIcon} alt="" />
                         Applications
                     </PageHeaderButton>
                 </Link>
                 <Link to="/history">
-                    <PageHeaderButton smallScreen={smallScreen}>
+                    <PageHeaderButton 
+                        smallScreen={isScreenSmall}
+                        className={highlightButton("/history")}
+                    >
                         <img src={historyIcon} alt="" />
                         History
                     </PageHeaderButton>

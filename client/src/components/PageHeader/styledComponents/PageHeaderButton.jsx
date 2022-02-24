@@ -5,6 +5,8 @@ export const PageHeaderButton = styled.div`
     width: 100%;
     padding: 12px;
 
+    background-color: var(--color-primary);
+    
     font-size: 1.2rem;
     font-weight: bold;
 
@@ -18,6 +20,10 @@ export const PageHeaderButton = styled.div`
     box-sizing: border-box;
     border-bottom: 0px solid var(--color-alternative);
     transition: 200ms border;
+
+    &.button--highlighted{
+        background-color: var(--color-alternative);
+    }
 
     ${props => {
         if(!props.smallScreen)
