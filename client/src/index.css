@@ -40,6 +40,8 @@
 }
 
 html, body, #root{
+    -webkit-tap-highlight-color: transparent;
+
     min-height: 100%;
 }
 

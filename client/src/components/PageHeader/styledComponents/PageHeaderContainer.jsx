@@ -17,4 +17,9 @@ export const PageHeaderContainer = styled.div`
     background-color: var(--color-primary);
 
     z-index: 2;
+
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
 `;

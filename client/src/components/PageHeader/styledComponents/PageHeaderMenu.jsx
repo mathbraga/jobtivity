@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const PageHeaderMenu = styled.div`
-    width: auto;
+    width: 100vw;
     height: auto;
-    padding-left: 21px;
 
     background-color: white;
 
@@ -16,10 +15,18 @@ export const PageHeaderMenu = styled.div`
 
     cursor: pointer;
 
-    transform: translateY(-30px);
+    transform: translateY(-54px);
+    transition: transform 350ms;
     z-index: 1;
 
-    div{
-        margin: 12px 0;
+    &.collapsed{
+        outline: none;
+
+        transform: translateY(52px);
+    }
+
+    a{
+        text-decoration: none;
+        color: inherit;
     }
 `;

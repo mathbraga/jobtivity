@@ -18,12 +18,14 @@ const MenuButtonContainer = styled.div`
         width: 20px;
 
         margin: 2px 0;
+
+        pointer-events: none;
     }
 `;
 
-export const MenuButton = () => {
+export const MenuButton = (props) => {
     return(
-        <MenuButtonContainer>
+        <MenuButtonContainer {...props}>
             <div></div>
             <div></div>
             <div></div>
