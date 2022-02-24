@@ -11,7 +11,7 @@ export const PageHeaderContainer = styled.div`
 
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 
     background-color: var(--color-primary);

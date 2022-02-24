@@ -5,3 +5,5 @@ export { PageHeaderButtonContainer } from "./PageHeaderButtonContainer";
 export { PageHeaderShadow } from "./PageHeaderShadow";
 export { PageHeaderMenu } from "./PageHeaderMenu";
 export { MenuButton } from "./MenuButton";
+export { HeaderButtonsContainer } from "./HeaderButtonsContainer";
+export { ThemeToggle } from "./ThemeToggle";

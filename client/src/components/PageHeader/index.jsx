@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useWindowWidth } from "../../globalHelperFunctions/hooks";
 
+import styled from "styled-components";
+
 import { 
     PageHeaderBadge,
     PageHeaderContainer,
@@ -9,7 +11,9 @@ import {
     PageHeaderButtonContainer,
     PageHeaderShadow,
     PageHeaderMenu,
-    MenuButton
+    MenuButton,
+    HeaderButtonsContainer,
+    ThemeToggle
 } from "./styledComponents";
 
 import listIcon from "../../assets/Icons/ListIcon.png";
@@ -78,12 +82,15 @@ const PageHeader = () => {
     return(
         <>
             <PageHeaderContainer>
-                {isScreenSmall && <MenuButton id={"menu--button"} />}
-                <PageHeaderBadge />
-                {!isScreenSmall &&
-                <PageHeaderButtonContainer>
-                    {returnHeaderLinks()}
-                </PageHeaderButtonContainer>}
+                <HeaderButtonsContainer>
+                    {isScreenSmall && <MenuButton id={"menu--button"} />}
+                    <PageHeaderBadge />
+                    {!isScreenSmall &&
+                    <PageHeaderButtonContainer>
+                        {returnHeaderLinks()}
+                    </PageHeaderButtonContainer>}
+                </HeaderButtonsContainer>
+                <ThemeToggle />
             </PageHeaderContainer>
             <PageHeaderShadow />
             {isScreenSmall &&
