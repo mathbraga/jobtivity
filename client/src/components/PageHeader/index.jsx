@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useWindowWidth } from "../../globalHelperFunctions/hooks";
 
-import styled from "styled-components";
-
 import { 
     PageHeaderBadge,
     PageHeaderContainer,
@@ -41,7 +39,8 @@ const PageHeader = () => {
     }
 
     useEffect(() => {
-        window.addEventListener('click', handleMenu);
+        if(headerClass === "collapsed")
+            window.addEventListener('click', handleMenu);
 
         return () => {
             window.removeEventListener('click', handleMenu);
@@ -83,7 +82,12 @@ const PageHeader = () => {
         <>
             <PageHeaderContainer>
                 <HeaderButtonsContainer>
-                    {isScreenSmall && <MenuButton id={"menu--button"} />}
+                    {isScreenSmall && 
+                        <MenuButton 
+                            id={"menu--button"} 
+                            onClick={headerClass ? null : (e) => handleMenu(e)}
+                        />
+                    }
                     <PageHeaderBadge />
                     {!isScreenSmall &&
                     <PageHeaderButtonContainer>
