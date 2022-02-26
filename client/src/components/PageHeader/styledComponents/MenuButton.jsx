@@ -15,20 +15,46 @@ const MenuButtonContainer = styled.div`
 
     div{
         border-bottom: 1px solid black;
-        width: 20px;
 
+        width: 20px;
         margin: 2px 0;
 
         pointer-events: none;
+
+        transition: transform 200ms, border 200ms, width 200ms;
+    }
+
+    .collapsed--upper, .collapsed--lower{
+        width: 10px;
+    }
+
+    .collapsed--upper{
+        transform: rotate(45deg) translateX(5px);
+    }
+    .collapsed--middle{
+        border-color: transparent;
+    }
+    .collapsed--lower{
+        transform: rotate(-45deg) translateY(-7px) translateX(2px);
     }
 `;
 
 export const MenuButton = (props) => {
+    const { menuState, ...otherProps } = props;
+    const [
+        lineUpper,
+        lineMiddle,
+        lineLower
+    ] = menuState ? 
+        ["collapsed--upper",
+        "collapsed--middle",
+        "collapsed--lower"] : ["", "", ""];
+
     return(
-        <MenuButtonContainer {...props}>
-            <div></div>
-            <div></div>
-            <div></div>
+        <MenuButtonContainer {...otherProps}>
+            <div className={lineUpper}></div>
+            <div className={lineMiddle}></div>
+            <div className={lineLower}></div>
         </MenuButtonContainer>
     );
 }

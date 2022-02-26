@@ -84,7 +84,8 @@ const PageHeader = () => {
                 <HeaderButtonsContainer>
                     {isScreenSmall && 
                         <MenuButton 
-                            id={"menu--button"} 
+                            id={"menu--button"}
+                            menuState={headerClass}
                             onClick={headerClass ? null : (e) => handleMenu(e)}
                         />
                     }
