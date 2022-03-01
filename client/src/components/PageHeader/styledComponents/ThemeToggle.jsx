@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const ThemeToggle = styled.div`
-    height: 20px;
-    width: 36px;
+const ThemeToggleContainer = styled.div`
+    height: 24px;
+    width: 44px;
 
     background-color: #ccc;
 
@@ -19,3 +19,30 @@ export const ThemeToggle = styled.div`
 
     cursor: pointer;
 `;
+
+const ToggleCircle = styled.div`
+    width: 20px;
+    height: 20px;
+
+    position: relative;
+    left: 0;
+    transition: 250ms left;
+
+    border-radius: 50%;
+
+    background-color: white;
+
+    &.toggle--on{
+        left:50%
+    }
+`;
+
+export const ThemeToggle = (props) => {
+    const { onClick, toggleState } = props;
+
+    return(
+        <ThemeToggleContainer onClick={onClick}>
+            <ToggleCircle className={toggleState ? "toggle--on" : ""} />
+        </ThemeToggleContainer>
+    )
+}

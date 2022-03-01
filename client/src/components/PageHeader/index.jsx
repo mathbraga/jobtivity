@@ -22,6 +22,7 @@ const PageHeader = () => {
     const currentPath = useLocation().pathname;
     const isScreenSmall = width > 640 ? false : true;
     const [headerClass, setHeaderClass] = useState("");
+    const [toggleState, setToggleState] = useState(false);
 
     const handleMenu = (event) => {
         const clickedElement = event.target.id;
@@ -37,6 +38,11 @@ const PageHeader = () => {
             setHeaderClass("");
         }
     }
+
+    const handleToggle = () => {
+        console.log(toggleState);
+        setToggleState(!toggleState)
+    };
 
     useEffect(() => {
         if(headerClass === "collapsed")
@@ -95,7 +101,7 @@ const PageHeader = () => {
                         {returnHeaderLinks()}
                     </PageHeaderButtonContainer>}
                 </HeaderButtonsContainer>
-                <ThemeToggle />
+                <ThemeToggle onClick={handleToggle} toggleState={toggleState} />
             </PageHeaderContainer>
             <PageHeaderShadow />
             {isScreenSmall &&
