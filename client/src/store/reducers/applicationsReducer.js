@@ -16,7 +16,7 @@ export default function reducer(state = initial_state, action){
         updatedData = convertObjectToString(state.applications);
         localStorage.setItem("applicationsList", updatedData);
 
-        return {...state}
+        return {...state};
     }
 
     else if(action.type === "ADD_APPLICATION"){
