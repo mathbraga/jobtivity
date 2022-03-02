@@ -1,6 +1,6 @@
 const storageName = "applicationsList";
 const historyStorageName = "applicationsHistory";
-const toggleStorageName = "toggleState"
+const toggleStorageName = "toggleState";
 
 const createEmptyStorage = () => {
     if(localStorage.getItem(storageName) === null)

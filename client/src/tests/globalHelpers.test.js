@@ -10,12 +10,16 @@ import {
 } from "../globalHelperFunctions/utils";
 
 const storageName = "applicationsList";
+const historyStorageName = "applicationsHistory";
+const toggleStorageName = "toggleState";
 
 describe("Local storage", () => {
     it("Is empty local storage created", () => {
         createEmptyStorage();
 
         expect(localStorage.getItem(storageName)).toEqual("[]");
+        expect(localStorage.getItem(historyStorageName)).toEqual("[]");
+        expect(localStorage.getItem(toggleStorageName)).toEqual("false");
         localStorage.clear();
     });
 });
