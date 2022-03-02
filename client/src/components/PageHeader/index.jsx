@@ -24,6 +24,12 @@ const PageHeader = () => {
     const [headerClass, setHeaderClass] = useState("");
     const [toggleState, setToggleState] = useState(false);
 
+    const highlightButton = (path) => {
+        const className = isScreenSmall ? "button--highlighted" : ""
+        
+        return path === currentPath ? className : "";
+    }
+
     const handleMenu = (event) => {
         const clickedElement = event.target.id;
 
@@ -39,10 +45,7 @@ const PageHeader = () => {
         }
     }
 
-    const handleToggle = () => {
-        console.log(toggleState);
-        setToggleState(!toggleState)
-    };
+    const handleToggle = () => { setToggleState(!toggleState) };
 
     useEffect(() => {
         if(headerClass === "collapsed")
@@ -54,12 +57,6 @@ const PageHeader = () => {
     });
 
     const returnHeaderLinks = () => {
-        const className = isScreenSmall ? "button--highlighted" : ""
-
-        const highlightButton = (path) => {
-            return path === currentPath ? className : "";
-        }
-        
         return(
             <>
                 <Link to="/applications">
