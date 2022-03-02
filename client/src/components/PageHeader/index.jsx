@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import { toggleTheme } from "../../store/actions/toggleTheme";
 import { Link, useLocation } from "react-router-dom";
 import { useWindowWidth } from "../../globalHelperFunctions/hooks";
 
@@ -19,7 +20,7 @@ import listIcon from "../../assets/Icons/ListIcon.png";
 import historyIcon from "../../assets/Icons/HistoryIcon.png";
 
 const PageHeader = (props) => {
-    const { toggleState } = props;
+    const { toggleState, updateToggle } = props;
     const width = useWindowWidth();
     const currentPath = useLocation().pathname;
     const isScreenSmall = width > 640 ? false : true;
@@ -46,7 +47,8 @@ const PageHeader = (props) => {
         }
     }
 
-    const handleToggle = () => null;
+    const handleToggle = () => updateToggle()
+
 
     useEffect(() => {
         if(headerClass === "collapsed")
@@ -111,7 +113,11 @@ const PageHeader = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    toggleState: state.toggleState
-})
+    toggleState: state.themeToggleReducer.toggleState
+});
 
-export default connect(mapStateToProps, null)(PageHeader);
+const mapDispatchToProps = (dispatch) => ({
+    updateToggle: () => dispatch(toggleTheme())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PageHeader);

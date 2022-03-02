@@ -1,4 +1,4 @@
-import { convertStringToObject } from "../../globalHelperFunctions/dataConversionHelpers";
+import { convertObjectToString, convertStringToObject } from "../../globalHelperFunctions/dataConversionHelpers";
 
 const defaultState = {
     toggleState: convertStringToObject(localStorage.getItem("toggleState"))
@@ -7,6 +7,7 @@ const defaultState = {
 export default function reducer(state = defaultState, action){
     if(action.type === "TOGGLE_THEME"){
         state.toggleState = !state.toggleState;
+        localStorage.setItem("toggleState", convertObjectToString(state.toggleState));
         return {...state};
     }
 
