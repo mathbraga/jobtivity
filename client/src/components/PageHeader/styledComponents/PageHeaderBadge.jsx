@@ -18,7 +18,10 @@ const PageHeaderBadgeStyles = styled.div`
     justify-content: flex-start;
     align-items: center;
 
-    background-color: var(--color-secondary);
+    background-color: black;
+    border: 1px solid var(--color-badge-border);
+    border-bottom: none;
+    border-top: none;
 `;
 
 export const PageHeaderBadge = () =>{

@@ -6,6 +6,7 @@ const TitleStyles = styled.div`
     font-weight: 400;
 
     padding-right: 8px;
+    color: var(--color-secondary);
 `;
 
 export const Title = (props) => {

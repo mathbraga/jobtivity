@@ -5,7 +5,8 @@ export const PageHeaderButton = styled.div`
     width: 100%;
     padding: 12px;
 
-    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    background-color: var(--color-primary-alternative);
     
     font-size: 1.2rem;
     font-weight: bold;

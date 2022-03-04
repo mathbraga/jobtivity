@@ -13,6 +13,6 @@ export const FooterContainer = styled.div`
     justify-content: flex-end;
     align-items: center;
 
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
+    background-color: black;
+    color: white;
 `;

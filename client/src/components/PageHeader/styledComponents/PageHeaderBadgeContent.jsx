@@ -15,7 +15,7 @@ const BadgeStyles = styled.div`
         position: relative;
         top: 2px;
 
-        color: var(--color-primary);
+        color: white;
     }
 `;
 

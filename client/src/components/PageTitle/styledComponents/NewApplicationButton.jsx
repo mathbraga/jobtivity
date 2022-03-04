@@ -32,7 +32,7 @@ export const NewApplicationButton = (props) => {
     const handleFormToggle = props.onClick;
     const { 
         cursor = "pointer",
-        boxShadow = "0px 1px 2px #111",
+        boxShadow = "var(--color-page-button-shadow)",
         text = ""
     } = props;
 

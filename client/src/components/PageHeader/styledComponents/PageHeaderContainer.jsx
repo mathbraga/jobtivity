@@ -14,7 +14,7 @@ export const PageHeaderContainer = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    background-color: var(--color-primary);
+    background-color: var(--color-primary-alternative);
 
     z-index: 2;
 

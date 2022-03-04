@@ -19,7 +19,7 @@ const PageTitle = (props) => {
         (isHistoryCounterLimit ? () => toggleForm() : null)
         :
         null;
-    const counterColor = isApplicationCounterLimit ? "inherit" : "red";
+    const counterColor = isApplicationCounterLimit ? "var(--color-secondary)" : "red";
     const buttonColor = isApplicationCounterLimit ?
         (isHistoryCounterLimit ? "var(--color-alternative)" : "var(--color-red-tone)")
         :
