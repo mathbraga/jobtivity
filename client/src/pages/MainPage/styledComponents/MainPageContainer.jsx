@@ -30,7 +30,7 @@ export const MainPageContainer = styled.div`
         --color-badge-border: gold;
         --color-header-shadow: black;
         --color-title-underline: rgba(255, 255, 255, 0.5);
-        --color-page-button-shadow: 1px 1px 2px white;
+        --color-page-button-shadow: 0px 1px 2px white;
     }
 
     display: flex;

@@ -8,10 +8,11 @@ export const NoApplicationsCard = styled.div`
 
     background-color: #ccc;
 
-    border: 1px solid #979797;
+    border: 1px solid var(--color-alternative);
     border-radius: 4px;
 
     height: 100px;
+    margin-bottom: 8px;
 
     font-weight: bold;
     font-size: 1.2rem;

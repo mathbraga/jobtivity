@@ -14,7 +14,7 @@ const MenuButtonContainer = styled.div`
     align-items: center;
 
     div{
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid var(--color-secondary);
 
         width: 20px;
         margin: 2px 0;

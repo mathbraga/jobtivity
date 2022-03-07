@@ -16,8 +16,10 @@ import {
     ThemeToggle
 } from "./styledComponents";
 
-import listIcon from "../../assets/Icons/ListIcon.png";
-import historyIcon from "../../assets/Icons/HistoryIcon.png";
+import ApplicationsIcon from "../../assets/Icons/ApplicationsIcon";
+import HistoryIcon from "../../assets/Icons/HistoryIcon";
+
+const iconColor = "var(--color-secondary)";
 
 const PageHeader = (props) => {
     const { toggleState, updateToggle } = props;
@@ -67,7 +69,7 @@ const PageHeader = (props) => {
                         smallScreen={isScreenSmall}
                         className={highlightButton("/applications")}
                     >
-                        <img src={listIcon} alt="" />
+                        <ApplicationsIcon iconColor={iconColor} />
                         Applications
                     </PageHeaderButton>
                 </Link>
@@ -76,7 +78,7 @@ const PageHeader = (props) => {
                         smallScreen={isScreenSmall}
                         className={highlightButton("/history")}
                     >
-                        <img src={historyIcon} alt="" />
+                        <HistoryIcon iconColor={iconColor} />
                         History
                     </PageHeaderButton>
                 </Link>
