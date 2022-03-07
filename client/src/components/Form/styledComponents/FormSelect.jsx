@@ -10,7 +10,7 @@ const FormSelectContainer = styled.div`
 
     select{
         box-sizing: border-box;
-        background-color: rgba(204,204,204,0.2);
+        background-color: var(--color-form-input);
 
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -30,16 +30,19 @@ const FormSelectContainer = styled.div`
     div label{
         font-weight: bold;
         padding-left: 4px;
+
+        color: var(--color-card-elements);
     }
 `;
 
 export const FormSelect = (props) => {
     const { elementRef, optionsList, icon, labelName } = props;
+    const IconComponent = icon;
 
     return(
         <FormSelectContainer>
             <div>
-                <img src={icon} alt="" />
+                <IconComponent />
                 <label htmlFor="refLabel">{labelName}</label>
             </div>
             <select 

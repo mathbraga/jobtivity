@@ -12,7 +12,7 @@ const FormButtonContainer = styled.button`
     border: none;
     border-radius: 4px;
 
-    box-shadow: var(--color-page-button-shadow);
+    box-shadow: 0px 1px 2px black;
 
     cursor: pointer;
 

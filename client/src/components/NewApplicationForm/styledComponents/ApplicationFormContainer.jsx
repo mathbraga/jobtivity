@@ -4,9 +4,11 @@ export const ApplicationFormContainer = styled.form`
     display: flex;
     flex-direction: column;
 
+    background-color: var(--color-card);
+
     height: auto;
 
-    border: 1px solid gold;
+    border: 1px solid var(--color-alternative);
     border-radius: 4px;
 
     opacity: 1;

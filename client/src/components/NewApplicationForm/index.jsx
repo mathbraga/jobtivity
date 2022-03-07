@@ -15,12 +15,14 @@ import {
     FormCheckBox
 } from "../Form";
 
-import companyIcon from "../../assets/Icons/CompanyIcon.png";
-import roleIcon from "../../assets/Icons/RoleIcon.png";
-import urlIcon from "../../assets/Icons/UrlIcon.png";
-import calendarIcon from "../../assets/Icons/CalendarIcon.png";
-import remoteIcon from "../../assets/Icons/RemoteIcon.png";
-import locationIcon from "../../assets/Icons/LocationIcon.png";
+import CompanyIcon from "../../assets/Icons/CompanyIcon";
+import RoleIcon from "../../assets/Icons/RoleIcon";
+import UrlIcon from "../../assets/Icons/UrlIcon";
+import CalendarIcon from "../../assets/Icons/CalendarIcon";
+import RemoteIcon from "../../assets/Icons/RemoteIcon";
+import LocationIcon from "../../assets/Icons/LocationIcon";
+
+const iconColor = "var(--color-card-elements)";
 
 const NewApplicationForm = (props) => {
     const { addApplication, toggleForm } = props;
@@ -102,13 +104,13 @@ const NewApplicationForm = (props) => {
                         inputType="text"
                         placeholder="Company name..."
                         elementRef={companyElement}
-                        icon={companyIcon}
+                        icon={() => <CompanyIcon iconColor={iconColor} />}
                         isRequired
                     />
                     <FormSelect 
                         labelName="Role"
                         elementRef={roleElement}
-                        icon={roleIcon}
+                        icon={() => <RoleIcon iconColor={iconColor} />}
                         optionsList={roleOptions}
                         isRequired
                     />
@@ -117,20 +119,20 @@ const NewApplicationForm = (props) => {
                         inputType="url"
                         placeholder="Application url, company website..."
                         elementRef={urlElement}
-                        icon={urlIcon}
+                        icon={() => <UrlIcon iconColor={iconColor} />}
                     />
                     <FormInput 
                         labelName="Applied"
                         inputType="date"
                         elementRef={dateElement}
-                        icon={calendarIcon}
+                        icon={() => <CalendarIcon iconColor={iconColor} />}
                         defaultValue={formatDate()}
                         isRequired
                     />
                     <FormCheckBox 
                         labelName="Remote?"
                         elementRef={remoteElement}
-                        icon={remoteIcon}
+                        icon={() => <RemoteIcon iconColor={iconColor} />}
                         onClick={handleCheckBoxChange}
                     />
                     <FormInput 
@@ -138,7 +140,7 @@ const NewApplicationForm = (props) => {
                         inputType="text"
                         placeholder="Country, City, State..."
                         elementRef={locationElement}
-                        icon={locationIcon}
+                        icon={() => <LocationIcon iconColor={iconColor} />}
                         display={locationDisplay}
                     />
                 </FormContainer>

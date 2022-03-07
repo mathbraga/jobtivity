@@ -17,11 +17,13 @@ const FormInputContainer = styled.div`
     div label{
         font-weight: bold;
         padding-left: 4px;
+
+        color: var(--color-card-elements);
     }
 
     .form--element{
         box-sizing: border-box;
-        background-color: rgba(204,204,204,0.2);
+        background-color: var(--color-form-input);
 
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -30,6 +32,10 @@ const FormInputContainer = styled.div`
         height: 28px;
 
         padding: 4px 12px;
+
+        ::placeholder{
+            color: rgba(0, 0, 0, 0.5);
+        }
     }
 `;
 
@@ -43,11 +49,12 @@ export const FormInput = (props) => {
         isRequired,
         defaultValue,
         display = "flex" } = props;
+    const IconComponent = icon;
 
     return(
         <FormInputContainer displayType={display}>
             <div>
-                <img src={icon} alt="" />
+                <IconComponent />
                 <label htmlFor={"refLabel"}>{labelName}</label>
             </div>
             <input

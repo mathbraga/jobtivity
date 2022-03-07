@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
-import companyIcon from "../../../assets/Icons/CompanyIcon.png";
-import roleIcon from "../../../assets/Icons/RoleIcon.png";
-import urlIcon from "../../../assets/Icons/UrlIcon.png";
-import calendarIcon from "../../../assets/Icons/CalendarIcon.png";
-import locationIcon from "../../../assets/Icons/LocationIcon.png";
-import remoteIcon from "../../../assets/Icons/RemoteIcon.png";
+import CompanyIcon from "../../../assets/Icons/CompanyIcon";
+import RoleIcon from "../../../assets/Icons/RoleIcon";
+import UrlIcon from "../../../assets/Icons/UrlIcon";
+import CalendarIcon from "../../../assets/Icons/CalendarIcon";
+import LocationIcon from "../../../assets/Icons/LocationIcon";
+import RemoteIcon from "../../../assets/Icons/RemoteIcon";
 
 import { prettifyDate } from "../../../globalHelperFunctions/utils";
 import { useWindowWidth } from "../../../globalHelperFunctions/hooks";
+
+const iconColor = "var(--color-card-elements)";
 
 const ApplicationContentContainerStyles = styled.div`
     .card--content{
@@ -19,7 +21,7 @@ const ApplicationContentContainerStyles = styled.div`
         row-gap: 8px;   
     }
 
-    .card--content div{
+    .card--content > div{
         padding-right: 4px;
         flex-basis: 50%;
 
@@ -27,6 +29,8 @@ const ApplicationContentContainerStyles = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+
+        color: var(--color-secondary);
     }
 
     div > span{
@@ -39,15 +43,17 @@ const ApplicationContentContainerStyles = styled.div`
 
     span > span{
         padding-left: 4px;
+
+        color: var(--color-card-elements);
     }
 
     a{
         text-decoration: none;
-        color: #0000EE;
+        color: var(--color-url);
 
         :focus, :hover, :visited, :link, :active {
             text-decoration: none;
-            color: #0000EE;
+            color: var(--color-url);
         }
 
         :hover{
@@ -81,7 +87,7 @@ export const ApplicationContentContainer = (props) => {
                 {props.name ?
                     <div>
                         <span>
-                            <img src={companyIcon} alt="" />
+                            <CompanyIcon iconColor={iconColor}/>
                             {company ? <span>{company}</span> : null}
                         </span> 
                         {props.name}
@@ -92,7 +98,7 @@ export const ApplicationContentContainer = (props) => {
                 {props.role ? 
                     <div>
                         <span>
-                            <img src={roleIcon} alt="" />
+                            <RoleIcon iconColor={iconColor}/>
                             {role ? <span>{role}</span> : null}
                         </span> 
                         {props.role}
@@ -105,7 +111,7 @@ export const ApplicationContentContainer = (props) => {
                     :
                     <div>
                     <span>
-                        <img src={urlIcon} alt="" />
+                        <UrlIcon iconColor={iconColor}/>
                         {url ? <span>{url}</span> : null}
                     </span>
                         {props.website ? 
@@ -115,7 +121,7 @@ export const ApplicationContentContainer = (props) => {
                 {prettyDate ?
                     <div>
                         <span>
-                            <img src={calendarIcon} alt="" />
+                            <CalendarIcon iconColor={iconColor}/>
                             {applied ? <span>{applied}</span> : null}
                         </span> 
                         {prettyDate}
@@ -128,7 +134,7 @@ export const ApplicationContentContainer = (props) => {
                     :
                     <div>
                         <span>
-                            <img src={remoteIcon} alt="" />
+                            <RemoteIcon iconColor={iconColor}/>
                             {remote ? <span>{remote}</span> : null}
                         </span> 
                         {props.remote === true ? "Yes" : "No"}
@@ -137,7 +143,7 @@ export const ApplicationContentContainer = (props) => {
                 {props.location ?
                     <div>
                         <span>
-                            <img src={locationIcon} alt="" />
+                            <LocationIcon iconColor={iconColor}/>
                             {location ? <span>{location}</span> : null}
                         </span> 
                         {props.location}

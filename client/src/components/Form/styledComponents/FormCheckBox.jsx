@@ -11,6 +11,8 @@ const CheckBoxStyles = styled.div`
     label{
         font-weight: bold;
         padding-left: 4px;
+
+        color: var(--color-card-elements);
     }
     input{
         margin-left: 4px;
@@ -19,10 +21,11 @@ const CheckBoxStyles = styled.div`
 
 export const FormCheckBox = (props) => {
     const { labelName, elementRef, icon, onClick } = props;
+    const IconComponent = icon;
 
     return(
         <CheckBoxStyles>
-            <img src={icon} alt="" />
+            <IconComponent />
             <label className="check--remote" >{labelName}</label>
             <input type="checkbox" ref={elementRef} onClick={onClick} />
         </CheckBoxStyles>
