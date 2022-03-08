@@ -16,6 +16,7 @@ export const MainPageContainer = styled.div`
     --color-application-border: gold;
     --color-history-border: #c22b2b;
     --color-url: #1870F0;
+    --card-box-shadow: 2px 2px 8px #cacaca;
 
     --button-shadow: -4px 0 4px 0 rgba(0, 0, 0, 0.2) inset,
                     0 -4px 4px 0 rgba(0, 0, 0, 0.2) inset,
@@ -39,6 +40,7 @@ export const MainPageContainer = styled.div`
         --color-title-underline: rgba(255, 255, 255, 0.5);
         --color-page-button-shadow: 0px 1px 2px white;
         --color-url: #74A9F6;
+        --card-box-shadow: 2px 2px 8px #797979;
     }
 
     display: flex;

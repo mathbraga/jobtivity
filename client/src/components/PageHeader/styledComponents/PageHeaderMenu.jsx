@@ -4,7 +4,7 @@ export const PageHeaderMenu = styled.div`
     width: auto;
     height: auto;
 
-    background-color: white;
+    background-color: var(--color-primary-alternative);
 
     padding: 12px 0;
 

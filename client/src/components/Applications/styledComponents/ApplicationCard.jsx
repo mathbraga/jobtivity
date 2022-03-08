@@ -15,8 +15,10 @@ export const ApplicationCardStyles = styled.div`
 
     transition: box-shadow 100ms, transform 100ms;
 
+    background-color: var(--color-card);
+
     &:hover{
-        box-shadow: 2px 2px 8px #cacaca;
+        box-shadow: var(--card-box-shadow);
         transform: translate(-2px, -2px);
     }
 `;
