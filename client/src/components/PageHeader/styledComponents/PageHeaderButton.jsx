@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const PageHeaderButton = styled.div`
     height: 100%;
     width: 100%;
-    padding: 12px;
+    padding: 0.8rem;
 
     color: var(--color-secondary);
     background-color: var(--color-primary-alternative);

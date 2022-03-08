@@ -16,7 +16,7 @@ const FormSelectContainer = styled.div`
         border-radius: 4px;
 
         width: 100%;
-        height: 28px;
+        height: 1.8rem;
 
         padding: 4px 12px;
     }

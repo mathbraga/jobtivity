@@ -7,7 +7,7 @@ export const PageHeaderContainer = styled.div`
     padding: 0;
 
     width: 100%;
-    height: 52px;
+    height: 3.6rem;
 
     display: flex;
     flex-direction: row;

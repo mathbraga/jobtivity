@@ -7,7 +7,7 @@ export const PageHeaderShadow = styled.div`
     padding: 0;
 
     width: 100%;
-    height: 52px;
+    height: 3.6rem;
 
     box-shadow: 0 5px 10px 0 var(--color-header-shadow);
 

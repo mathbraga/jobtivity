@@ -6,7 +6,7 @@ export const PageHeaderMenu = styled.div`
 
     background-color: var(--color-primary-alternative);
 
-    padding: 12px 0;
+    padding: 0.8rem 0;
 
     position: fixed;
     left: 0;
@@ -18,13 +18,13 @@ export const PageHeaderMenu = styled.div`
 
     cursor: pointer;
 
-    transform: translateY(-68px);
+    transform: translateY(-5.6rem);
     transition: transform 350ms;
     z-index: 1;
 
     &.collapsed{
         outline: none;
-        transform: translateY(52px);
+        transform: translateY(3.6rem);
     }
 
     a{
