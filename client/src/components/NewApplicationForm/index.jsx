@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { connect } from "react-redux";
 
 import { addApplication } from "../../store/actions/updateApplications";

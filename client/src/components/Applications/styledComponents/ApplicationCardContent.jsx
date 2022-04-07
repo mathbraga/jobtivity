@@ -1,3 +1,4 @@
+import React from "react";
 import ApplicationCardHeader from "./ApplicationCardHeader";
 import { ApplicationContentContainer } from "./ApplicationContentContainer";
 

@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import NightModeIcon from "../../../assets/Icons/NightModeIcon";
 import LightModeIcon from "../../../assets/Icons/LightModeIcon";

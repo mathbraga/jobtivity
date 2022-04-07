@@ -3,6 +3,7 @@
 # dependencies
 /.netlify
 /node_modules
+/dist
 /.pnp
 .pnp.js
 package-lock.json
